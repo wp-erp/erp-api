@@ -1,0 +1,185 @@
+# Group Journals
+
+
+## Journal List [/journals/{?per_page,page,search}]
+
++ Parameters
+
+    + per_page: 20 (number, optional) - The number of results per page.
+        + Default: `20`
+    + page: 1 (number, optional) - The current page number of results.
+        + Default: `1`
+    + search (string, optional) - The search keyword.
+
+### List All Journals [GET]
+
+Fetches all available journals with pagination
+
++ Response 200 (application/json)
+    + Body
+
+            [
+                {
+                    "id": "1",
+                    "voucher_no": "1",
+                    "particulars": "Initial Journal Entry",
+                    "ref": null,
+                    "trn_date": "2020-03-20",
+                    "line_items": [
+                        {
+                            "ledger_id": "7",
+                            "account": "Cash",
+                            "particulars": "Cash In Hand",
+                            "debit": "10000.00",
+                            "credit": "0.00"
+                        },
+                        {
+                            "ledger_id": "94",
+                            "account": "Sales Revenue",
+                            "particulars": "Revenue From Sale",
+                            "debit": "0.00",
+                            "credit": "10000.00"
+                        }
+                    ],
+                    "attachments": null,
+                    "total": 10000,
+                    "created_at": null,
+                    "namespace": "erp/v1",
+                    "rest_base": "accounting/v1/journals",
+                    "_links": {
+                        "self": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/journals/1"
+                        },
+                        "collection": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/journals"
+                        }
+                    }
+                }
+            ]
+
+## Journal List [/journals/]
+
+### Create A Journal [POST]
+
+    Model (application/json)
+
+    {
+        "trn_date": "2020-03-20",
+        "ref": "another jounrnal",
+        "line_items": [
+            {
+                "ledger_id": "7",
+                "particulars": "cash added",
+                "debit": "1000",
+                "credit": 0
+            },
+            {
+                "ledger_id": "86",
+                "particulars": "equity",
+                "debit": 0,
+                "credit": "1000"
+            }
+        ],
+        "attachments": [],
+        "type": "journal",
+        "particulars": ""
+    }
+
++ Response 201 (application/json)
+    + Body
+
+            {
+                "id": "2",
+                "voucher_no": "4",
+                "particulars": "Journal created with voucher no 4",
+                "ref": "another jounrnal",
+                "trn_date": "2020-03-20",
+                "line_items": [
+                    {
+                        "ledger_id": "7",
+                        "account": "Cash",
+                        "particulars": "cash added",
+                        "debit": "1000.00",
+                        "credit": "0.00"
+                    },
+                    {
+                        "ledger_id": "86",
+                        "account": "Owner's Equity",
+                        "particulars": "equity",
+                        "debit": "0.00",
+                        "credit": "1000.00"
+                    }
+                ],
+                "attachments": [],
+                "total": 1000,
+                "created_at": "2020-03-20",
+                "namespace": "erp/v1",
+                "rest_base": "accounting/v1/journals",
+                "_links": {
+                    "self": {
+                        "href": "https://example.com/wp-json/erp/v1/accounting/v1/journals/2"
+                    },
+                    "collection": {
+                        "href": "https://example.com/wp-json/erp/v1/accounting/v1/journals"
+                    }
+                }
+            }
+
+
+## Manage Single Journal [/journals/{id}]
+
++ Parameters
+    + id (string) - id of the journal in the form of an string
+
+### Retrieve A Journal [GET]
+
++ Response 200 (application/json)
+    + Body
+
+            {
+                "id": "1",
+                "voucher_no": "1",
+                "particulars": "Initial Journal Entry",
+                "ref": null,
+                "trn_date": "2020-03-20",
+                "line_items": [
+                    {
+                        "ledger_id": "7",
+                        "account": "Cash",
+                        "particulars": "Cash In Hand",
+                        "debit": "10000.00",
+                        "credit": "0.00"
+                    },
+                    {
+                        "ledger_id": "94",
+                        "account": "Sales Revenue",
+                        "particulars": "Revenue From Sale",
+                        "debit": "0.00",
+                        "credit": "10000.00"
+                    }
+                ],
+                "attachments": null,
+                "total": 10000,
+                "created_at": null,
+                "namespace": "erp/v1",
+                "rest_base": "accounting/v1/journals",
+                "_links": {
+                    "self": {
+                        "href": "https://example.com/wp-json/erp/v1/accounting/v1/journals/1"
+                    },
+                    "collection": {
+                        "href": "https://example.com/wp-json/erp/v1/accounting/v1/journals"
+                    }
+                }
+            }
+
+## Next Journal number [/journals/next]
+
+### Retrieve the index number of next Journal [GET]
+
++ Response 200 (application/json)
+    + Body
+
+            {
+                "id": 2
+            }

@@ -1,0 +1,577 @@
+# Group Invoices
+
+
+## Invoice List [/invoices/{?per_page,page,search}]
+
++ Parameters
+
+    + per_page: 20 (number, optional) - The number of results per page.
+        + Default: `20`
+    + page: 1 (number, optional) - The current page number of results.
+        + Default: `1`
+    + search (string, optional) - The search keyword.
+
+### List All Invoices [GET]
+
+Fetches all available invoices with pagination
+
++ Response 200 (application/json)
+    + Body
+
+            [
+                {
+                    "customer_id": 42,
+                    "date": "2019-11-19",
+                    "due_date": "2019-11-19",
+                    "billing_address":"Street: Abc Street, City:  Ab City, State: New York, Country: US",
+                    "discount_type": "discount-value",
+                    "tax_rate_id": 2,
+                    "status": 2,
+                    "estimate": 0,
+                    "attachments": "a:0:{}",
+                    "particulars": "A sample description",
+                    "request": {},
+                    "discount": 2,
+                    "tax": 27.240000000000002,
+                    "amount": 200,
+                    "id": {
+                        "editable": "1",
+                        "currency": "148",
+                        "id": "1",
+                        "voucher_no": "2",
+                        "customer_id": "42",
+                        "customer_name": "Custo Mer",
+                        "trn_date": "2019-11-19",
+                        "due_date": "2019-11-19",
+                        "billing_address":"Street: Abc Street, City:  Ab City, State: New York, Country: US",
+                        "amount": "200.00",
+                        "discount": "2.00",
+                        "discount_type": "discount-value",
+                        "tax": "27.24",
+                        "estimate": "0",
+                        "attachments": [],
+                        "status": "2",
+                        "particulars": "A sample description",
+                        "created_at": "2019-11-19",
+                        "debit": "225.24",
+                        "credit": "0.00",
+                        "line_items": [
+                            {
+                                "product_id": "3",
+                                "qty": "1",
+                                "unit_price": "150.00",
+                                "discount": "1.50",
+                                "tax": "17.82",
+                                "item_total": "150.00",
+                                "ecommerce_type": null,
+                                "tax_rate": "12.00",
+                                "name": "Burger",
+                                "product_type_id": "1",
+                                "category_id": "3",
+                                "vendor": null,
+                                "cost_price": "120.00",
+                                "sale_price": "150.00",
+                                "tax_cat_id": "2",
+                                "line_total": 166.32
+                            },
+                            {
+                                "product_id": "1",
+                                "qty": "1",
+                                "unit_price": "50.00",
+                                "discount": "0.50",
+                                "tax": "9.42",
+                                "item_total": "50.00",
+                                "ecommerce_type": null,
+                                "tax_rate": "19.00",
+                                "name": "7up",
+                                "product_type_id": "1",
+                                "category_id": "1",
+                                "vendor": null,
+                                "cost_price": "40.00",
+                                "sale_price": "50.00",
+                                "tax_cat_id": "3",
+                                "line_total": 58.92
+                            }
+                        ],
+                        "tax_rate_id": "1",
+                        "total_due": "225.24",
+                        "pdf_link": "https://example.com/wp-content/uploads/erp-pdfs/voucher_2.pdf",
+                        "email": "cust@om.er"
+                    },
+                    "namespace": "erp/v1",
+                    "rest_base": "accounting/v1/invoices",
+                    "_links": {
+                        "self": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/invoices/1"
+                        },
+                        "collection": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/invoices"
+                        }
+                    }
+                }
+            ]
+
+## Invoice List [/invoices]
+
+### Create An Invoice [POST]
+
+    Model (application/json)
+
+    {
+        "customer_id":42,
+        "date":"2019-11-19",
+        "due_date":"2019-11-19",
+        "billing_address":"Street: Abc Street, City:  Ab City, State: New York, Country: US",
+        "discount_type":"discount-value",
+        "tax_rate_id":2,
+        "line_items":[
+            {
+                "product_id":"3",
+                "product_type_name":"Inventory",
+                "tax_cat_id":"2",
+                "qty":1,
+                "unit_price":150,
+                "tax":"17.82",
+                "tax_rate":12,
+                "discount":1.5,
+                "item_total":150
+            },
+            {
+                "product_id":"1",
+                "product_type_name":"Inventory",
+                "tax_cat_id":"3",
+                "qty":1,
+                "unit_price":50,
+                "tax":"9.42",
+                "tax_rate":19,
+                "discount":0.5,
+                "item_total":50
+            }
+        ],
+        "attachments":[
+
+        ],
+        "particulars":"A sample description",
+        "type":"invoice",
+        "status":2,
+        "estimate":0
+    }
+
++ Response 201 (application/json)
+    + Body
+
+            {
+                "customer_id": 42,
+                "date": "2019-11-19",
+                "due_date": "2019-11-19",
+                "billing_address":"Street: Abc Street, City:  Ab City, State: New York, Country: US",
+                "discount_type": "discount-value",
+                "tax_rate_id": 2,
+                "status": 2,
+                "estimate": 0,
+                "attachments": "a:0:{}",
+                "particulars": "A sample description",
+                "request": {},
+                "discount": 2,
+                "tax": 27.240000000000002,
+                "amount": 200,
+                "id": {
+                    "editable": "1",
+                    "currency": "148",
+                    "id": "1",
+                    "voucher_no": "2",
+                    "customer_id": "42",
+                    "customer_name": "Custo Mer",
+                    "trn_date": "2019-11-19",
+                    "due_date": "2019-11-19",
+                    "billing_address":"Street: Abc Street, City:  Ab City, State: New York, Country: US",
+                    "amount": "200.00",
+                    "discount": "2.00",
+                    "discount_type": "discount-value",
+                    "tax": "27.24",
+                    "estimate": "0",
+                    "attachments": [],
+                    "status": "2",
+                    "particulars": "A sample description",
+                    "created_at": "2019-11-19",
+                    "debit": "225.24",
+                    "credit": "0.00",
+                    "line_items": [
+                        {
+                            "product_id": "3",
+                            "qty": "1",
+                            "unit_price": "150.00",
+                            "discount": "1.50",
+                            "tax": "17.82",
+                            "item_total": "150.00",
+                            "ecommerce_type": null,
+                            "tax_rate": "12.00",
+                            "name": "Burger",
+                            "product_type_id": "1",
+                            "category_id": "3",
+                            "vendor": null,
+                            "cost_price": "120.00",
+                            "sale_price": "150.00",
+                            "tax_cat_id": "2",
+                            "line_total": 166.32
+                        },
+                        {
+                            "product_id": "1",
+                            "qty": "1",
+                            "unit_price": "50.00",
+                            "discount": "0.50",
+                            "tax": "9.42",
+                            "item_total": "50.00",
+                            "ecommerce_type": null,
+                            "tax_rate": "19.00",
+                            "name": "7up",
+                            "product_type_id": "1",
+                            "category_id": "1",
+                            "vendor": null,
+                            "cost_price": "40.00",
+                            "sale_price": "50.00",
+                            "tax_cat_id": "3",
+                            "line_total": 58.92
+                        }
+                    ],
+                    "tax_rate_id": "1",
+                    "total_due": "225.24",
+                    "pdf_link": "https://example.com/wp-content/uploads/erp-pdfs/voucher_2.pdf",
+                    "email": "cust@om.er"
+                },
+                "namespace": "erp/v1",
+                "rest_base": "accounting/v1/invoices",
+                "_links": {
+                    "self": {
+                        "href": "https://example.com/wp-json/erp/v1/accounting/v1/invoices/1"
+                    },
+                    "collection": {
+                        "href": "https://example.com/wp-json/erp/v1/accounting/v1/invoices"
+                    }
+                }
+            }
+
+
+## Manage Single Invoice [/invoices/{id}]
+
++ Parameters
+    + id (string) - id of the invoice in the form of an string
+
+### Retrieve An Invoice [GET]
+
++ Response 200 (application/json)
+    + Body
+
+            {
+                "customer_id": 42,
+                "date": "2019-11-19",
+                "due_date": "2019-11-19",
+                "billing_address":"Street: Abc Street, City:  Ab City, State: New York, Country: US",
+                "discount_type": "discount-value",
+                "tax_rate_id": 2,
+                "status": 2,
+                "estimate": 0,
+                "attachments": "a:0:{}",
+                "particulars": "A sample description",
+                "request": {},
+                "discount": 2,
+                "tax": 27.240000000000002,
+                "amount": 200,
+                "id": {
+                    "editable": "1",
+                    "currency": "148",
+                    "id": "1",
+                    "voucher_no": "2",
+                    "customer_id": "42",
+                    "customer_name": "Custo Mer",
+                    "trn_date": "2019-11-19",
+                    "due_date": "2019-11-19",
+                    "billing_address":"Street: Abc Street, City:  Ab City, State: New York, Country: US",
+                    "amount": "200.00",
+                    "discount": "2.00",
+                    "discount_type": "discount-value",
+                    "tax": "27.24",
+                    "estimate": "0",
+                    "attachments": [],
+                    "status": "2",
+                    "particulars": "A sample description",
+                    "created_at": "2019-11-19",
+                    "debit": "225.24",
+                    "credit": "0.00",
+                    "line_items": [
+                        {
+                            "product_id": "3",
+                            "qty": "1",
+                            "unit_price": "150.00",
+                            "discount": "1.50",
+                            "tax": "17.82",
+                            "item_total": "150.00",
+                            "ecommerce_type": null,
+                            "tax_rate": "12.00",
+                            "name": "Burger",
+                            "product_type_id": "1",
+                            "category_id": "3",
+                            "vendor": null,
+                            "cost_price": "120.00",
+                            "sale_price": "150.00",
+                            "tax_cat_id": "2",
+                            "line_total": 166.32
+                        },
+                        {
+                            "product_id": "1",
+                            "qty": "1",
+                            "unit_price": "50.00",
+                            "discount": "0.50",
+                            "tax": "9.42",
+                            "item_total": "50.00",
+                            "ecommerce_type": null,
+                            "tax_rate": "19.00",
+                            "name": "7up",
+                            "product_type_id": "1",
+                            "category_id": "1",
+                            "vendor": null,
+                            "cost_price": "40.00",
+                            "sale_price": "50.00",
+                            "tax_cat_id": "3",
+                            "line_total": 58.92
+                        }
+                    ],
+                    "tax_rate_id": "1",
+                    "total_due": "225.24",
+                    "pdf_link": "https://example.com/wp-content/uploads/erp-pdfs/voucher_2.pdf",
+                    "email": "cust@om.er"
+                },
+                "namespace": "erp/v1",
+                "rest_base": "accounting/v1/invoices",
+                "_links": {
+                    "self": {
+                        "href": "https://example.com/wp-json/erp/v1/accounting/v1/invoices/1"
+                    },
+                    "collection": {
+                        "href": "https://example.com/wp-json/erp/v1/accounting/v1/invoices"
+                    }
+                }
+            }
+
+### Update An Invoice [PUT]
+
+    Model (application/json)
+
+    {
+        "customer_id":42,
+        "date":"2019-11-19",
+        "due_date":"2019-11-19",
+        "billing_address":"Street: Abc Street, City:  Ab City, State: New York, Country: US",
+        "discount_type":"discount-value",
+        "tax_rate_id":2,
+        "line_items":[
+            {
+                "product_id":"3",
+                "product_type_name":"Inventory",
+                "tax_cat_id":"2",
+                "qty":1,
+                "unit_price":150,
+                "tax":"17.82",
+                "tax_rate":12,
+                "discount":1.5,
+                "item_total":150
+            },
+            {
+                "product_id":"1",
+                "product_type_name":"Inventory",
+                "tax_cat_id":"3",
+                "qty":1,
+                "unit_price":50,
+                "tax":"9.42",
+                "tax_rate":19,
+                "discount":0.5,
+                "item_total":50
+            }
+        ],
+        "attachments":[
+
+        ],
+        "particulars":"A sample description",
+        "type":"invoice",
+        "status":2,
+        "estimate":0
+    }
+
++ Response 201 (application/json)
+    + Body
+
+            {
+                "customer_id": 42,
+                "date": "2019-11-19",
+                "due_date": "2019-11-19",
+                "billing_address":"Street: Abc Street, City:  Ab City, State: New York, Country: US",
+                "discount_type": "discount-value",
+                "tax_rate_id": 2,
+                "status": 2,
+                "estimate": 0,
+                "attachments": "a:0:{}",
+                "particulars": "A sample description",
+                "request": {},
+                "discount": 2,
+                "tax": 27.240000000000002,
+                "amount": 200,
+                "id": {
+                    "editable": "1",
+                    "currency": "148",
+                    "id": "1",
+                    "voucher_no": "2",
+                    "customer_id": "42",
+                    "customer_name": "Custo Mer",
+                    "trn_date": "2019-11-19",
+                    "due_date": "2019-11-19",
+                    "billing_address":"Street: Abc Street, City:  Ab City, State: New York, Country: US",
+                    "amount": "200.00",
+                    "discount": "2.00",
+                    "discount_type": "discount-value",
+                    "tax": "27.24",
+                    "estimate": "0",
+                    "attachments": [],
+                    "status": "2",
+                    "particulars": "A sample description",
+                    "created_at": "2019-11-19",
+                    "debit": "225.24",
+                    "credit": "0.00",
+                    "line_items": [
+                        {
+                            "product_id": "3",
+                            "qty": "1",
+                            "unit_price": "150.00",
+                            "discount": "1.50",
+                            "tax": "17.82",
+                            "item_total": "150.00",
+                            "ecommerce_type": null,
+                            "tax_rate": "12.00",
+                            "name": "Burger",
+                            "product_type_id": "1",
+                            "category_id": "3",
+                            "vendor": null,
+                            "cost_price": "120.00",
+                            "sale_price": "150.00",
+                            "tax_cat_id": "2",
+                            "line_total": 166.32
+                        },
+                        {
+                            "product_id": "1",
+                            "qty": "1",
+                            "unit_price": "50.00",
+                            "discount": "0.50",
+                            "tax": "9.42",
+                            "item_total": "50.00",
+                            "ecommerce_type": null,
+                            "tax_rate": "19.00",
+                            "name": "7up",
+                            "product_type_id": "1",
+                            "category_id": "1",
+                            "vendor": null,
+                            "cost_price": "40.00",
+                            "sale_price": "50.00",
+                            "tax_cat_id": "3",
+                            "line_total": 58.92
+                        }
+                    ],
+                    "tax_rate_id": "1",
+                    "total_due": "225.24",
+                    "pdf_link": "https://example.com/wp-content/uploads/erp-pdfs/voucher_2.pdf",
+                    "email": "cust@om.er"
+                },
+                "namespace": "erp/v1",
+                "rest_base": "accounting/v1/invoices",
+                "_links": {
+                    "self": {
+                        "href": "https://example.com/wp-json/erp/v1/accounting/v1/invoices/1"
+                    },
+                    "collection": {
+                        "href": "https://example.com/wp-json/erp/v1/accounting/v1/invoices"
+                    }
+                }
+            }
+
+
+## Void Invoice [/invoices/{id}/void/]
+
++ Parameters
+    + id (string) - id of the invoice in the form of an string
+
+### Void an Invoices [POST]
+
+Voids a particular invoice
+
++ Request (application/json)
++ Response 204 (application/json)
+
+
+## Due Invoices of a customer [/invoices/due/{id}]
+
++ Parameters
+    + id (string) - id of the customer in the form of an string
+
+### List All Due Invoices [GET]
+
+Fetches all due invoices of a customer
+
++ Response 200 (application/json)
+    + Body
+
+            [
+                {
+                    "id": "1",
+                    "voucher_no": "2",
+                    "due_date": "2019-11-19",
+                    "amount": "225.24",
+                    "due": "225.24",
+                    "namespace": "erp/v1",
+                    "rest_base": "accounting/v1/invoices",
+                    "_links": {
+                        "self": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/invoices/1"
+                        },
+                        "collection": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/invoices"
+                        }
+                    }
+                }
+            ]
+
+
+## Upload Attachments [/invoices/attachments/]
+
+### Upload an Attachment [POST]
+
+Uploads an attachment for any transaction
+
++ Request (application/json)
+
++ Response 200 (application/json)
+    + Body
+
+            [
+                {
+                    "file": "/Applications/XAMPP/xamppfiles/htdocs/wperp/wp-content/uploads/2020/03/1788291182.pdf",
+                    "url": "https://example.com/wp-content/uploads/2020/03/1788291182.pdf",
+                    "type": "application/pdf"
+                }
+            ]
+
+
+## Get Receivables overview [/invoices/overview-receivable]
+
+### List Receivables overview [GET]
+
+Get Dashboard Receivables overview section
+
++ Response 200 (application/json)
+    + Body
+
+            {
+                "data":[],
+                "amount":{
+                    "first":100,
+                    "second":200,
+                    "third":300
+                }
+            }

@@ -1,0 +1,25 @@
+# Group Companies
+
+
+## Manage Single Company [/companies/{id}]
+
++ Parameters
+    + id (string) - id of the bill in the form of an string
+
+### Retrieve A Company [GET]
+
++ Response 200 (application/json)
+    + Body
+
+            {
+                "logo": "https://example.com/wp-content/plugins/wp-erp/assets/images/placeholder.png",
+                "name": "Untitled Company",
+                "address": {
+                    "address_1": "Street Address 1",
+                    "address_2": "Address Line 2",
+                    "city": "City",
+                    "state": "State",
+                    "postcode": "",
+                    "country": "US"
+                }
+            }

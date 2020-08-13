@@ -1,0 +1,15 @@
+{
+    "name": "wp-erp-api",
+    "version": "1.0.0",
+    "description": "API Documentation of WP ERP",
+    "scripts": {
+        "dev": "aglio --theme-full-width --theme-template triple --theme-variables flatly -i docs.apib -s",
+        "build": "aglio --theme-full-width --theme-template triple --theme-variables flatly -i docs.apib -o index.html"
+    },
+    "author": "wp-erp",
+    "license": "MIT",
+    "dependencies": {
+        "aglio": "^2.3.0",
+        "protagonist": "^2.0.0"
+    }
+}

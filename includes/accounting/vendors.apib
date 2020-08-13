@@ -1,0 +1,312 @@
+# Group Vendors
+
+
+## Vendor List [/vendors/{?per_page,page,search}]
+
++ Parameters
+
+    + per_page: 20 (number, optional) - The number of results per page.
+        + Default: `20`
+    + page: 1 (number, optional) - The current page number of results.
+        + Default: `1`
+    + search (string, optional) - The search keyword.
+
+
+### List All Vendors [GET]
+
+Fetches all available vendors with pagination
+
++ Response 200 (application/json)
+
+    + Body
+
+            [
+                {
+                    "id": 41,
+                    "first_name": "John",
+                    "last_name": "Smith",
+                    "email": "john@gmail.com",
+                    "phone": "1234567890",
+                    "mobile": "",
+                    "fax": null,
+                    "website": "",
+                    "notes": "",
+                    "other": null,
+                    "company": "ABC Inc.",
+                    "photo_id": null,
+                    "photo": null,
+                    "billing": {
+                        "first_name": "John",
+                        "last_name": "Smith",
+                        "street_1": "43 Edgewood Rd.",
+                        "street_2": "",
+                        "city": "Riverside",
+                        "state": "CA",
+                        "postal_code": "94544",
+                        "country": "US",
+                        "email": "john@gmail.com",
+                        "phone": "1234567890"
+                    },
+                    "namespace": "erp/v1",
+                    "rest_base": "accounting/v1/vendors",
+                    "_links": {
+                        "self": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/vendors/41"
+                        },
+                        "collection": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/vendors"
+                        }
+                    }
+                }
+            ]
+
+## Vendor List [/vendors]
+
+### Create A Vendor [POST]
+
+    Model (application/json)
+
+    {
+        "first_name":"John",
+        "last_name":"Smith",
+        "email":"john@gmail.com",
+        "mobile":"",
+        "company":"ABC Inc.",
+        "phone":"1234567890",
+        "website":"",
+        "notes":"",
+        "fax":"",
+        "street_1":"43 Edgewood Rd.",
+        "street_2":"",
+        "city":"Riverside",
+        "country":{
+            "id":"US",
+            "name":"United States (US)"
+        },
+        "state":{
+            "id":"CA",
+            "name":"California"
+        },
+        "postal_code":"94544",
+        "photo_id":null,
+        "photo":"https://example.com/wp-content/plugins/wp-erp/assets/images/mystery-person.png"
+    }
+
++ Response 201 (application/json)
+    + Body
+
+            {
+                "id": 41,
+                "first_name": "John",
+                "last_name": "Smith",
+                "email": "john@gmail.com",
+                "phone": "1234567890",
+                "mobile": "",
+                "fax": null,
+                "website": "",
+                "notes": "",
+                "other": null,
+                "company": "ABC Inc.",
+                "photo_id": null,
+                "photo": null,
+                "billing": {
+                    "first_name": "John",
+                    "last_name": "Smith",
+                    "street_1": "43 Edgewood Rd.",
+                    "street_2": "",
+                    "city": "Riverside",
+                    "state": "CA",
+                    "postal_code": "94544",
+                    "country": "US",
+                    "email": "john@gmail.com",
+                    "phone": "1234567890"
+                },
+                "namespace": "erp/v1",
+                "rest_base": "accounting/v1/vendors",
+                "_links": {
+                    "self": {
+                        "href": "https://example.com/wp-json/erp/v1/accounting/v1/vendors/41"
+                    },
+                    "collection": {
+                        "href": "https://example.com/wp-json/erp/v1/accounting/v1/vendors"
+                    }
+                }
+            }
+
+## Manage Single Vendor [/vendors/{id}]
+
++ Parameters
+    + id (string) - id of the vendor in the form of an string
+
+### Retrieve A Vendor [GET]
+
++ Response 200 (application/json)
+    + Body
+
+            {
+                "id": 41,
+                "first_name": "John",
+                "last_name": "Smith",
+                "email": "john@gmail.com",
+                "phone": "1234567890",
+                "mobile": "",
+                "fax": null,
+                "website": "",
+                "notes": "",
+                "other": null,
+                "company": "ABC Inc.",
+                "photo_id": null,
+                "photo": null,
+                "billing": {
+                    "first_name": "John",
+                    "last_name": "Smith",
+                    "street_1": "43 Edgewood Rd.",
+                    "street_2": "",
+                    "city": "Riverside",
+                    "state": "CA",
+                    "postal_code": "94544",
+                    "country": "US",
+                    "email": "john@gmail.com",
+                    "phone": "1234567890"
+                },
+                "namespace": "erp/v1",
+                "rest_base": "accounting/v1/vendors",
+                "_links": {
+                    "self": {
+                        "href": "https://example.com/wp-json/erp/v1/accounting/v1/vendors/41"
+                    },
+                    "collection": {
+                        "href": "https://example.com/wp-json/erp/v1/accounting/v1/vendors"
+                    }
+                }
+            }
+
+### Edit A Vendor [PUT]
+
+    Model (application/json)
+
+    {
+        "first_name":"John",
+        "last_name":"Smith",
+        "email":"john@gmail.com",
+        "mobile":"",
+        "company":"ABC Inc.",
+        "phone":"1234567890",
+        "website":"",
+        "notes":"",
+        "fax":"",
+        "street_1":"43 Edgewood Rd.",
+        "street_2":"",
+        "city":"Riverside",
+        "country":{
+            "id":"US",
+            "name":"United States (US)"
+        },
+        "state":{
+            "id":"CA",
+            "name":"California"
+        },
+        "postal_code":"94544",
+        "photo_id":null,
+        "photo":"https://example.com/wp-content/plugins/wp-erp/assets/images/mystery-person.png"
+    }
+
++ Response 201 (application/json)
+    + Body
+
+            {
+                "id": 41,
+                "first_name": "John",
+                "last_name": "Smith",
+                "email": "john@gmail.com",
+                "phone": "1234567890",
+                "mobile": "",
+                "fax": null,
+                "website": "",
+                "notes": "",
+                "other": null,
+                "company": "ABC Inc.",
+                "photo_id": null,
+                "photo": null,
+                "billing": {
+                    "first_name": "John",
+                    "last_name": "Smith",
+                    "street_1": "43 Edgewood Rd.",
+                    "street_2": "",
+                    "city": "Riverside",
+                    "state": "CA",
+                    "postal_code": "94544",
+                    "country": "US",
+                    "email": "john@gmail.com",
+                    "phone": "1234567890"
+                },
+                "namespace": "erp/v1",
+                "rest_base": "accounting/v1/vendors",
+                "_links": {
+                    "self": {
+                        "href": "https://example.com/wp-json/erp/v1/accounting/v1/vendors/41"
+                    },
+                    "collection": {
+                        "href": "https://example.com/wp-json/erp/v1/accounting/v1/vendors"
+                    }
+                }
+            }
+
+### Delete A Vendor [DELETE]
+
++ Request (application/json)
++ Response 204 (application/json)
+
+## Vendors Transactions [/vendors/{id}/transactions/{?per_page,page,search}]
+
++ Parameters
+
+    + id (string) - id of the vendor in the form of an string
+    + per_page: 20 (number, optional) - The number of results per page.
+        + Default: `20`
+    + page: 1 (number, optional) - The current page number of results.
+        + Default: `1`
+    + search (string, optional) - The search keyword.
+
+### List All Transactions of a Vendor [GET]
+
++ Request (application/json)
++ Response 200 (application/json)
+    + Body
+
+            [
+                {
+                    "voucher_no": null,
+                    "particulars": "Opening Balance",
+                    "people_id": null,
+                    "trn_no": null,
+                    "trn_date": null,
+                    "created_at": null,
+                    "debit": null,
+                    "credit": null,
+                    "balance": -40,
+                    "balance_val": 0
+                },
+                {
+                    "voucher_no": "3",
+                    "people_id": "25",
+                    "trn_date": "2020-03-30",
+                    "debit": "0.00",
+                    "credit": "40.00",
+                    "particulars": "",
+                    "created_at": "2020-03-30",
+                    "balance_val": -40,
+                    "balance": "$40 Cr"
+                },
+                {
+                    "voucher_no": null,
+                    "particulars": "Total",
+                    "people_id": null,
+                    "trn_no": null,
+                    "trn_date": null,
+                    "created_at": null,
+                    "debit": 0,
+                    "credit": 40,
+                    "balance": null
+                }
+            ]

@@ -1,0 +1,250 @@
+# Group Payments
+
+
+## Payments List [/payments/{?per_page,page,search}]
+
++ Parameters
+
+    + per_page: 20 (number, optional) - The number of results per page.
+        + Default: `20`
+    + page: 1 (number, optional) - The current page number of results.
+        + Default: `1`
+    + search (string, optional) - The search keyword.
+
+### List All Payments [GET]
+
+Fetches all available payments with pagination
+
++ Response 200 (application/json)
+    + Body
+
+            [
+                {
+                    "id": 1,
+                    "voucher_no": 3,
+                    "customer_id": 42,
+                    "customer_name": "Custo Mer",
+                    "trn_date": "2019-11-19",
+                    "amount": "225.24",
+                    "ref": null,
+                    "account": "Cash",
+                    "line_items": [
+                        {
+                            "id": "1",
+                            "voucher_no": "3",
+                            "invoice_no": "2",
+                            "amount": "225.24"
+                        }
+                    ],
+                    "attachments": [],
+                    "status": "Paid",
+                    "pdf_link": "https://example.com/wp-content/uploads/erp-pdfs/voucher_3.pdf",
+                    "type": "payment",
+                    "particulars": "particulars",
+                    "created_at": "2019-11-19",
+                    "namespace": "erp/v1",
+                    "rest_base": "accounting/v1/payments",
+                    "_links": {
+                        "self": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/payments/1"
+                        },
+                        "collection": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/payments"
+                        }
+                    }
+                }
+            ]
+
+
+### Create A Payment [POST]
+
+    Model (application/json)
+
+    {
+        "customer_id": 25,
+        "ref": "ref",
+        "trn_date": "2020-03-20",
+        "line_items": [
+            {
+                "id": "1",
+                "invoice_no": "2",
+                "due_date": "2020-03-20",
+                "amount": 59.5,
+                "due": 59.5,
+                "line_total": 59.5
+            }
+        ],
+        "attachments": [],
+        "type": "payment",
+        "status": 4,
+        "particulars": "payment received",
+        "deposit_to": "7",
+        "trn_by": "1",
+        "check_no": null,
+        "name": "",
+        "bank": ""
+    }
+
++ Response 201 (application/json)
+    + Body
+
+            {
+                "id": 1,
+                "voucher_no": 3,
+                "customer_id": 25,
+                "customer_name": "Zetta Kreiger",
+                "trn_date": "2020-03-20",
+                "amount": "59.50",
+                "ref": null,
+                "account": "Cash",
+                "line_items": [
+                    {
+                        "id": "1",
+                        "voucher_no": "3",
+                        "invoice_no": "2",
+                        "amount": "59.50"
+                    }
+                ],
+                "attachments": [],
+                "status": "Paid",
+                "pdf_link": "https://example.com/wp-content/uploads/erp-pdfs/voucher_3.pdf",
+                "type": "payment",
+                "particulars": "payment received",
+                "created_at": "2020-03-20",
+                "namespace": "erp/v1",
+                "rest_base": "accounting/v1/payments",
+                "_links": {
+                    "self": {
+                        "href": "https://example.com/wp-json/erp/v1/accounting/v1/payments/1"
+                    },
+                    "collection": {
+                        "href": "https://example.com/wp-json/erp/v1/accounting/v1/payments"
+                    }
+                }
+            }
+
+## Manage Single Payment [/payments/{id}]
+
++ Parameters
+    + id (string) - id of the payment in the form of an string
+
+### Retrieve A Payment [GET]
+
++ Response 200 (application/json)
+    + Body
+
+            {
+                "id": 1,
+                "voucher_no": 3,
+                "customer_id": 25,
+                "customer_name": "Zetta Kreiger",
+                "trn_date": "2020-03-20",
+                "amount": "59.50",
+                "ref": null,
+                "account": "Cash",
+                "line_items": [
+                    {
+                        "id": "1",
+                        "voucher_no": "3",
+                        "invoice_no": "2",
+                        "amount": "59.50"
+                    }
+                ],
+                "attachments": [],
+                "status": "Paid",
+                "pdf_link": "https://example.com/wp-content/uploads/erp-pdfs/voucher_3.pdf",
+                "type": "payment",
+                "particulars": "payment received",
+                "created_at": "2020-03-20",
+                "namespace": "erp/v1",
+                "rest_base": "accounting/v1/payments",
+                "_links": {
+                    "self": {
+                        "href": "https://example.com/wp-json/erp/v1/accounting/v1/payments/1"
+                    },
+                    "collection": {
+                        "href": "https://example.com/wp-json/erp/v1/accounting/v1/payments"
+                    }
+                }
+            }
+
+
+### Update A Payment [PUT]
+
+    Model (application/json)
+
+    {
+        "customer_id": 25,
+        "ref": "ref",
+        "trn_date": "2020-03-20",
+        "line_items": [
+            {
+                "id": "1",
+                "invoice_no": "2",
+                "due_date": "2020-03-20",
+                "amount": 59.5,
+                "due": 59.5,
+                "line_total": 59.5
+            }
+        ],
+        "attachments": [],
+        "type": "payment",
+        "status": 4,
+        "particulars": "payment received",
+        "deposit_to": "7",
+        "trn_by": "1",
+        "check_no": null,
+        "name": "",
+        "bank": ""
+    }
+
++ Response 201 (application/json)
+    + Body
+
+            {
+                "id": 1,
+                "voucher_no": 3,
+                "customer_id": 25,
+                "customer_name": "Zetta Kreiger",
+                "trn_date": "2020-03-20",
+                "amount": "59.50",
+                "ref": null,
+                "account": "Cash",
+                "line_items": [
+                    {
+                        "id": "1",
+                        "voucher_no": "3",
+                        "invoice_no": "2",
+                        "amount": "59.50"
+                    }
+                ],
+                "attachments": [],
+                "status": "Paid",
+                "pdf_link": "https://example.com/wp-content/uploads/erp-pdfs/voucher_3.pdf",
+                "type": "payment",
+                "particulars": "payment received",
+                "created_at": "2020-03-20",
+                "namespace": "erp/v1",
+                "rest_base": "accounting/v1/payments",
+                "_links": {
+                    "self": {
+                        "href": "https://example.com/wp-json/erp/v1/accounting/v1/payments/1"
+                    },
+                    "collection": {
+                        "href": "https://example.com/wp-json/erp/v1/accounting/v1/payments"
+                    }
+                }
+            }
+
+
+## Void Payment [/payments/{id}/void/]
+
++ Parameters
+    + id (string) - id of the Payment in the form of an string
+
+### Void a Payment [POST]
+
+Voids a particular Payment
+
++ Request (application/json)
++ Response 204 (application/json)

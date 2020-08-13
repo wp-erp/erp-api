@@ -1,0 +1,4393 @@
+# Group Opening Balances
+
+
+## Opening Balance List [/opening-balances]
+
+Retrievs A list of available Opening Balances
+
+### List All Opening Balances [GET]
+
+Fetches all available opening-balances
+
++ Response 200 (application/json)
+    + Body
+
+            [
+                {
+                    "id": "1",
+                    "financial_year_id": "1",
+                    "chart_id": "1",
+                    "ledger_id": "2",
+                    "type": "ledger",
+                    "debit": "0.00",
+                    "credit": "0.00",
+                    "created_at": "2020-03-20",
+                    "created_by": "1",
+                    "updated_at": null,
+                    "updated_by": null,
+                    "name": "2020",
+                    "start_date": "2020-01-01",
+                    "end_date": "2020-12-31",
+                    "description": null,
+                    "namespace": "erp/v1",
+                    "rest_base": "accounting/v1/opening-balances",
+                    "_links": {
+                        "self": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/opening-balances/1"
+                        },
+                        "collection": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/opening-balances"
+                        }
+                    }
+                }
+            ]
+
+### Create A Opening Balance [POST]
+
+    Model (application/json)
+
+    {
+        "description": "",
+        "ledgers": {
+            "4": [
+                {
+                    "id": "54",
+                    "name": "Sales",
+                    "balance": "Dr. $0",
+                    "namespace": "erp/v1",
+                    "code": "400",
+                    "system": "0",
+                    "category_id": null,
+                    "slug": "sales",
+                    "chart_id": "4",
+                    "rest_base": "accounting/v1/ledgers",
+                    "ledger_id": "54"
+                },
+                {
+                    "id": "55",
+                    "name": "Interest Income",
+                    "balance": "Dr. $0",
+                    "namespace": "erp/v1",
+                    "code": "460",
+                    "system": "0",
+                    "category_id": null,
+                    "slug": "interest_income",
+                    "chart_id": "4",
+                    "rest_base": "accounting/v1/ledgers",
+                    "ledger_id": "55"
+                },
+                {
+                    "id": "56",
+                    "name": "Other Revenue",
+                    "balance": "Dr. $0",
+                    "namespace": "erp/v1",
+                    "code": "470",
+                    "system": "0",
+                    "category_id": null,
+                    "slug": "other_revenue",
+                    "chart_id": "4",
+                    "rest_base": "accounting/v1/ledgers",
+                    "ledger_id": "56"
+                },
+                {
+                    "id": "57",
+                    "name": "Purchase Discount",
+                    "balance": "Dr. $0",
+                    "namespace": "erp/v1",
+                    "code": "475",
+                    "system": "1",
+                    "category_id": null,
+                    "slug": "purchase_discount",
+                    "chart_id": "4",
+                    "rest_base": "accounting/v1/ledgers",
+                    "ledger_id": "57"
+                },
+                {
+                    "id": "93",
+                    "name": "Service Revenue",
+                    "balance": "Dr. $0",
+                    "namespace": "erp/v1",
+                    "code": "1401",
+                    "system": "1",
+                    "category_id": null,
+                    "slug": "service_revenue",
+                    "chart_id": "4",
+                    "rest_base": "accounting/v1/ledgers",
+                    "ledger_id": "93"
+                },
+                {
+                    "id": "94",
+                    "name": "Sales Revenue",
+                    "balance": "Cr. $100",
+                    "namespace": "erp/v1",
+                    "code": "1402",
+                    "system": "1",
+                    "category_id": null,
+                    "slug": "sales_revenue",
+                    "chart_id": "4",
+                    "rest_base": "accounting/v1/ledgers",
+                    "ledger_id": "94"
+                },
+                {
+                    "id": "95",
+                    "name": "Sales Returns and Allowance",
+                    "balance": "Dr. $0",
+                    "namespace": "erp/v1",
+                    "code": "1403",
+                    "system": "1",
+                    "category_id": null,
+                    "slug": "sales_returns_and_allowance",
+                    "chart_id": "4",
+                    "rest_base": "accounting/v1/ledgers",
+                    "ledger_id": "95"
+                },
+                {
+                    "id": "96",
+                    "name": "Gain on Disposal of Plant Assets",
+                    "balance": "Dr. $0",
+                    "namespace": "erp/v1",
+                    "code": "1404",
+                    "system": "1",
+                    "category_id": null,
+                    "slug": "gain_on_disposal_of_plant_assets",
+                    "chart_id": "4",
+                    "rest_base": "accounting/v1/ledgers",
+                    "ledger_id": "96"
+                },
+                {
+                    "id": "97",
+                    "name": "Asset Sales",
+                    "balance": "Dr. $0",
+                    "namespace": "erp/v1",
+                    "code": "1405",
+                    "system": "1",
+                    "category_id": null,
+                    "slug": "asset_sales",
+                    "chart_id": "4",
+                    "rest_base": "accounting/v1/ledgers",
+                    "ledger_id": "97"
+                }
+            ],
+            "5": [
+                {
+                    "id": "24",
+                    "name": "Costs of Goods Sold",
+                    "balance": "Dr. $450",
+                    "namespace": "erp/v1",
+                    "code": "500",
+                    "system": "1",
+                    "category_id": null,
+                    "slug": "costs_of_goods_sold",
+                    "chart_id": "5",
+                    "rest_base": "accounting/v1/ledgers",
+                    "ledger_id": "24"
+                },
+                {
+                    "id": "25",
+                    "name": "Advertising",
+                    "balance": "Dr. $0",
+                    "namespace": "erp/v1",
+                    "code": "600",
+                    "system": "0",
+                    "category_id": null,
+                    "slug": "advertising",
+                    "chart_id": "5",
+                    "rest_base": "accounting/v1/ledgers",
+                    "ledger_id": "25"
+                },
+                {
+                    "id": "26",
+                    "name": "Bank Service Charges",
+                    "balance": "Dr. $0",
+                    "namespace": "erp/v1",
+                    "code": "605",
+                    "system": "0",
+                    "category_id": null,
+                    "slug": "bank_service_charges",
+                    "chart_id": "5",
+                    "rest_base": "accounting/v1/ledgers",
+                    "ledger_id": "26"
+                },
+                {
+                    "id": "27",
+                    "name": "Janitorial Expenses",
+                    "balance": "Dr. $0",
+                    "namespace": "erp/v1",
+                    "code": "610",
+                    "system": "0",
+                    "category_id": null,
+                    "slug": "janitorial_expenses",
+                    "chart_id": "5",
+                    "rest_base": "accounting/v1/ledgers",
+                    "ledger_id": "27"
+                },
+                {
+                    "id": "28",
+                    "name": "Consulting & Accounting",
+                    "balance": "Dr. $0",
+                    "namespace": "erp/v1",
+                    "code": "615",
+                    "system": "0",
+                    "category_id": null,
+                    "slug": "consulting_accounting",
+                    "chart_id": "5",
+                    "rest_base": "accounting/v1/ledgers",
+                    "ledger_id": "28"
+                },
+                {
+                    "id": "29",
+                    "name": "Entertainment",
+                    "balance": "Dr. $0",
+                    "namespace": "erp/v1",
+                    "code": "620",
+                    "system": "0",
+                    "category_id": null,
+                    "slug": "entertainment",
+                    "chart_id": "5",
+                    "rest_base": "accounting/v1/ledgers",
+                    "ledger_id": "29"
+                },
+                {
+                    "id": "30",
+                    "name": "Postage & Delivary",
+                    "balance": "Dr. $100",
+                    "namespace": "erp/v1",
+                    "code": "624",
+                    "system": "0",
+                    "category_id": null,
+                    "slug": "postage_delivary",
+                    "chart_id": "5",
+                    "rest_base": "accounting/v1/ledgers",
+                    "ledger_id": "30"
+                },
+                {
+                    "id": "31",
+                    "name": "General Expenses",
+                    "balance": "Dr. $520",
+                    "namespace": "erp/v1",
+                    "code": "628",
+                    "system": "0",
+                    "category_id": null,
+                    "slug": "general_expenses",
+                    "chart_id": "5",
+                    "rest_base": "accounting/v1/ledgers",
+                    "ledger_id": "31"
+                },
+                {
+                    "id": "32",
+                    "name": "Insurance",
+                    "balance": "Dr. $0",
+                    "namespace": "erp/v1",
+                    "code": "632",
+                    "system": "0",
+                    "category_id": null,
+                    "slug": "insurance",
+                    "chart_id": "5",
+                    "rest_base": "accounting/v1/ledgers",
+                    "ledger_id": "32"
+                },
+                {
+                    "id": "33",
+                    "name": "Legal Expenses",
+                    "balance": "Dr. $0",
+                    "namespace": "erp/v1",
+                    "code": "636",
+                    "system": "0",
+                    "category_id": null,
+                    "slug": "legal_expenses",
+                    "chart_id": "5",
+                    "rest_base": "accounting/v1/ledgers",
+                    "ledger_id": "33"
+                },
+                {
+                    "id": "34",
+                    "name": "Utilities",
+                    "balance": "Dr. $0",
+                    "namespace": "erp/v1",
+                    "code": "640",
+                    "system": "1",
+                    "category_id": null,
+                    "slug": "utilities",
+                    "chart_id": "5",
+                    "rest_base": "accounting/v1/ledgers",
+                    "ledger_id": "34"
+                },
+                {
+                    "id": "35",
+                    "name": "Automobile Expenses",
+                    "balance": "Dr. $0",
+                    "namespace": "erp/v1",
+                    "code": "644",
+                    "system": "0",
+                    "category_id": null,
+                    "slug": "automobile_expenses",
+                    "chart_id": "5",
+                    "rest_base": "accounting/v1/ledgers",
+                    "ledger_id": "35"
+                },
+                {
+                    "id": "36",
+                    "name": "Office Expenses",
+                    "balance": "Dr. $0",
+                    "namespace": "erp/v1",
+                    "code": "648",
+                    "system": "1",
+                    "category_id": null,
+                    "slug": "office_expenses",
+                    "chart_id": "5",
+                    "rest_base": "accounting/v1/ledgers",
+                    "ledger_id": "36"
+                },
+                {
+                    "id": "37",
+                    "name": "Printing & Stationary",
+                    "balance": "Dr. $0",
+                    "namespace": "erp/v1",
+                    "code": "652",
+                    "system": "0",
+                    "category_id": null,
+                    "slug": "printing_stationary",
+                    "chart_id": "5",
+                    "rest_base": "accounting/v1/ledgers",
+                    "ledger_id": "37"
+                },
+                {
+                    "id": "38",
+                    "name": "Rent",
+                    "balance": "Dr. $0",
+                    "namespace": "erp/v1",
+                    "code": "656",
+                    "system": "1",
+                    "category_id": null,
+                    "slug": "rent",
+                    "chart_id": "5",
+                    "rest_base": "accounting/v1/ledgers",
+                    "ledger_id": "38"
+                },
+                {
+                    "id": "39",
+                    "name": "Repairs & Maintenance",
+                    "balance": "Dr. $0",
+                    "namespace": "erp/v1",
+                    "code": "660",
+                    "system": "0",
+                    "category_id": null,
+                    "slug": "repairs_maintenance",
+                    "chart_id": "5",
+                    "rest_base": "accounting/v1/ledgers",
+                    "ledger_id": "39"
+                },
+                {
+                    "id": "40",
+                    "name": "Wages & Salaries",
+                    "balance": "Dr. $0",
+                    "namespace": "erp/v1",
+                    "code": "664",
+                    "system": "0",
+                    "category_id": null,
+                    "slug": "wages_salaries",
+                    "chart_id": "5",
+                    "rest_base": "accounting/v1/ledgers",
+                    "ledger_id": "40"
+                },
+                {
+                    "id": "41",
+                    "name": "Payroll Tax Expense",
+                    "balance": "Dr. $0",
+                    "namespace": "erp/v1",
+                    "code": "668",
+                    "system": "0",
+                    "category_id": null,
+                    "slug": "payroll_tax_expense",
+                    "chart_id": "5",
+                    "rest_base": "accounting/v1/ledgers",
+                    "ledger_id": "41"
+                },
+                {
+                    "id": "42",
+                    "name": "Dues & Subscriptions",
+                    "balance": "Dr. $0",
+                    "namespace": "erp/v1",
+                    "code": "672",
+                    "system": "0",
+                    "category_id": null,
+                    "slug": "dues_subscriptions",
+                    "chart_id": "5",
+                    "rest_base": "accounting/v1/ledgers",
+                    "ledger_id": "42"
+                },
+                {
+                    "id": "43",
+                    "name": "Telephone & Internet",
+                    "balance": "Dr. $0",
+                    "namespace": "erp/v1",
+                    "code": "676",
+                    "system": "0",
+                    "category_id": null,
+                    "slug": "telephone_internet",
+                    "chart_id": "5",
+                    "rest_base": "accounting/v1/ledgers",
+                    "ledger_id": "43"
+                },
+                {
+                    "id": "44",
+                    "name": "Travel",
+                    "balance": "Dr. $0",
+                    "namespace": "erp/v1",
+                    "code": "680",
+                    "system": "0",
+                    "category_id": null,
+                    "slug": "travel",
+                    "chart_id": "5",
+                    "rest_base": "accounting/v1/ledgers",
+                    "ledger_id": "44"
+                },
+                {
+                    "id": "45",
+                    "name": "Bad Debts",
+                    "balance": "Dr. $0",
+                    "namespace": "erp/v1",
+                    "code": "684",
+                    "system": "0",
+                    "category_id": null,
+                    "slug": "bad_debts",
+                    "chart_id": "5",
+                    "rest_base": "accounting/v1/ledgers",
+                    "ledger_id": "45"
+                },
+                {
+                    "id": "46",
+                    "name": "Depreciation",
+                    "balance": "Dr. $0",
+                    "namespace": "erp/v1",
+                    "code": "700",
+                    "system": "1",
+                    "category_id": null,
+                    "slug": "depreciation",
+                    "chart_id": "5",
+                    "rest_base": "accounting/v1/ledgers",
+                    "ledger_id": "46"
+                },
+                {
+                    "id": "47",
+                    "name": "Income Tax Expense",
+                    "balance": "Dr. $0",
+                    "namespace": "erp/v1",
+                    "code": "710",
+                    "system": "0",
+                    "category_id": null,
+                    "slug": "income_tax_expense",
+                    "chart_id": "5",
+                    "rest_base": "accounting/v1/ledgers",
+                    "ledger_id": "47"
+                },
+                {
+                    "id": "48",
+                    "name": "Employee Benefits Expense",
+                    "balance": "Dr. $0",
+                    "namespace": "erp/v1",
+                    "code": "715",
+                    "system": "0",
+                    "category_id": null,
+                    "slug": "employee_benefits_expense",
+                    "chart_id": "5",
+                    "rest_base": "accounting/v1/ledgers",
+                    "ledger_id": "48"
+                },
+                {
+                    "id": "49",
+                    "name": "Interest Expense",
+                    "balance": "Dr. $0",
+                    "namespace": "erp/v1",
+                    "code": "800",
+                    "system": "0",
+                    "category_id": null,
+                    "slug": "interest_expense",
+                    "chart_id": "5",
+                    "rest_base": "accounting/v1/ledgers",
+                    "ledger_id": "49"
+                },
+                {
+                    "id": "50",
+                    "name": "Bank Revaluations",
+                    "balance": "Dr. $0",
+                    "namespace": "erp/v1",
+                    "code": "810",
+                    "system": "1",
+                    "category_id": null,
+                    "slug": "bank_revaluations",
+                    "chart_id": "5",
+                    "rest_base": "accounting/v1/ledgers",
+                    "ledger_id": "50"
+                },
+                {
+                    "id": "51",
+                    "name": "Unrealized Currency Gains",
+                    "balance": "Dr. $0",
+                    "namespace": "erp/v1",
+                    "code": "815",
+                    "system": "1",
+                    "category_id": null,
+                    "slug": "unrealized_currency_gains",
+                    "chart_id": "5",
+                    "rest_base": "accounting/v1/ledgers",
+                    "ledger_id": "51"
+                },
+                {
+                    "id": "52",
+                    "name": "Realized Currency Gains",
+                    "balance": "Dr. $0",
+                    "namespace": "erp/v1",
+                    "code": "820",
+                    "system": "1",
+                    "category_id": null,
+                    "slug": "realized_currency_gains",
+                    "chart_id": "5",
+                    "rest_base": "accounting/v1/ledgers",
+                    "ledger_id": "52"
+                },
+                {
+                    "id": "53",
+                    "name": "Sales Discount",
+                    "balance": "Dr. $0",
+                    "namespace": "erp/v1",
+                    "code": "825",
+                    "system": "1",
+                    "category_id": null,
+                    "slug": "sales_discount",
+                    "chart_id": "5",
+                    "rest_base": "accounting/v1/ledgers",
+                    "ledger_id": "53"
+                },
+                {
+                    "id": "98",
+                    "name": "Amortization Expense",
+                    "balance": "Dr. $0",
+                    "namespace": "erp/v1",
+                    "code": "1501",
+                    "system": "1",
+                    "category_id": null,
+                    "slug": "amortization_expense",
+                    "chart_id": "5",
+                    "rest_base": "accounting/v1/ledgers",
+                    "ledger_id": "98"
+                },
+                {
+                    "id": "99",
+                    "name": "Freight-Out",
+                    "balance": "Dr. $0",
+                    "namespace": "erp/v1",
+                    "code": "1502",
+                    "system": "1",
+                    "category_id": null,
+                    "slug": "freight_out",
+                    "chart_id": "5",
+                    "rest_base": "accounting/v1/ledgers",
+                    "ledger_id": "99"
+                },
+                {
+                    "id": "100",
+                    "name": "Insurance Expense",
+                    "balance": "Dr. $0",
+                    "namespace": "erp/v1",
+                    "code": "1503",
+                    "system": "1",
+                    "category_id": null,
+                    "slug": "insurance_expense",
+                    "chart_id": "5",
+                    "rest_base": "accounting/v1/ledgers",
+                    "ledger_id": "100"
+                },
+                {
+                    "id": "101",
+                    "name": "Loss on Disposal of Plant Assets",
+                    "balance": "Dr. $0",
+                    "namespace": "erp/v1",
+                    "code": "1504",
+                    "system": "1",
+                    "category_id": null,
+                    "slug": "loss_on_disposal_of_plant_assets",
+                    "chart_id": "5",
+                    "rest_base": "accounting/v1/ledgers",
+                    "ledger_id": "101"
+                },
+                {
+                    "id": "102",
+                    "name": "Maintenance and Repairs Expense",
+                    "balance": "Dr. $0",
+                    "namespace": "erp/v1",
+                    "code": "1505",
+                    "system": "1",
+                    "category_id": null,
+                    "slug": "maintenance_and_repairs_expense",
+                    "chart_id": "5",
+                    "rest_base": "accounting/v1/ledgers",
+                    "ledger_id": "102"
+                },
+                {
+                    "id": "103",
+                    "name": "Purchase",
+                    "balance": "Dr. $700",
+                    "namespace": "erp/v1",
+                    "code": "1506",
+                    "system": "1",
+                    "category_id": null,
+                    "slug": "purchase",
+                    "chart_id": "5",
+                    "rest_base": "accounting/v1/ledgers",
+                    "ledger_id": "103"
+                },
+                {
+                    "id": "104",
+                    "name": "Asset Purchase",
+                    "balance": "Dr. $0",
+                    "namespace": "erp/v1",
+                    "code": "1506",
+                    "system": "1",
+                    "category_id": null,
+                    "slug": "asset_purchase",
+                    "chart_id": "5",
+                    "rest_base": "accounting/v1/ledgers",
+                    "ledger_id": "104"
+                }
+            ],
+            "7": [
+                {
+                    "id": "105",
+                    "name": "Bank Account",
+                    "balance": "Dr. $100",
+                    "namespace": "erp/v1",
+                    "code": "123232",
+                    "system": null,
+                    "category_id": null,
+                    "slug": "bank_account",
+                    "chart_id": "7",
+                    "rest_base": "accounting/v1/ledgers",
+                    "ledger_id": "105"
+                }
+            ],
+            "1": [
+                {
+                    "id": "2",
+                    "name": "Inventory",
+                    "balance": "Dr. $0",
+                    "namespace": "erp/v1",
+                    "code": "140",
+                    "system": "1",
+                    "category_id": null,
+                    "slug": "inventory",
+                    "chart_id": "1",
+                    "rest_base": "accounting/v1/ledgers",
+                    "ledger_id": "2"
+                },
+                {
+                    "id": "3",
+                    "name": "Office Equipment",
+                    "balance": "Dr. $0",
+                    "namespace": "erp/v1",
+                    "code": "150",
+                    "system": "1",
+                    "category_id": null,
+                    "slug": "office_equipment",
+                    "chart_id": "1",
+                    "rest_base": "accounting/v1/ledgers",
+                    "ledger_id": "3"
+                },
+                {
+                    "id": "4",
+                    "name": "Less Accumulated Depreciation on Office Equipment",
+                    "balance": "Dr. $0",
+                    "namespace": "erp/v1",
+                    "code": "151",
+                    "system": "1",
+                    "category_id": null,
+                    "slug": "less_accumulated_depreciation_on_office_equipment",
+                    "chart_id": "1",
+                    "rest_base": "accounting/v1/ledgers",
+                    "ledger_id": "4"
+                },
+                {
+                    "id": "5",
+                    "name": "Computer Equipment",
+                    "balance": "Dr. $0",
+                    "namespace": "erp/v1",
+                    "code": "160",
+                    "system": "1",
+                    "category_id": null,
+                    "slug": "computer_equipment",
+                    "chart_id": "1",
+                    "rest_base": "accounting/v1/ledgers",
+                    "ledger_id": "5"
+                },
+                {
+                    "id": "6",
+                    "name": "Less Accumulated Depreciation on Computer Equipment",
+                    "balance": "Dr. $0",
+                    "namespace": "erp/v1",
+                    "code": "161",
+                    "system": "1",
+                    "category_id": null,
+                    "slug": "less_accumulated_depreciation_on_computer_equipment",
+                    "chart_id": "1",
+                    "rest_base": "accounting/v1/ledgers",
+                    "ledger_id": "6"
+                },
+                {
+                    "id": "7",
+                    "name": "Cash",
+                    "debit": "100",
+                    "code": "90",
+                    "chart_id": "1",
+                    "rest_base": "accounting/v1/ledgers",
+                    "ledger_id": "7",
+                    "balance": "Dr. $9689.5",
+                    "system": "0",
+                    "category_id": null,
+                    "slug": "cash",
+                    "namespace": "erp/v1"
+                },
+                {
+                    "id": "62",
+                    "name": "Savings Account",
+                    "balance": "Dr. $0",
+                    "namespace": "erp/v1",
+                    "code": "92",
+                    "system": "0",
+                    "category_id": null,
+                    "slug": "savings_account",
+                    "chart_id": "1",
+                    "rest_base": "accounting/v1/ledgers",
+                    "ledger_id": "62"
+                },
+                {
+                    "id": "63",
+                    "name": "Allowance for Doubtful Accounts",
+                    "balance": "Dr. $0",
+                    "namespace": "erp/v1",
+                    "code": "1001",
+                    "system": "1",
+                    "category_id": null,
+                    "slug": "allowance_for_doubtful_accounts",
+                    "chart_id": "1",
+                    "rest_base": "accounting/v1/ledgers",
+                    "ledger_id": "63"
+                },
+                {
+                    "id": "64",
+                    "name": "Interest Receivable",
+                    "balance": "Dr. $0",
+                    "namespace": "erp/v1",
+                    "code": "1002",
+                    "system": "1",
+                    "category_id": null,
+                    "slug": "interest_receivable",
+                    "chart_id": "1",
+                    "rest_base": "accounting/v1/ledgers",
+                    "ledger_id": "64"
+                },
+                {
+                    "id": "65",
+                    "name": "Supplies",
+                    "balance": "Dr. $0",
+                    "namespace": "erp/v1",
+                    "code": "1003",
+                    "system": "1",
+                    "category_id": null,
+                    "slug": "supplies",
+                    "chart_id": "1",
+                    "rest_base": "accounting/v1/ledgers",
+                    "ledger_id": "65"
+                },
+                {
+                    "id": "66",
+                    "name": "Prepaid Insurance",
+                    "balance": "Dr. $0",
+                    "namespace": "erp/v1",
+                    "code": "1004",
+                    "system": "1",
+                    "category_id": null,
+                    "slug": "prepaid_insurance",
+                    "chart_id": "1",
+                    "rest_base": "accounting/v1/ledgers",
+                    "ledger_id": "66"
+                },
+                {
+                    "id": "67",
+                    "name": "Prepaid Rent",
+                    "balance": "Dr. $0",
+                    "namespace": "erp/v1",
+                    "code": "1005",
+                    "system": "1",
+                    "category_id": null,
+                    "slug": "prepaid_rent",
+                    "chart_id": "1",
+                    "rest_base": "accounting/v1/ledgers",
+                    "ledger_id": "67"
+                },
+                {
+                    "id": "68",
+                    "name": "Prepaid Salary",
+                    "balance": "Dr. $0",
+                    "namespace": "erp/v1",
+                    "code": "1006",
+                    "system": "1",
+                    "category_id": null,
+                    "slug": "prepaid_salary",
+                    "chart_id": "1",
+                    "rest_base": "accounting/v1/ledgers",
+                    "ledger_id": "68"
+                },
+                {
+                    "id": "69",
+                    "name": "Land",
+                    "balance": "Dr. $0",
+                    "namespace": "erp/v1",
+                    "code": "1007",
+                    "system": "1",
+                    "category_id": null,
+                    "slug": "land",
+                    "chart_id": "1",
+                    "rest_base": "accounting/v1/ledgers",
+                    "ledger_id": "69"
+                },
+                {
+                    "id": "70",
+                    "name": "Furniture & Fixture",
+                    "balance": "Dr. $0",
+                    "namespace": "erp/v1",
+                    "code": "1008",
+                    "system": "1",
+                    "category_id": null,
+                    "slug": "furniture_fixture",
+                    "chart_id": "1",
+                    "rest_base": "accounting/v1/ledgers",
+                    "ledger_id": "70"
+                },
+                {
+                    "id": "71",
+                    "name": "Buildings",
+                    "balance": "Dr. $0",
+                    "namespace": "erp/v1",
+                    "code": "1009",
+                    "system": "1",
+                    "category_id": null,
+                    "slug": "buildings",
+                    "chart_id": "1",
+                    "rest_base": "accounting/v1/ledgers",
+                    "ledger_id": "71"
+                },
+                {
+                    "id": "72",
+                    "name": "Copyrights",
+                    "balance": "Dr. $0",
+                    "namespace": "erp/v1",
+                    "code": "1010",
+                    "system": "1",
+                    "category_id": null,
+                    "slug": "copyrights",
+                    "chart_id": "1",
+                    "rest_base": "accounting/v1/ledgers",
+                    "ledger_id": "72"
+                },
+                {
+                    "id": "73",
+                    "name": "Goodwill",
+                    "balance": "Dr. $0",
+                    "namespace": "erp/v1",
+                    "code": "1011",
+                    "system": "1",
+                    "category_id": null,
+                    "slug": "goodwill",
+                    "chart_id": "1",
+                    "rest_base": "accounting/v1/ledgers",
+                    "ledger_id": "73"
+                },
+                {
+                    "id": "74",
+                    "name": "Patents",
+                    "balance": "Dr. $0",
+                    "namespace": "erp/v1",
+                    "code": "1012",
+                    "system": "1",
+                    "category_id": null,
+                    "slug": "patents",
+                    "chart_id": "1",
+                    "rest_base": "accounting/v1/ledgers",
+                    "ledger_id": "74"
+                },
+                {
+                    "id": "75",
+                    "name": "Accoumulated Depreciation- Buildings",
+                    "balance": "Dr. $0",
+                    "namespace": "erp/v1",
+                    "code": "1013",
+                    "system": "1",
+                    "category_id": null,
+                    "slug": "accoumulated_depreciation_buildings",
+                    "chart_id": "1",
+                    "rest_base": "accounting/v1/ledgers",
+                    "ledger_id": "75"
+                },
+                {
+                    "id": "76",
+                    "name": "Accoumulated Depreciation- Furniture & Fixtures",
+                    "balance": "Dr. $0",
+                    "namespace": "erp/v1",
+                    "code": "1014",
+                    "system": "1",
+                    "category_id": null,
+                    "slug": "accoumulated_depreciation_furniture_fixtures",
+                    "chart_id": "1",
+                    "rest_base": "accounting/v1/ledgers",
+                    "ledger_id": "76"
+                }
+            ],
+            "2": [
+                {
+                    "id": "9",
+                    "name": "Accruals",
+                    "balance": "Dr. $0",
+                    "namespace": "erp/v1",
+                    "code": "205",
+                    "system": "0",
+                    "category_id": null,
+                    "slug": "accruals",
+                    "chart_id": "2",
+                    "rest_base": "accounting/v1/ledgers",
+                    "ledger_id": "9"
+                },
+                {
+                    "id": "10",
+                    "name": "Unpaid Expense Claims",
+                    "balance": "Dr. $0",
+                    "namespace": "erp/v1",
+                    "code": "210",
+                    "system": "1",
+                    "category_id": null,
+                    "slug": "unpaid_expense_claims",
+                    "chart_id": "2",
+                    "rest_base": "accounting/v1/ledgers",
+                    "ledger_id": "10"
+                },
+                {
+                    "id": "11",
+                    "name": "Wages Payable",
+                    "balance": "Dr. $0",
+                    "namespace": "erp/v1",
+                    "code": "215",
+                    "system": "1",
+                    "category_id": null,
+                    "slug": "wages_payable",
+                    "chart_id": "2",
+                    "rest_base": "accounting/v1/ledgers",
+                    "ledger_id": "11"
+                },
+                {
+                    "id": "12",
+                    "name": "Wages Payable - Payroll",
+                    "balance": "Dr. $0",
+                    "namespace": "erp/v1",
+                    "code": "216",
+                    "system": "0",
+                    "category_id": null,
+                    "slug": "wages_payable_payroll",
+                    "chart_id": "2",
+                    "rest_base": "accounting/v1/ledgers",
+                    "ledger_id": "12"
+                },
+                {
+                    "id": "13",
+                    "name": "Sales Tax",
+                    "balance": "Dr. $0",
+                    "namespace": "erp/v1",
+                    "code": "220",
+                    "system": "1",
+                    "category_id": null,
+                    "slug": "sales_tax",
+                    "chart_id": "2",
+                    "rest_base": "accounting/v1/ledgers",
+                    "ledger_id": "13"
+                },
+                {
+                    "id": "14",
+                    "name": "Employee Tax Payable",
+                    "balance": "Dr. $0",
+                    "namespace": "erp/v1",
+                    "code": "230",
+                    "system": "0",
+                    "category_id": null,
+                    "slug": "employee_tax_payable",
+                    "chart_id": "2",
+                    "rest_base": "accounting/v1/ledgers",
+                    "ledger_id": "14"
+                },
+                {
+                    "id": "15",
+                    "name": "Employee Benefits Payable",
+                    "balance": "Dr. $0",
+                    "namespace": "erp/v1",
+                    "code": "235",
+                    "system": "0",
+                    "category_id": null,
+                    "slug": "employee_benefits_payable",
+                    "chart_id": "2",
+                    "rest_base": "accounting/v1/ledgers",
+                    "ledger_id": "15"
+                },
+                {
+                    "id": "16",
+                    "name": "Employee Deductions payable",
+                    "balance": "Dr. $0",
+                    "namespace": "erp/v1",
+                    "code": "236",
+                    "system": "0",
+                    "category_id": null,
+                    "slug": "employee_deductions_payable",
+                    "chart_id": "2",
+                    "rest_base": "accounting/v1/ledgers",
+                    "ledger_id": "16"
+                },
+                {
+                    "id": "17",
+                    "name": "Income Tax Payable",
+                    "balance": "Dr. $0",
+                    "namespace": "erp/v1",
+                    "code": "240",
+                    "system": "0",
+                    "category_id": null,
+                    "slug": "income_tax_payable",
+                    "chart_id": "2",
+                    "rest_base": "accounting/v1/ledgers",
+                    "ledger_id": "17"
+                },
+                {
+                    "id": "18",
+                    "name": "Suspense",
+                    "balance": "Dr. $0",
+                    "namespace": "erp/v1",
+                    "code": "250",
+                    "system": "0",
+                    "category_id": null,
+                    "slug": "suspense",
+                    "chart_id": "2",
+                    "rest_base": "accounting/v1/ledgers",
+                    "ledger_id": "18"
+                },
+                {
+                    "id": "19",
+                    "name": "Historical Adjustments",
+                    "balance": "Dr. $0",
+                    "namespace": "erp/v1",
+                    "code": "255",
+                    "system": "1",
+                    "category_id": null,
+                    "slug": "historical_adjustments",
+                    "chart_id": "2",
+                    "rest_base": "accounting/v1/ledgers",
+                    "ledger_id": "19"
+                },
+                {
+                    "id": "20",
+                    "name": "Rounding",
+                    "balance": "Dr. $0",
+                    "namespace": "erp/v1",
+                    "code": "260",
+                    "system": "1",
+                    "category_id": null,
+                    "slug": "rounding",
+                    "chart_id": "2",
+                    "rest_base": "accounting/v1/ledgers",
+                    "ledger_id": "20"
+                },
+                {
+                    "id": "21",
+                    "name": "Revenue Received in Advance",
+                    "balance": "Dr. $0",
+                    "namespace": "erp/v1",
+                    "code": "835",
+                    "system": "0",
+                    "category_id": null,
+                    "slug": "revenue_received_in_advance",
+                    "chart_id": "2",
+                    "rest_base": "accounting/v1/ledgers",
+                    "ledger_id": "21"
+                },
+                {
+                    "id": "22",
+                    "name": "Clearing Account",
+                    "balance": "Dr. $0",
+                    "namespace": "erp/v1",
+                    "code": "855",
+                    "system": "0",
+                    "category_id": null,
+                    "slug": "clearing_account",
+                    "chart_id": "2",
+                    "rest_base": "accounting/v1/ledgers",
+                    "ledger_id": "22"
+                },
+                {
+                    "id": "23",
+                    "name": "Loan",
+                    "balance": "Dr. $0",
+                    "namespace": "erp/v1",
+                    "code": "290",
+                    "system": "0",
+                    "category_id": null,
+                    "slug": "loan",
+                    "chart_id": "2",
+                    "rest_base": "accounting/v1/ledgers",
+                    "ledger_id": "23"
+                },
+                {
+                    "id": "77",
+                    "name": "Notes Payable",
+                    "balance": "Dr. $0",
+                    "namespace": "erp/v1",
+                    "code": "1201",
+                    "system": "1",
+                    "category_id": null,
+                    "slug": "notes_payable",
+                    "chart_id": "2",
+                    "rest_base": "accounting/v1/ledgers",
+                    "ledger_id": "77"
+                },
+                {
+                    "id": "78",
+                    "name": "Salaries and Wages Payable",
+                    "balance": "Dr. $0",
+                    "namespace": "erp/v1",
+                    "code": "1202",
+                    "system": "1",
+                    "category_id": null,
+                    "slug": "salaries_and_wages_payable",
+                    "chart_id": "2",
+                    "rest_base": "accounting/v1/ledgers",
+                    "ledger_id": "78"
+                },
+                {
+                    "id": "79",
+                    "name": "Unearned Rent Revenue",
+                    "balance": "Dr. $0",
+                    "namespace": "erp/v1",
+                    "code": "1203",
+                    "system": "1",
+                    "category_id": null,
+                    "slug": "unearned_rent_revenue",
+                    "chart_id": "2",
+                    "rest_base": "accounting/v1/ledgers",
+                    "ledger_id": "79"
+                },
+                {
+                    "id": "80",
+                    "name": "Interest Payable",
+                    "balance": "Dr. $0",
+                    "namespace": "erp/v1",
+                    "code": "1204",
+                    "system": "1",
+                    "category_id": null,
+                    "slug": "interest_payable",
+                    "chart_id": "2",
+                    "rest_base": "accounting/v1/ledgers",
+                    "ledger_id": "80"
+                },
+                {
+                    "id": "81",
+                    "name": "Dividends Payable",
+                    "balance": "Dr. $0",
+                    "namespace": "erp/v1",
+                    "code": "1205",
+                    "system": "1",
+                    "category_id": null,
+                    "slug": "dividends_payable",
+                    "chart_id": "2",
+                    "rest_base": "accounting/v1/ledgers",
+                    "ledger_id": "81"
+                },
+                {
+                    "id": "82",
+                    "name": "Bonds Payable",
+                    "balance": "Dr. $0",
+                    "namespace": "erp/v1",
+                    "code": "1206",
+                    "system": "1",
+                    "category_id": null,
+                    "slug": "bonds_payable",
+                    "chart_id": "2",
+                    "rest_base": "accounting/v1/ledgers",
+                    "ledger_id": "82"
+                },
+                {
+                    "id": "83",
+                    "name": "Discount on Bonds Payable",
+                    "balance": "Dr. $0",
+                    "namespace": "erp/v1",
+                    "code": "1207",
+                    "system": "1",
+                    "category_id": null,
+                    "slug": "discount_on_bonds_payable",
+                    "chart_id": "2",
+                    "rest_base": "accounting/v1/ledgers",
+                    "ledger_id": "83"
+                },
+                {
+                    "id": "84",
+                    "name": "Premium on Bonds Payable",
+                    "balance": "Dr. $0",
+                    "namespace": "erp/v1",
+                    "code": "1208",
+                    "system": "1",
+                    "category_id": null,
+                    "slug": "premium_on_bonds_payable",
+                    "chart_id": "2",
+                    "rest_base": "accounting/v1/ledgers",
+                    "ledger_id": "84"
+                },
+                {
+                    "id": "85",
+                    "name": "Mortgage Payable",
+                    "balance": "Dr. $0",
+                    "namespace": "erp/v1",
+                    "code": "1209",
+                    "system": "1",
+                    "category_id": null,
+                    "slug": "mortgage_payable",
+                    "chart_id": "2",
+                    "rest_base": "accounting/v1/ledgers",
+                    "ledger_id": "85"
+                }
+            ],
+            "3": [
+                {
+                    "id": "58",
+                    "name": "Owners Contribution",
+                    "balance": "Dr. $0",
+                    "namespace": "erp/v1",
+                    "code": "300",
+                    "system": "0",
+                    "category_id": null,
+                    "slug": "owners_contribution",
+                    "chart_id": "3",
+                    "rest_base": "accounting/v1/ledgers",
+                    "ledger_id": "58"
+                },
+                {
+                    "id": "59",
+                    "name": "Owners Draw",
+                    "balance": "Dr. $0",
+                    "namespace": "erp/v1",
+                    "code": "310",
+                    "system": "0",
+                    "category_id": null,
+                    "slug": "owners_draw",
+                    "chart_id": "3",
+                    "rest_base": "accounting/v1/ledgers",
+                    "ledger_id": "59"
+                },
+                {
+                    "id": "60",
+                    "name": "Retained Earnings",
+                    "balance": "Dr. $0",
+                    "namespace": "erp/v1",
+                    "code": "320",
+                    "system": "1",
+                    "category_id": null,
+                    "slug": "retained_earnings",
+                    "chart_id": "3",
+                    "rest_base": "accounting/v1/ledgers",
+                    "ledger_id": "60"
+                },
+                {
+                    "id": "61",
+                    "name": "Common Stock",
+                    "balance": "Dr. $0",
+                    "namespace": "erp/v1",
+                    "code": "330",
+                    "system": "0",
+                    "category_id": null,
+                    "slug": "common_stock",
+                    "chart_id": "3",
+                    "rest_base": "accounting/v1/ledgers",
+                    "ledger_id": "61"
+                },
+                {
+                    "id": "86",
+                    "name": "Owner's Equity",
+                    "credit": "100",
+                    "code": "1301",
+                    "chart_id": "3",
+                    "rest_base": "accounting/v1/ledgers",
+                    "ledger_id": "86",
+                    "balance": "Cr. $11000",
+                    "system": "1",
+                    "category_id": null,
+                    "slug": "owner_s_equity",
+                    "namespace": "erp/v1"
+                },
+                {
+                    "id": "87",
+                    "name": "Paid-in Capital in Excess of Par- Common Stock",
+                    "balance": "Dr. $0",
+                    "namespace": "erp/v1",
+                    "code": "1302",
+                    "system": "1",
+                    "category_id": null,
+                    "slug": "paid_in_capital_in_excess_of_par_common_stock",
+                    "chart_id": "3",
+                    "rest_base": "accounting/v1/ledgers",
+                    "ledger_id": "87"
+                },
+                {
+                    "id": "88",
+                    "name": "Paid-in Capital in Excess of Par- Preferred Stock",
+                    "balance": "Dr. $0",
+                    "namespace": "erp/v1",
+                    "code": "1303",
+                    "system": "1",
+                    "category_id": null,
+                    "slug": "paid_in_capital_in_excess_of_par_preferred_stock",
+                    "chart_id": "3",
+                    "rest_base": "accounting/v1/ledgers",
+                    "ledger_id": "88"
+                },
+                {
+                    "id": "89",
+                    "name": "Preferred Stock",
+                    "balance": "Dr. $0",
+                    "namespace": "erp/v1",
+                    "code": "1304",
+                    "system": "1",
+                    "category_id": null,
+                    "slug": "preferred_stock",
+                    "chart_id": "3",
+                    "rest_base": "accounting/v1/ledgers",
+                    "ledger_id": "89"
+                },
+                {
+                    "id": "90",
+                    "name": "Treasury Stock",
+                    "balance": "Dr. $0",
+                    "namespace": "erp/v1",
+                    "code": "1305",
+                    "system": "1",
+                    "category_id": null,
+                    "slug": "treasury_stock",
+                    "chart_id": "3",
+                    "rest_base": "accounting/v1/ledgers",
+                    "ledger_id": "90"
+                },
+                {
+                    "id": "91",
+                    "name": "Dividends",
+                    "balance": "Dr. $0",
+                    "namespace": "erp/v1",
+                    "code": "1306",
+                    "system": "1",
+                    "category_id": null,
+                    "slug": "dividends",
+                    "chart_id": "3",
+                    "rest_base": "accounting/v1/ledgers",
+                    "ledger_id": "91"
+                },
+                {
+                    "id": "92",
+                    "name": "Income Summary",
+                    "balance": "Dr. $0",
+                    "namespace": "erp/v1",
+                    "code": "1307",
+                    "system": "1",
+                    "category_id": null,
+                    "slug": "income_summary",
+                    "chart_id": "3",
+                    "rest_base": "accounting/v1/ledgers",
+                    "ledger_id": "92"
+                }
+            ]
+        },
+        "total_cr": 100,
+        "acct_pay": [],
+        "year": "1",
+        "total_dr": 100,
+        "acct_rec": [],
+        "tax_pay": []
+    }
+
++ Response 201 (application/json)
+    + Body
+
+            {
+                "0": {
+                    "id": "1",
+                    "financial_year_id": "1",
+                    "ledger_id": "2",
+                    "name": "Inventory",
+                    "chart_id": "1",
+                    "debit": "0.00",
+                    "credit": "0.00"
+                },
+                "1": {
+                    "id": "2",
+                    "financial_year_id": "1",
+                    "ledger_id": "3",
+                    "name": "Office Equipment",
+                    "chart_id": "1",
+                    "debit": "0.00",
+                    "credit": "0.00"
+                },
+                "2": {
+                    "id": "3",
+                    "financial_year_id": "1",
+                    "ledger_id": "4",
+                    "name": "Less Accumulated Depreciation on Office Equipment",
+                    "chart_id": "1",
+                    "debit": "0.00",
+                    "credit": "0.00"
+                },
+                "3": {
+                    "id": "4",
+                    "financial_year_id": "1",
+                    "ledger_id": "5",
+                    "name": "Computer Equipment",
+                    "chart_id": "1",
+                    "debit": "0.00",
+                    "credit": "0.00"
+                },
+                "4": {
+                    "id": "5",
+                    "financial_year_id": "1",
+                    "ledger_id": "6",
+                    "name": "Less Accumulated Depreciation on Computer Equipment",
+                    "chart_id": "1",
+                    "debit": "0.00",
+                    "credit": "0.00"
+                },
+                "5": {
+                    "id": "6",
+                    "financial_year_id": "1",
+                    "ledger_id": "7",
+                    "name": "Cash",
+                    "chart_id": "1",
+                    "debit": "100.00",
+                    "credit": "0.00"
+                },
+                "6": {
+                    "id": "7",
+                    "financial_year_id": "1",
+                    "ledger_id": "62",
+                    "name": "Savings Account",
+                    "chart_id": "1",
+                    "debit": "0.00",
+                    "credit": "0.00"
+                },
+                "7": {
+                    "id": "8",
+                    "financial_year_id": "1",
+                    "ledger_id": "63",
+                    "name": "Allowance for Doubtful Accounts",
+                    "chart_id": "1",
+                    "debit": "0.00",
+                    "credit": "0.00"
+                },
+                "8": {
+                    "id": "9",
+                    "financial_year_id": "1",
+                    "ledger_id": "64",
+                    "name": "Interest Receivable",
+                    "chart_id": "1",
+                    "debit": "0.00",
+                    "credit": "0.00"
+                },
+                "9": {
+                    "id": "10",
+                    "financial_year_id": "1",
+                    "ledger_id": "65",
+                    "name": "Supplies",
+                    "chart_id": "1",
+                    "debit": "0.00",
+                    "credit": "0.00"
+                },
+                "10": {
+                    "id": "11",
+                    "financial_year_id": "1",
+                    "ledger_id": "66",
+                    "name": "Prepaid Insurance",
+                    "chart_id": "1",
+                    "debit": "0.00",
+                    "credit": "0.00"
+                },
+                "11": {
+                    "id": "12",
+                    "financial_year_id": "1",
+                    "ledger_id": "67",
+                    "name": "Prepaid Rent",
+                    "chart_id": "1",
+                    "debit": "0.00",
+                    "credit": "0.00"
+                },
+                "12": {
+                    "id": "13",
+                    "financial_year_id": "1",
+                    "ledger_id": "68",
+                    "name": "Prepaid Salary",
+                    "chart_id": "1",
+                    "debit": "0.00",
+                    "credit": "0.00"
+                },
+                "13": {
+                    "id": "14",
+                    "financial_year_id": "1",
+                    "ledger_id": "69",
+                    "name": "Land",
+                    "chart_id": "1",
+                    "debit": "0.00",
+                    "credit": "0.00"
+                },
+                "14": {
+                    "id": "15",
+                    "financial_year_id": "1",
+                    "ledger_id": "70",
+                    "name": "Furniture & Fixture",
+                    "chart_id": "1",
+                    "debit": "0.00",
+                    "credit": "0.00"
+                },
+                "15": {
+                    "id": "16",
+                    "financial_year_id": "1",
+                    "ledger_id": "71",
+                    "name": "Buildings",
+                    "chart_id": "1",
+                    "debit": "0.00",
+                    "credit": "0.00"
+                },
+                "16": {
+                    "id": "17",
+                    "financial_year_id": "1",
+                    "ledger_id": "72",
+                    "name": "Copyrights",
+                    "chart_id": "1",
+                    "debit": "0.00",
+                    "credit": "0.00"
+                },
+                "17": {
+                    "id": "18",
+                    "financial_year_id": "1",
+                    "ledger_id": "73",
+                    "name": "Goodwill",
+                    "chart_id": "1",
+                    "debit": "0.00",
+                    "credit": "0.00"
+                },
+                "18": {
+                    "id": "19",
+                    "financial_year_id": "1",
+                    "ledger_id": "74",
+                    "name": "Patents",
+                    "chart_id": "1",
+                    "debit": "0.00",
+                    "credit": "0.00"
+                },
+                "19": {
+                    "id": "20",
+                    "financial_year_id": "1",
+                    "ledger_id": "75",
+                    "name": "Accoumulated Depreciation- Buildings",
+                    "chart_id": "1",
+                    "debit": "0.00",
+                    "credit": "0.00"
+                },
+                "20": {
+                    "id": "21",
+                    "financial_year_id": "1",
+                    "ledger_id": "76",
+                    "name": "Accoumulated Depreciation- Furniture & Fixtures",
+                    "chart_id": "1",
+                    "debit": "0.00",
+                    "credit": "0.00"
+                },
+                "21": {
+                    "id": "22",
+                    "financial_year_id": "1",
+                    "ledger_id": "9",
+                    "name": "Accruals",
+                    "chart_id": "2",
+                    "debit": "0.00",
+                    "credit": "0.00"
+                },
+                "22": {
+                    "id": "23",
+                    "financial_year_id": "1",
+                    "ledger_id": "10",
+                    "name": "Unpaid Expense Claims",
+                    "chart_id": "2",
+                    "debit": "0.00",
+                    "credit": "0.00"
+                },
+                "23": {
+                    "id": "24",
+                    "financial_year_id": "1",
+                    "ledger_id": "11",
+                    "name": "Wages Payable",
+                    "chart_id": "2",
+                    "debit": "0.00",
+                    "credit": "0.00"
+                },
+                "24": {
+                    "id": "25",
+                    "financial_year_id": "1",
+                    "ledger_id": "12",
+                    "name": "Wages Payable - Payroll",
+                    "chart_id": "2",
+                    "debit": "0.00",
+                    "credit": "0.00"
+                },
+                "25": {
+                    "id": "26",
+                    "financial_year_id": "1",
+                    "ledger_id": "13",
+                    "name": "Sales Tax",
+                    "chart_id": "2",
+                    "debit": "0.00",
+                    "credit": "0.00"
+                },
+                "26": {
+                    "id": "27",
+                    "financial_year_id": "1",
+                    "ledger_id": "14",
+                    "name": "Employee Tax Payable",
+                    "chart_id": "2",
+                    "debit": "0.00",
+                    "credit": "0.00"
+                },
+                "27": {
+                    "id": "28",
+                    "financial_year_id": "1",
+                    "ledger_id": "15",
+                    "name": "Employee Benefits Payable",
+                    "chart_id": "2",
+                    "debit": "0.00",
+                    "credit": "0.00"
+                },
+                "28": {
+                    "id": "29",
+                    "financial_year_id": "1",
+                    "ledger_id": "16",
+                    "name": "Employee Deductions payable",
+                    "chart_id": "2",
+                    "debit": "0.00",
+                    "credit": "0.00"
+                },
+                "29": {
+                    "id": "30",
+                    "financial_year_id": "1",
+                    "ledger_id": "17",
+                    "name": "Income Tax Payable",
+                    "chart_id": "2",
+                    "debit": "0.00",
+                    "credit": "0.00"
+                },
+                "30": {
+                    "id": "31",
+                    "financial_year_id": "1",
+                    "ledger_id": "18",
+                    "name": "Suspense",
+                    "chart_id": "2",
+                    "debit": "0.00",
+                    "credit": "0.00"
+                },
+                "31": {
+                    "id": "32",
+                    "financial_year_id": "1",
+                    "ledger_id": "19",
+                    "name": "Historical Adjustments",
+                    "chart_id": "2",
+                    "debit": "0.00",
+                    "credit": "0.00"
+                },
+                "32": {
+                    "id": "33",
+                    "financial_year_id": "1",
+                    "ledger_id": "20",
+                    "name": "Rounding",
+                    "chart_id": "2",
+                    "debit": "0.00",
+                    "credit": "0.00"
+                },
+                "33": {
+                    "id": "34",
+                    "financial_year_id": "1",
+                    "ledger_id": "21",
+                    "name": "Revenue Received in Advance",
+                    "chart_id": "2",
+                    "debit": "0.00",
+                    "credit": "0.00"
+                },
+                "34": {
+                    "id": "35",
+                    "financial_year_id": "1",
+                    "ledger_id": "22",
+                    "name": "Clearing Account",
+                    "chart_id": "2",
+                    "debit": "0.00",
+                    "credit": "0.00"
+                },
+                "35": {
+                    "id": "36",
+                    "financial_year_id": "1",
+                    "ledger_id": "23",
+                    "name": "Loan",
+                    "chart_id": "2",
+                    "debit": "0.00",
+                    "credit": "0.00"
+                },
+                "36": {
+                    "id": "37",
+                    "financial_year_id": "1",
+                    "ledger_id": "77",
+                    "name": "Notes Payable",
+                    "chart_id": "2",
+                    "debit": "0.00",
+                    "credit": "0.00"
+                },
+                "37": {
+                    "id": "38",
+                    "financial_year_id": "1",
+                    "ledger_id": "78",
+                    "name": "Salaries and Wages Payable",
+                    "chart_id": "2",
+                    "debit": "0.00",
+                    "credit": "0.00"
+                },
+                "38": {
+                    "id": "39",
+                    "financial_year_id": "1",
+                    "ledger_id": "79",
+                    "name": "Unearned Rent Revenue",
+                    "chart_id": "2",
+                    "debit": "0.00",
+                    "credit": "0.00"
+                },
+                "39": {
+                    "id": "40",
+                    "financial_year_id": "1",
+                    "ledger_id": "80",
+                    "name": "Interest Payable",
+                    "chart_id": "2",
+                    "debit": "0.00",
+                    "credit": "0.00"
+                },
+                "40": {
+                    "id": "41",
+                    "financial_year_id": "1",
+                    "ledger_id": "81",
+                    "name": "Dividends Payable",
+                    "chart_id": "2",
+                    "debit": "0.00",
+                    "credit": "0.00"
+                },
+                "41": {
+                    "id": "42",
+                    "financial_year_id": "1",
+                    "ledger_id": "82",
+                    "name": "Bonds Payable",
+                    "chart_id": "2",
+                    "debit": "0.00",
+                    "credit": "0.00"
+                },
+                "42": {
+                    "id": "43",
+                    "financial_year_id": "1",
+                    "ledger_id": "83",
+                    "name": "Discount on Bonds Payable",
+                    "chart_id": "2",
+                    "debit": "0.00",
+                    "credit": "0.00"
+                },
+                "43": {
+                    "id": "44",
+                    "financial_year_id": "1",
+                    "ledger_id": "84",
+                    "name": "Premium on Bonds Payable",
+                    "chart_id": "2",
+                    "debit": "0.00",
+                    "credit": "0.00"
+                },
+                "44": {
+                    "id": "45",
+                    "financial_year_id": "1",
+                    "ledger_id": "85",
+                    "name": "Mortgage Payable",
+                    "chart_id": "2",
+                    "debit": "0.00",
+                    "credit": "0.00"
+                },
+                "45": {
+                    "id": "46",
+                    "financial_year_id": "1",
+                    "ledger_id": "58",
+                    "name": "Owners Contribution",
+                    "chart_id": "3",
+                    "debit": "0.00",
+                    "credit": "0.00"
+                },
+                "46": {
+                    "id": "47",
+                    "financial_year_id": "1",
+                    "ledger_id": "59",
+                    "name": "Owners Draw",
+                    "chart_id": "3",
+                    "debit": "0.00",
+                    "credit": "0.00"
+                },
+                "47": {
+                    "id": "48",
+                    "financial_year_id": "1",
+                    "ledger_id": "60",
+                    "name": "Retained Earnings",
+                    "chart_id": "3",
+                    "debit": "0.00",
+                    "credit": "0.00"
+                },
+                "48": {
+                    "id": "49",
+                    "financial_year_id": "1",
+                    "ledger_id": "61",
+                    "name": "Common Stock",
+                    "chart_id": "3",
+                    "debit": "0.00",
+                    "credit": "0.00"
+                },
+                "49": {
+                    "id": "50",
+                    "financial_year_id": "1",
+                    "ledger_id": "86",
+                    "name": "Owner's Equity",
+                    "chart_id": "3",
+                    "debit": "0.00",
+                    "credit": "100.00"
+                },
+                "50": {
+                    "id": "51",
+                    "financial_year_id": "1",
+                    "ledger_id": "87",
+                    "name": "Paid-in Capital in Excess of Par- Common Stock",
+                    "chart_id": "3",
+                    "debit": "0.00",
+                    "credit": "0.00"
+                },
+                "51": {
+                    "id": "52",
+                    "financial_year_id": "1",
+                    "ledger_id": "88",
+                    "name": "Paid-in Capital in Excess of Par- Preferred Stock",
+                    "chart_id": "3",
+                    "debit": "0.00",
+                    "credit": "0.00"
+                },
+                "52": {
+                    "id": "53",
+                    "financial_year_id": "1",
+                    "ledger_id": "89",
+                    "name": "Preferred Stock",
+                    "chart_id": "3",
+                    "debit": "0.00",
+                    "credit": "0.00"
+                },
+                "53": {
+                    "id": "54",
+                    "financial_year_id": "1",
+                    "ledger_id": "90",
+                    "name": "Treasury Stock",
+                    "chart_id": "3",
+                    "debit": "0.00",
+                    "credit": "0.00"
+                },
+                "54": {
+                    "id": "55",
+                    "financial_year_id": "1",
+                    "ledger_id": "91",
+                    "name": "Dividends",
+                    "chart_id": "3",
+                    "debit": "0.00",
+                    "credit": "0.00"
+                },
+                "55": {
+                    "id": "56",
+                    "financial_year_id": "1",
+                    "ledger_id": "92",
+                    "name": "Income Summary",
+                    "chart_id": "3",
+                    "debit": "0.00",
+                    "credit": "0.00"
+                },
+                "56": {
+                    "id": "57",
+                    "financial_year_id": "1",
+                    "ledger_id": "54",
+                    "name": "Sales",
+                    "chart_id": "4",
+                    "debit": "0.00",
+                    "credit": "0.00"
+                },
+                "57": {
+                    "id": "58",
+                    "financial_year_id": "1",
+                    "ledger_id": "55",
+                    "name": "Interest Income",
+                    "chart_id": "4",
+                    "debit": "0.00",
+                    "credit": "0.00"
+                },
+                "58": {
+                    "id": "59",
+                    "financial_year_id": "1",
+                    "ledger_id": "56",
+                    "name": "Other Revenue",
+                    "chart_id": "4",
+                    "debit": "0.00",
+                    "credit": "0.00"
+                },
+                "59": {
+                    "id": "60",
+                    "financial_year_id": "1",
+                    "ledger_id": "57",
+                    "name": "Purchase Discount",
+                    "chart_id": "4",
+                    "debit": "0.00",
+                    "credit": "0.00"
+                },
+                "60": {
+                    "id": "61",
+                    "financial_year_id": "1",
+                    "ledger_id": "93",
+                    "name": "Service Revenue",
+                    "chart_id": "4",
+                    "debit": "0.00",
+                    "credit": "0.00"
+                },
+                "61": {
+                    "id": "62",
+                    "financial_year_id": "1",
+                    "ledger_id": "94",
+                    "name": "Sales Revenue",
+                    "chart_id": "4",
+                    "debit": "0.00",
+                    "credit": "0.00"
+                },
+                "62": {
+                    "id": "63",
+                    "financial_year_id": "1",
+                    "ledger_id": "95",
+                    "name": "Sales Returns and Allowance",
+                    "chart_id": "4",
+                    "debit": "0.00",
+                    "credit": "0.00"
+                },
+                "63": {
+                    "id": "64",
+                    "financial_year_id": "1",
+                    "ledger_id": "96",
+                    "name": "Gain on Disposal of Plant Assets",
+                    "chart_id": "4",
+                    "debit": "0.00",
+                    "credit": "0.00"
+                },
+                "64": {
+                    "id": "65",
+                    "financial_year_id": "1",
+                    "ledger_id": "97",
+                    "name": "Asset Sales",
+                    "chart_id": "4",
+                    "debit": "0.00",
+                    "credit": "0.00"
+                },
+                "65": {
+                    "id": "66",
+                    "financial_year_id": "1",
+                    "ledger_id": "24",
+                    "name": "Costs of Goods Sold",
+                    "chart_id": "5",
+                    "debit": "0.00",
+                    "credit": "0.00"
+                },
+                "66": {
+                    "id": "67",
+                    "financial_year_id": "1",
+                    "ledger_id": "25",
+                    "name": "Advertising",
+                    "chart_id": "5",
+                    "debit": "0.00",
+                    "credit": "0.00"
+                },
+                "67": {
+                    "id": "68",
+                    "financial_year_id": "1",
+                    "ledger_id": "26",
+                    "name": "Bank Service Charges",
+                    "chart_id": "5",
+                    "debit": "0.00",
+                    "credit": "0.00"
+                },
+                "68": {
+                    "id": "69",
+                    "financial_year_id": "1",
+                    "ledger_id": "27",
+                    "name": "Janitorial Expenses",
+                    "chart_id": "5",
+                    "debit": "0.00",
+                    "credit": "0.00"
+                },
+                "69": {
+                    "id": "70",
+                    "financial_year_id": "1",
+                    "ledger_id": "28",
+                    "name": "Consulting & Accounting",
+                    "chart_id": "5",
+                    "debit": "0.00",
+                    "credit": "0.00"
+                },
+                "70": {
+                    "id": "71",
+                    "financial_year_id": "1",
+                    "ledger_id": "29",
+                    "name": "Entertainment",
+                    "chart_id": "5",
+                    "debit": "0.00",
+                    "credit": "0.00"
+                },
+                "71": {
+                    "id": "72",
+                    "financial_year_id": "1",
+                    "ledger_id": "30",
+                    "name": "Postage & Delivary",
+                    "chart_id": "5",
+                    "debit": "0.00",
+                    "credit": "0.00"
+                },
+                "72": {
+                    "id": "73",
+                    "financial_year_id": "1",
+                    "ledger_id": "31",
+                    "name": "General Expenses",
+                    "chart_id": "5",
+                    "debit": "0.00",
+                    "credit": "0.00"
+                },
+                "73": {
+                    "id": "74",
+                    "financial_year_id": "1",
+                    "ledger_id": "32",
+                    "name": "Insurance",
+                    "chart_id": "5",
+                    "debit": "0.00",
+                    "credit": "0.00"
+                },
+                "74": {
+                    "id": "75",
+                    "financial_year_id": "1",
+                    "ledger_id": "33",
+                    "name": "Legal Expenses",
+                    "chart_id": "5",
+                    "debit": "0.00",
+                    "credit": "0.00"
+                },
+                "75": {
+                    "id": "76",
+                    "financial_year_id": "1",
+                    "ledger_id": "34",
+                    "name": "Utilities",
+                    "chart_id": "5",
+                    "debit": "0.00",
+                    "credit": "0.00"
+                },
+                "76": {
+                    "id": "77",
+                    "financial_year_id": "1",
+                    "ledger_id": "35",
+                    "name": "Automobile Expenses",
+                    "chart_id": "5",
+                    "debit": "0.00",
+                    "credit": "0.00"
+                },
+                "77": {
+                    "id": "78",
+                    "financial_year_id": "1",
+                    "ledger_id": "36",
+                    "name": "Office Expenses",
+                    "chart_id": "5",
+                    "debit": "0.00",
+                    "credit": "0.00"
+                },
+                "78": {
+                    "id": "79",
+                    "financial_year_id": "1",
+                    "ledger_id": "37",
+                    "name": "Printing & Stationary",
+                    "chart_id": "5",
+                    "debit": "0.00",
+                    "credit": "0.00"
+                },
+                "79": {
+                    "id": "80",
+                    "financial_year_id": "1",
+                    "ledger_id": "38",
+                    "name": "Rent",
+                    "chart_id": "5",
+                    "debit": "0.00",
+                    "credit": "0.00"
+                },
+                "80": {
+                    "id": "81",
+                    "financial_year_id": "1",
+                    "ledger_id": "39",
+                    "name": "Repairs & Maintenance",
+                    "chart_id": "5",
+                    "debit": "0.00",
+                    "credit": "0.00"
+                },
+                "81": {
+                    "id": "82",
+                    "financial_year_id": "1",
+                    "ledger_id": "40",
+                    "name": "Wages & Salaries",
+                    "chart_id": "5",
+                    "debit": "0.00",
+                    "credit": "0.00"
+                },
+                "82": {
+                    "id": "83",
+                    "financial_year_id": "1",
+                    "ledger_id": "41",
+                    "name": "Payroll Tax Expense",
+                    "chart_id": "5",
+                    "debit": "0.00",
+                    "credit": "0.00"
+                },
+                "83": {
+                    "id": "84",
+                    "financial_year_id": "1",
+                    "ledger_id": "42",
+                    "name": "Dues & Subscriptions",
+                    "chart_id": "5",
+                    "debit": "0.00",
+                    "credit": "0.00"
+                },
+                "84": {
+                    "id": "85",
+                    "financial_year_id": "1",
+                    "ledger_id": "43",
+                    "name": "Telephone & Internet",
+                    "chart_id": "5",
+                    "debit": "0.00",
+                    "credit": "0.00"
+                },
+                "85": {
+                    "id": "86",
+                    "financial_year_id": "1",
+                    "ledger_id": "44",
+                    "name": "Travel",
+                    "chart_id": "5",
+                    "debit": "0.00",
+                    "credit": "0.00"
+                },
+                "86": {
+                    "id": "87",
+                    "financial_year_id": "1",
+                    "ledger_id": "45",
+                    "name": "Bad Debts",
+                    "chart_id": "5",
+                    "debit": "0.00",
+                    "credit": "0.00"
+                },
+                "87": {
+                    "id": "88",
+                    "financial_year_id": "1",
+                    "ledger_id": "46",
+                    "name": "Depreciation",
+                    "chart_id": "5",
+                    "debit": "0.00",
+                    "credit": "0.00"
+                },
+                "88": {
+                    "id": "89",
+                    "financial_year_id": "1",
+                    "ledger_id": "47",
+                    "name": "Income Tax Expense",
+                    "chart_id": "5",
+                    "debit": "0.00",
+                    "credit": "0.00"
+                },
+                "89": {
+                    "id": "90",
+                    "financial_year_id": "1",
+                    "ledger_id": "48",
+                    "name": "Employee Benefits Expense",
+                    "chart_id": "5",
+                    "debit": "0.00",
+                    "credit": "0.00"
+                },
+                "90": {
+                    "id": "91",
+                    "financial_year_id": "1",
+                    "ledger_id": "49",
+                    "name": "Interest Expense",
+                    "chart_id": "5",
+                    "debit": "0.00",
+                    "credit": "0.00"
+                },
+                "91": {
+                    "id": "92",
+                    "financial_year_id": "1",
+                    "ledger_id": "50",
+                    "name": "Bank Revaluations",
+                    "chart_id": "5",
+                    "debit": "0.00",
+                    "credit": "0.00"
+                },
+                "92": {
+                    "id": "93",
+                    "financial_year_id": "1",
+                    "ledger_id": "51",
+                    "name": "Unrealized Currency Gains",
+                    "chart_id": "5",
+                    "debit": "0.00",
+                    "credit": "0.00"
+                },
+                "93": {
+                    "id": "94",
+                    "financial_year_id": "1",
+                    "ledger_id": "52",
+                    "name": "Realized Currency Gains",
+                    "chart_id": "5",
+                    "debit": "0.00",
+                    "credit": "0.00"
+                },
+                "94": {
+                    "id": "95",
+                    "financial_year_id": "1",
+                    "ledger_id": "53",
+                    "name": "Sales Discount",
+                    "chart_id": "5",
+                    "debit": "0.00",
+                    "credit": "0.00"
+                },
+                "95": {
+                    "id": "96",
+                    "financial_year_id": "1",
+                    "ledger_id": "98",
+                    "name": "Amortization Expense",
+                    "chart_id": "5",
+                    "debit": "0.00",
+                    "credit": "0.00"
+                },
+                "96": {
+                    "id": "97",
+                    "financial_year_id": "1",
+                    "ledger_id": "99",
+                    "name": "Freight-Out",
+                    "chart_id": "5",
+                    "debit": "0.00",
+                    "credit": "0.00"
+                },
+                "97": {
+                    "id": "98",
+                    "financial_year_id": "1",
+                    "ledger_id": "100",
+                    "name": "Insurance Expense",
+                    "chart_id": "5",
+                    "debit": "0.00",
+                    "credit": "0.00"
+                },
+                "98": {
+                    "id": "99",
+                    "financial_year_id": "1",
+                    "ledger_id": "101",
+                    "name": "Loss on Disposal of Plant Assets",
+                    "chart_id": "5",
+                    "debit": "0.00",
+                    "credit": "0.00"
+                },
+                "99": {
+                    "id": "100",
+                    "financial_year_id": "1",
+                    "ledger_id": "102",
+                    "name": "Maintenance and Repairs Expense",
+                    "chart_id": "5",
+                    "debit": "0.00",
+                    "credit": "0.00"
+                },
+                "100": {
+                    "id": "101",
+                    "financial_year_id": "1",
+                    "ledger_id": "103",
+                    "name": "Purchase",
+                    "chart_id": "5",
+                    "debit": "0.00",
+                    "credit": "0.00"
+                },
+                "101": {
+                    "id": "102",
+                    "financial_year_id": "1",
+                    "ledger_id": "104",
+                    "name": "Asset Purchase",
+                    "chart_id": "5",
+                    "debit": "0.00",
+                    "credit": "0.00"
+                },
+                "102": {
+                    "id": "103",
+                    "financial_year_id": "1",
+                    "ledger_id": "105",
+                    "name": "Bank Account",
+                    "chart_id": "7",
+                    "debit": "0.00",
+                    "credit": "0.00"
+                },
+                "namespace": "erp/v1",
+                "rest_base": "accounting/v1/opening-balances",
+                "_links": {
+                    "self": {
+                        "href": "https://example.com/wp-json/erp/v1/accounting/v1/opening-balances/0"
+                    },
+                    "collection": {
+                        "href": "https://example.com/wp-json/erp/v1/accounting/v1/opening-balances"
+                    }
+                }
+            }
+
+## Manage Single Opening Balance [/opening-balances/{id}]
+
++ Parameters
+    + id (string) - id of the opening balance in the form of an string
+
+### Retrieve A Opening Balance [GET]
+
++ Request (application/json)
++ Response 200 (application/json)
+    + Body
+
+            [
+                {
+                    "id": "1",
+                    "financial_year_id": "1",
+                    "ledger_id": "2",
+                    "name": "Inventory",
+                    "chart_id": "1",
+                    "debit": "0.00",
+                    "credit": "0.00",
+                    "namespace": "erp/v1",
+                    "rest_base": "accounting/v1/opening-balances",
+                    "_links": {
+                        "self": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/opening-balances/1"
+                        },
+                        "collection": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/opening-balances"
+                        }
+                    }
+                },
+                {
+                    "id": "2",
+                    "financial_year_id": "1",
+                    "ledger_id": "3",
+                    "name": "Office Equipment",
+                    "chart_id": "1",
+                    "debit": "0.00",
+                    "credit": "0.00",
+                    "namespace": "erp/v1",
+                    "rest_base": "accounting/v1/opening-balances",
+                    "_links": {
+                        "self": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/opening-balances/2"
+                        },
+                        "collection": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/opening-balances"
+                        }
+                    }
+                },
+                {
+                    "id": "3",
+                    "financial_year_id": "1",
+                    "ledger_id": "4",
+                    "name": "Less Accumulated Depreciation on Office Equipment",
+                    "chart_id": "1",
+                    "debit": "0.00",
+                    "credit": "0.00",
+                    "namespace": "erp/v1",
+                    "rest_base": "accounting/v1/opening-balances",
+                    "_links": {
+                        "self": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/opening-balances/3"
+                        },
+                        "collection": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/opening-balances"
+                        }
+                    }
+                },
+                {
+                    "id": "4",
+                    "financial_year_id": "1",
+                    "ledger_id": "5",
+                    "name": "Computer Equipment",
+                    "chart_id": "1",
+                    "debit": "0.00",
+                    "credit": "0.00",
+                    "namespace": "erp/v1",
+                    "rest_base": "accounting/v1/opening-balances",
+                    "_links": {
+                        "self": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/opening-balances/4"
+                        },
+                        "collection": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/opening-balances"
+                        }
+                    }
+                },
+                {
+                    "id": "5",
+                    "financial_year_id": "1",
+                    "ledger_id": "6",
+                    "name": "Less Accumulated Depreciation on Computer Equipment",
+                    "chart_id": "1",
+                    "debit": "0.00",
+                    "credit": "0.00",
+                    "namespace": "erp/v1",
+                    "rest_base": "accounting/v1/opening-balances",
+                    "_links": {
+                        "self": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/opening-balances/5"
+                        },
+                        "collection": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/opening-balances"
+                        }
+                    }
+                },
+                {
+                    "id": "6",
+                    "financial_year_id": "1",
+                    "ledger_id": "7",
+                    "name": "Cash",
+                    "chart_id": "1",
+                    "debit": "100.00",
+                    "credit": "0.00",
+                    "namespace": "erp/v1",
+                    "rest_base": "accounting/v1/opening-balances",
+                    "_links": {
+                        "self": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/opening-balances/6"
+                        },
+                        "collection": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/opening-balances"
+                        }
+                    }
+                },
+                {
+                    "id": "7",
+                    "financial_year_id": "1",
+                    "ledger_id": "62",
+                    "name": "Savings Account",
+                    "chart_id": "1",
+                    "debit": "0.00",
+                    "credit": "0.00",
+                    "namespace": "erp/v1",
+                    "rest_base": "accounting/v1/opening-balances",
+                    "_links": {
+                        "self": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/opening-balances/7"
+                        },
+                        "collection": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/opening-balances"
+                        }
+                    }
+                },
+                {
+                    "id": "8",
+                    "financial_year_id": "1",
+                    "ledger_id": "63",
+                    "name": "Allowance for Doubtful Accounts",
+                    "chart_id": "1",
+                    "debit": "0.00",
+                    "credit": "0.00",
+                    "namespace": "erp/v1",
+                    "rest_base": "accounting/v1/opening-balances",
+                    "_links": {
+                        "self": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/opening-balances/8"
+                        },
+                        "collection": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/opening-balances"
+                        }
+                    }
+                },
+                {
+                    "id": "9",
+                    "financial_year_id": "1",
+                    "ledger_id": "64",
+                    "name": "Interest Receivable",
+                    "chart_id": "1",
+                    "debit": "0.00",
+                    "credit": "0.00",
+                    "namespace": "erp/v1",
+                    "rest_base": "accounting/v1/opening-balances",
+                    "_links": {
+                        "self": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/opening-balances/9"
+                        },
+                        "collection": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/opening-balances"
+                        }
+                    }
+                },
+                {
+                    "id": "10",
+                    "financial_year_id": "1",
+                    "ledger_id": "65",
+                    "name": "Supplies",
+                    "chart_id": "1",
+                    "debit": "0.00",
+                    "credit": "0.00",
+                    "namespace": "erp/v1",
+                    "rest_base": "accounting/v1/opening-balances",
+                    "_links": {
+                        "self": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/opening-balances/10"
+                        },
+                        "collection": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/opening-balances"
+                        }
+                    }
+                },
+                {
+                    "id": "11",
+                    "financial_year_id": "1",
+                    "ledger_id": "66",
+                    "name": "Prepaid Insurance",
+                    "chart_id": "1",
+                    "debit": "0.00",
+                    "credit": "0.00",
+                    "namespace": "erp/v1",
+                    "rest_base": "accounting/v1/opening-balances",
+                    "_links": {
+                        "self": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/opening-balances/11"
+                        },
+                        "collection": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/opening-balances"
+                        }
+                    }
+                },
+                {
+                    "id": "12",
+                    "financial_year_id": "1",
+                    "ledger_id": "67",
+                    "name": "Prepaid Rent",
+                    "chart_id": "1",
+                    "debit": "0.00",
+                    "credit": "0.00",
+                    "namespace": "erp/v1",
+                    "rest_base": "accounting/v1/opening-balances",
+                    "_links": {
+                        "self": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/opening-balances/12"
+                        },
+                        "collection": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/opening-balances"
+                        }
+                    }
+                },
+                {
+                    "id": "13",
+                    "financial_year_id": "1",
+                    "ledger_id": "68",
+                    "name": "Prepaid Salary",
+                    "chart_id": "1",
+                    "debit": "0.00",
+                    "credit": "0.00",
+                    "namespace": "erp/v1",
+                    "rest_base": "accounting/v1/opening-balances",
+                    "_links": {
+                        "self": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/opening-balances/13"
+                        },
+                        "collection": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/opening-balances"
+                        }
+                    }
+                },
+                {
+                    "id": "14",
+                    "financial_year_id": "1",
+                    "ledger_id": "69",
+                    "name": "Land",
+                    "chart_id": "1",
+                    "debit": "0.00",
+                    "credit": "0.00",
+                    "namespace": "erp/v1",
+                    "rest_base": "accounting/v1/opening-balances",
+                    "_links": {
+                        "self": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/opening-balances/14"
+                        },
+                        "collection": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/opening-balances"
+                        }
+                    }
+                },
+                {
+                    "id": "15",
+                    "financial_year_id": "1",
+                    "ledger_id": "70",
+                    "name": "Furniture & Fixture",
+                    "chart_id": "1",
+                    "debit": "0.00",
+                    "credit": "0.00",
+                    "namespace": "erp/v1",
+                    "rest_base": "accounting/v1/opening-balances",
+                    "_links": {
+                        "self": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/opening-balances/15"
+                        },
+                        "collection": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/opening-balances"
+                        }
+                    }
+                },
+                {
+                    "id": "16",
+                    "financial_year_id": "1",
+                    "ledger_id": "71",
+                    "name": "Buildings",
+                    "chart_id": "1",
+                    "debit": "0.00",
+                    "credit": "0.00",
+                    "namespace": "erp/v1",
+                    "rest_base": "accounting/v1/opening-balances",
+                    "_links": {
+                        "self": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/opening-balances/16"
+                        },
+                        "collection": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/opening-balances"
+                        }
+                    }
+                },
+                {
+                    "id": "17",
+                    "financial_year_id": "1",
+                    "ledger_id": "72",
+                    "name": "Copyrights",
+                    "chart_id": "1",
+                    "debit": "0.00",
+                    "credit": "0.00",
+                    "namespace": "erp/v1",
+                    "rest_base": "accounting/v1/opening-balances",
+                    "_links": {
+                        "self": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/opening-balances/17"
+                        },
+                        "collection": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/opening-balances"
+                        }
+                    }
+                },
+                {
+                    "id": "18",
+                    "financial_year_id": "1",
+                    "ledger_id": "73",
+                    "name": "Goodwill",
+                    "chart_id": "1",
+                    "debit": "0.00",
+                    "credit": "0.00",
+                    "namespace": "erp/v1",
+                    "rest_base": "accounting/v1/opening-balances",
+                    "_links": {
+                        "self": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/opening-balances/18"
+                        },
+                        "collection": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/opening-balances"
+                        }
+                    }
+                },
+                {
+                    "id": "19",
+                    "financial_year_id": "1",
+                    "ledger_id": "74",
+                    "name": "Patents",
+                    "chart_id": "1",
+                    "debit": "0.00",
+                    "credit": "0.00",
+                    "namespace": "erp/v1",
+                    "rest_base": "accounting/v1/opening-balances",
+                    "_links": {
+                        "self": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/opening-balances/19"
+                        },
+                        "collection": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/opening-balances"
+                        }
+                    }
+                },
+                {
+                    "id": "20",
+                    "financial_year_id": "1",
+                    "ledger_id": "75",
+                    "name": "Accoumulated Depreciation- Buildings",
+                    "chart_id": "1",
+                    "debit": "0.00",
+                    "credit": "0.00",
+                    "namespace": "erp/v1",
+                    "rest_base": "accounting/v1/opening-balances",
+                    "_links": {
+                        "self": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/opening-balances/20"
+                        },
+                        "collection": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/opening-balances"
+                        }
+                    }
+                },
+                {
+                    "id": "21",
+                    "financial_year_id": "1",
+                    "ledger_id": "76",
+                    "name": "Accoumulated Depreciation- Furniture & Fixtures",
+                    "chart_id": "1",
+                    "debit": "0.00",
+                    "credit": "0.00",
+                    "namespace": "erp/v1",
+                    "rest_base": "accounting/v1/opening-balances",
+                    "_links": {
+                        "self": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/opening-balances/21"
+                        },
+                        "collection": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/opening-balances"
+                        }
+                    }
+                },
+                {
+                    "id": "22",
+                    "financial_year_id": "1",
+                    "ledger_id": "9",
+                    "name": "Accruals",
+                    "chart_id": "2",
+                    "debit": "0.00",
+                    "credit": "0.00",
+                    "namespace": "erp/v1",
+                    "rest_base": "accounting/v1/opening-balances",
+                    "_links": {
+                        "self": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/opening-balances/22"
+                        },
+                        "collection": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/opening-balances"
+                        }
+                    }
+                },
+                {
+                    "id": "23",
+                    "financial_year_id": "1",
+                    "ledger_id": "10",
+                    "name": "Unpaid Expense Claims",
+                    "chart_id": "2",
+                    "debit": "0.00",
+                    "credit": "0.00",
+                    "namespace": "erp/v1",
+                    "rest_base": "accounting/v1/opening-balances",
+                    "_links": {
+                        "self": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/opening-balances/23"
+                        },
+                        "collection": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/opening-balances"
+                        }
+                    }
+                },
+                {
+                    "id": "24",
+                    "financial_year_id": "1",
+                    "ledger_id": "11",
+                    "name": "Wages Payable",
+                    "chart_id": "2",
+                    "debit": "0.00",
+                    "credit": "0.00",
+                    "namespace": "erp/v1",
+                    "rest_base": "accounting/v1/opening-balances",
+                    "_links": {
+                        "self": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/opening-balances/24"
+                        },
+                        "collection": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/opening-balances"
+                        }
+                    }
+                },
+                {
+                    "id": "25",
+                    "financial_year_id": "1",
+                    "ledger_id": "12",
+                    "name": "Wages Payable - Payroll",
+                    "chart_id": "2",
+                    "debit": "0.00",
+                    "credit": "0.00",
+                    "namespace": "erp/v1",
+                    "rest_base": "accounting/v1/opening-balances",
+                    "_links": {
+                        "self": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/opening-balances/25"
+                        },
+                        "collection": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/opening-balances"
+                        }
+                    }
+                },
+                {
+                    "id": "26",
+                    "financial_year_id": "1",
+                    "ledger_id": "13",
+                    "name": "Sales Tax",
+                    "chart_id": "2",
+                    "debit": "0.00",
+                    "credit": "0.00",
+                    "namespace": "erp/v1",
+                    "rest_base": "accounting/v1/opening-balances",
+                    "_links": {
+                        "self": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/opening-balances/26"
+                        },
+                        "collection": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/opening-balances"
+                        }
+                    }
+                },
+                {
+                    "id": "27",
+                    "financial_year_id": "1",
+                    "ledger_id": "14",
+                    "name": "Employee Tax Payable",
+                    "chart_id": "2",
+                    "debit": "0.00",
+                    "credit": "0.00",
+                    "namespace": "erp/v1",
+                    "rest_base": "accounting/v1/opening-balances",
+                    "_links": {
+                        "self": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/opening-balances/27"
+                        },
+                        "collection": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/opening-balances"
+                        }
+                    }
+                },
+                {
+                    "id": "28",
+                    "financial_year_id": "1",
+                    "ledger_id": "15",
+                    "name": "Employee Benefits Payable",
+                    "chart_id": "2",
+                    "debit": "0.00",
+                    "credit": "0.00",
+                    "namespace": "erp/v1",
+                    "rest_base": "accounting/v1/opening-balances",
+                    "_links": {
+                        "self": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/opening-balances/28"
+                        },
+                        "collection": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/opening-balances"
+                        }
+                    }
+                },
+                {
+                    "id": "29",
+                    "financial_year_id": "1",
+                    "ledger_id": "16",
+                    "name": "Employee Deductions payable",
+                    "chart_id": "2",
+                    "debit": "0.00",
+                    "credit": "0.00",
+                    "namespace": "erp/v1",
+                    "rest_base": "accounting/v1/opening-balances",
+                    "_links": {
+                        "self": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/opening-balances/29"
+                        },
+                        "collection": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/opening-balances"
+                        }
+                    }
+                },
+                {
+                    "id": "30",
+                    "financial_year_id": "1",
+                    "ledger_id": "17",
+                    "name": "Income Tax Payable",
+                    "chart_id": "2",
+                    "debit": "0.00",
+                    "credit": "0.00",
+                    "namespace": "erp/v1",
+                    "rest_base": "accounting/v1/opening-balances",
+                    "_links": {
+                        "self": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/opening-balances/30"
+                        },
+                        "collection": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/opening-balances"
+                        }
+                    }
+                },
+                {
+                    "id": "31",
+                    "financial_year_id": "1",
+                    "ledger_id": "18",
+                    "name": "Suspense",
+                    "chart_id": "2",
+                    "debit": "0.00",
+                    "credit": "0.00",
+                    "namespace": "erp/v1",
+                    "rest_base": "accounting/v1/opening-balances",
+                    "_links": {
+                        "self": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/opening-balances/31"
+                        },
+                        "collection": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/opening-balances"
+                        }
+                    }
+                },
+                {
+                    "id": "32",
+                    "financial_year_id": "1",
+                    "ledger_id": "19",
+                    "name": "Historical Adjustments",
+                    "chart_id": "2",
+                    "debit": "0.00",
+                    "credit": "0.00",
+                    "namespace": "erp/v1",
+                    "rest_base": "accounting/v1/opening-balances",
+                    "_links": {
+                        "self": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/opening-balances/32"
+                        },
+                        "collection": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/opening-balances"
+                        }
+                    }
+                },
+                {
+                    "id": "33",
+                    "financial_year_id": "1",
+                    "ledger_id": "20",
+                    "name": "Rounding",
+                    "chart_id": "2",
+                    "debit": "0.00",
+                    "credit": "0.00",
+                    "namespace": "erp/v1",
+                    "rest_base": "accounting/v1/opening-balances",
+                    "_links": {
+                        "self": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/opening-balances/33"
+                        },
+                        "collection": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/opening-balances"
+                        }
+                    }
+                },
+                {
+                    "id": "34",
+                    "financial_year_id": "1",
+                    "ledger_id": "21",
+                    "name": "Revenue Received in Advance",
+                    "chart_id": "2",
+                    "debit": "0.00",
+                    "credit": "0.00",
+                    "namespace": "erp/v1",
+                    "rest_base": "accounting/v1/opening-balances",
+                    "_links": {
+                        "self": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/opening-balances/34"
+                        },
+                        "collection": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/opening-balances"
+                        }
+                    }
+                },
+                {
+                    "id": "35",
+                    "financial_year_id": "1",
+                    "ledger_id": "22",
+                    "name": "Clearing Account",
+                    "chart_id": "2",
+                    "debit": "0.00",
+                    "credit": "0.00",
+                    "namespace": "erp/v1",
+                    "rest_base": "accounting/v1/opening-balances",
+                    "_links": {
+                        "self": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/opening-balances/35"
+                        },
+                        "collection": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/opening-balances"
+                        }
+                    }
+                },
+                {
+                    "id": "36",
+                    "financial_year_id": "1",
+                    "ledger_id": "23",
+                    "name": "Loan",
+                    "chart_id": "2",
+                    "debit": "0.00",
+                    "credit": "0.00",
+                    "namespace": "erp/v1",
+                    "rest_base": "accounting/v1/opening-balances",
+                    "_links": {
+                        "self": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/opening-balances/36"
+                        },
+                        "collection": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/opening-balances"
+                        }
+                    }
+                },
+                {
+                    "id": "37",
+                    "financial_year_id": "1",
+                    "ledger_id": "77",
+                    "name": "Notes Payable",
+                    "chart_id": "2",
+                    "debit": "0.00",
+                    "credit": "0.00",
+                    "namespace": "erp/v1",
+                    "rest_base": "accounting/v1/opening-balances",
+                    "_links": {
+                        "self": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/opening-balances/37"
+                        },
+                        "collection": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/opening-balances"
+                        }
+                    }
+                },
+                {
+                    "id": "38",
+                    "financial_year_id": "1",
+                    "ledger_id": "78",
+                    "name": "Salaries and Wages Payable",
+                    "chart_id": "2",
+                    "debit": "0.00",
+                    "credit": "0.00",
+                    "namespace": "erp/v1",
+                    "rest_base": "accounting/v1/opening-balances",
+                    "_links": {
+                        "self": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/opening-balances/38"
+                        },
+                        "collection": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/opening-balances"
+                        }
+                    }
+                },
+                {
+                    "id": "39",
+                    "financial_year_id": "1",
+                    "ledger_id": "79",
+                    "name": "Unearned Rent Revenue",
+                    "chart_id": "2",
+                    "debit": "0.00",
+                    "credit": "0.00",
+                    "namespace": "erp/v1",
+                    "rest_base": "accounting/v1/opening-balances",
+                    "_links": {
+                        "self": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/opening-balances/39"
+                        },
+                        "collection": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/opening-balances"
+                        }
+                    }
+                },
+                {
+                    "id": "40",
+                    "financial_year_id": "1",
+                    "ledger_id": "80",
+                    "name": "Interest Payable",
+                    "chart_id": "2",
+                    "debit": "0.00",
+                    "credit": "0.00",
+                    "namespace": "erp/v1",
+                    "rest_base": "accounting/v1/opening-balances",
+                    "_links": {
+                        "self": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/opening-balances/40"
+                        },
+                        "collection": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/opening-balances"
+                        }
+                    }
+                },
+                {
+                    "id": "41",
+                    "financial_year_id": "1",
+                    "ledger_id": "81",
+                    "name": "Dividends Payable",
+                    "chart_id": "2",
+                    "debit": "0.00",
+                    "credit": "0.00",
+                    "namespace": "erp/v1",
+                    "rest_base": "accounting/v1/opening-balances",
+                    "_links": {
+                        "self": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/opening-balances/41"
+                        },
+                        "collection": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/opening-balances"
+                        }
+                    }
+                },
+                {
+                    "id": "42",
+                    "financial_year_id": "1",
+                    "ledger_id": "82",
+                    "name": "Bonds Payable",
+                    "chart_id": "2",
+                    "debit": "0.00",
+                    "credit": "0.00",
+                    "namespace": "erp/v1",
+                    "rest_base": "accounting/v1/opening-balances",
+                    "_links": {
+                        "self": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/opening-balances/42"
+                        },
+                        "collection": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/opening-balances"
+                        }
+                    }
+                },
+                {
+                    "id": "43",
+                    "financial_year_id": "1",
+                    "ledger_id": "83",
+                    "name": "Discount on Bonds Payable",
+                    "chart_id": "2",
+                    "debit": "0.00",
+                    "credit": "0.00",
+                    "namespace": "erp/v1",
+                    "rest_base": "accounting/v1/opening-balances",
+                    "_links": {
+                        "self": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/opening-balances/43"
+                        },
+                        "collection": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/opening-balances"
+                        }
+                    }
+                },
+                {
+                    "id": "44",
+                    "financial_year_id": "1",
+                    "ledger_id": "84",
+                    "name": "Premium on Bonds Payable",
+                    "chart_id": "2",
+                    "debit": "0.00",
+                    "credit": "0.00",
+                    "namespace": "erp/v1",
+                    "rest_base": "accounting/v1/opening-balances",
+                    "_links": {
+                        "self": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/opening-balances/44"
+                        },
+                        "collection": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/opening-balances"
+                        }
+                    }
+                },
+                {
+                    "id": "45",
+                    "financial_year_id": "1",
+                    "ledger_id": "85",
+                    "name": "Mortgage Payable",
+                    "chart_id": "2",
+                    "debit": "0.00",
+                    "credit": "0.00",
+                    "namespace": "erp/v1",
+                    "rest_base": "accounting/v1/opening-balances",
+                    "_links": {
+                        "self": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/opening-balances/45"
+                        },
+                        "collection": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/opening-balances"
+                        }
+                    }
+                },
+                {
+                    "id": "46",
+                    "financial_year_id": "1",
+                    "ledger_id": "58",
+                    "name": "Owners Contribution",
+                    "chart_id": "3",
+                    "debit": "0.00",
+                    "credit": "0.00",
+                    "namespace": "erp/v1",
+                    "rest_base": "accounting/v1/opening-balances",
+                    "_links": {
+                        "self": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/opening-balances/46"
+                        },
+                        "collection": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/opening-balances"
+                        }
+                    }
+                },
+                {
+                    "id": "47",
+                    "financial_year_id": "1",
+                    "ledger_id": "59",
+                    "name": "Owners Draw",
+                    "chart_id": "3",
+                    "debit": "0.00",
+                    "credit": "0.00",
+                    "namespace": "erp/v1",
+                    "rest_base": "accounting/v1/opening-balances",
+                    "_links": {
+                        "self": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/opening-balances/47"
+                        },
+                        "collection": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/opening-balances"
+                        }
+                    }
+                },
+                {
+                    "id": "48",
+                    "financial_year_id": "1",
+                    "ledger_id": "60",
+                    "name": "Retained Earnings",
+                    "chart_id": "3",
+                    "debit": "0.00",
+                    "credit": "0.00",
+                    "namespace": "erp/v1",
+                    "rest_base": "accounting/v1/opening-balances",
+                    "_links": {
+                        "self": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/opening-balances/48"
+                        },
+                        "collection": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/opening-balances"
+                        }
+                    }
+                },
+                {
+                    "id": "49",
+                    "financial_year_id": "1",
+                    "ledger_id": "61",
+                    "name": "Common Stock",
+                    "chart_id": "3",
+                    "debit": "0.00",
+                    "credit": "0.00",
+                    "namespace": "erp/v1",
+                    "rest_base": "accounting/v1/opening-balances",
+                    "_links": {
+                        "self": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/opening-balances/49"
+                        },
+                        "collection": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/opening-balances"
+                        }
+                    }
+                },
+                {
+                    "id": "50",
+                    "financial_year_id": "1",
+                    "ledger_id": "86",
+                    "name": "Owner's Equity",
+                    "chart_id": "3",
+                    "debit": "0.00",
+                    "credit": "100.00",
+                    "namespace": "erp/v1",
+                    "rest_base": "accounting/v1/opening-balances",
+                    "_links": {
+                        "self": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/opening-balances/50"
+                        },
+                        "collection": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/opening-balances"
+                        }
+                    }
+                },
+                {
+                    "id": "51",
+                    "financial_year_id": "1",
+                    "ledger_id": "87",
+                    "name": "Paid-in Capital in Excess of Par- Common Stock",
+                    "chart_id": "3",
+                    "debit": "0.00",
+                    "credit": "0.00",
+                    "namespace": "erp/v1",
+                    "rest_base": "accounting/v1/opening-balances",
+                    "_links": {
+                        "self": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/opening-balances/51"
+                        },
+                        "collection": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/opening-balances"
+                        }
+                    }
+                },
+                {
+                    "id": "52",
+                    "financial_year_id": "1",
+                    "ledger_id": "88",
+                    "name": "Paid-in Capital in Excess of Par- Preferred Stock",
+                    "chart_id": "3",
+                    "debit": "0.00",
+                    "credit": "0.00",
+                    "namespace": "erp/v1",
+                    "rest_base": "accounting/v1/opening-balances",
+                    "_links": {
+                        "self": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/opening-balances/52"
+                        },
+                        "collection": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/opening-balances"
+                        }
+                    }
+                },
+                {
+                    "id": "53",
+                    "financial_year_id": "1",
+                    "ledger_id": "89",
+                    "name": "Preferred Stock",
+                    "chart_id": "3",
+                    "debit": "0.00",
+                    "credit": "0.00",
+                    "namespace": "erp/v1",
+                    "rest_base": "accounting/v1/opening-balances",
+                    "_links": {
+                        "self": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/opening-balances/53"
+                        },
+                        "collection": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/opening-balances"
+                        }
+                    }
+                },
+                {
+                    "id": "54",
+                    "financial_year_id": "1",
+                    "ledger_id": "90",
+                    "name": "Treasury Stock",
+                    "chart_id": "3",
+                    "debit": "0.00",
+                    "credit": "0.00",
+                    "namespace": "erp/v1",
+                    "rest_base": "accounting/v1/opening-balances",
+                    "_links": {
+                        "self": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/opening-balances/54"
+                        },
+                        "collection": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/opening-balances"
+                        }
+                    }
+                },
+                {
+                    "id": "55",
+                    "financial_year_id": "1",
+                    "ledger_id": "91",
+                    "name": "Dividends",
+                    "chart_id": "3",
+                    "debit": "0.00",
+                    "credit": "0.00",
+                    "namespace": "erp/v1",
+                    "rest_base": "accounting/v1/opening-balances",
+                    "_links": {
+                        "self": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/opening-balances/55"
+                        },
+                        "collection": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/opening-balances"
+                        }
+                    }
+                },
+                {
+                    "id": "56",
+                    "financial_year_id": "1",
+                    "ledger_id": "92",
+                    "name": "Income Summary",
+                    "chart_id": "3",
+                    "debit": "0.00",
+                    "credit": "0.00",
+                    "namespace": "erp/v1",
+                    "rest_base": "accounting/v1/opening-balances",
+                    "_links": {
+                        "self": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/opening-balances/56"
+                        },
+                        "collection": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/opening-balances"
+                        }
+                    }
+                },
+                {
+                    "id": "57",
+                    "financial_year_id": "1",
+                    "ledger_id": "54",
+                    "name": "Sales",
+                    "chart_id": "4",
+                    "debit": "0.00",
+                    "credit": "0.00",
+                    "namespace": "erp/v1",
+                    "rest_base": "accounting/v1/opening-balances",
+                    "_links": {
+                        "self": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/opening-balances/57"
+                        },
+                        "collection": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/opening-balances"
+                        }
+                    }
+                },
+                {
+                    "id": "58",
+                    "financial_year_id": "1",
+                    "ledger_id": "55",
+                    "name": "Interest Income",
+                    "chart_id": "4",
+                    "debit": "0.00",
+                    "credit": "0.00",
+                    "namespace": "erp/v1",
+                    "rest_base": "accounting/v1/opening-balances",
+                    "_links": {
+                        "self": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/opening-balances/58"
+                        },
+                        "collection": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/opening-balances"
+                        }
+                    }
+                },
+                {
+                    "id": "59",
+                    "financial_year_id": "1",
+                    "ledger_id": "56",
+                    "name": "Other Revenue",
+                    "chart_id": "4",
+                    "debit": "0.00",
+                    "credit": "0.00",
+                    "namespace": "erp/v1",
+                    "rest_base": "accounting/v1/opening-balances",
+                    "_links": {
+                        "self": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/opening-balances/59"
+                        },
+                        "collection": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/opening-balances"
+                        }
+                    }
+                },
+                {
+                    "id": "60",
+                    "financial_year_id": "1",
+                    "ledger_id": "57",
+                    "name": "Purchase Discount",
+                    "chart_id": "4",
+                    "debit": "0.00",
+                    "credit": "0.00",
+                    "namespace": "erp/v1",
+                    "rest_base": "accounting/v1/opening-balances",
+                    "_links": {
+                        "self": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/opening-balances/60"
+                        },
+                        "collection": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/opening-balances"
+                        }
+                    }
+                },
+                {
+                    "id": "61",
+                    "financial_year_id": "1",
+                    "ledger_id": "93",
+                    "name": "Service Revenue",
+                    "chart_id": "4",
+                    "debit": "0.00",
+                    "credit": "0.00",
+                    "namespace": "erp/v1",
+                    "rest_base": "accounting/v1/opening-balances",
+                    "_links": {
+                        "self": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/opening-balances/61"
+                        },
+                        "collection": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/opening-balances"
+                        }
+                    }
+                },
+                {
+                    "id": "62",
+                    "financial_year_id": "1",
+                    "ledger_id": "94",
+                    "name": "Sales Revenue",
+                    "chart_id": "4",
+                    "debit": "0.00",
+                    "credit": "0.00",
+                    "namespace": "erp/v1",
+                    "rest_base": "accounting/v1/opening-balances",
+                    "_links": {
+                        "self": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/opening-balances/62"
+                        },
+                        "collection": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/opening-balances"
+                        }
+                    }
+                },
+                {
+                    "id": "63",
+                    "financial_year_id": "1",
+                    "ledger_id": "95",
+                    "name": "Sales Returns and Allowance",
+                    "chart_id": "4",
+                    "debit": "0.00",
+                    "credit": "0.00",
+                    "namespace": "erp/v1",
+                    "rest_base": "accounting/v1/opening-balances",
+                    "_links": {
+                        "self": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/opening-balances/63"
+                        },
+                        "collection": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/opening-balances"
+                        }
+                    }
+                },
+                {
+                    "id": "64",
+                    "financial_year_id": "1",
+                    "ledger_id": "96",
+                    "name": "Gain on Disposal of Plant Assets",
+                    "chart_id": "4",
+                    "debit": "0.00",
+                    "credit": "0.00",
+                    "namespace": "erp/v1",
+                    "rest_base": "accounting/v1/opening-balances",
+                    "_links": {
+                        "self": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/opening-balances/64"
+                        },
+                        "collection": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/opening-balances"
+                        }
+                    }
+                },
+                {
+                    "id": "65",
+                    "financial_year_id": "1",
+                    "ledger_id": "97",
+                    "name": "Asset Sales",
+                    "chart_id": "4",
+                    "debit": "0.00",
+                    "credit": "0.00",
+                    "namespace": "erp/v1",
+                    "rest_base": "accounting/v1/opening-balances",
+                    "_links": {
+                        "self": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/opening-balances/65"
+                        },
+                        "collection": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/opening-balances"
+                        }
+                    }
+                },
+                {
+                    "id": "66",
+                    "financial_year_id": "1",
+                    "ledger_id": "24",
+                    "name": "Costs of Goods Sold",
+                    "chart_id": "5",
+                    "debit": "0.00",
+                    "credit": "0.00",
+                    "namespace": "erp/v1",
+                    "rest_base": "accounting/v1/opening-balances",
+                    "_links": {
+                        "self": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/opening-balances/66"
+                        },
+                        "collection": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/opening-balances"
+                        }
+                    }
+                },
+                {
+                    "id": "67",
+                    "financial_year_id": "1",
+                    "ledger_id": "25",
+                    "name": "Advertising",
+                    "chart_id": "5",
+                    "debit": "0.00",
+                    "credit": "0.00",
+                    "namespace": "erp/v1",
+                    "rest_base": "accounting/v1/opening-balances",
+                    "_links": {
+                        "self": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/opening-balances/67"
+                        },
+                        "collection": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/opening-balances"
+                        }
+                    }
+                },
+                {
+                    "id": "68",
+                    "financial_year_id": "1",
+                    "ledger_id": "26",
+                    "name": "Bank Service Charges",
+                    "chart_id": "5",
+                    "debit": "0.00",
+                    "credit": "0.00",
+                    "namespace": "erp/v1",
+                    "rest_base": "accounting/v1/opening-balances",
+                    "_links": {
+                        "self": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/opening-balances/68"
+                        },
+                        "collection": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/opening-balances"
+                        }
+                    }
+                },
+                {
+                    "id": "69",
+                    "financial_year_id": "1",
+                    "ledger_id": "27",
+                    "name": "Janitorial Expenses",
+                    "chart_id": "5",
+                    "debit": "0.00",
+                    "credit": "0.00",
+                    "namespace": "erp/v1",
+                    "rest_base": "accounting/v1/opening-balances",
+                    "_links": {
+                        "self": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/opening-balances/69"
+                        },
+                        "collection": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/opening-balances"
+                        }
+                    }
+                },
+                {
+                    "id": "70",
+                    "financial_year_id": "1",
+                    "ledger_id": "28",
+                    "name": "Consulting & Accounting",
+                    "chart_id": "5",
+                    "debit": "0.00",
+                    "credit": "0.00",
+                    "namespace": "erp/v1",
+                    "rest_base": "accounting/v1/opening-balances",
+                    "_links": {
+                        "self": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/opening-balances/70"
+                        },
+                        "collection": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/opening-balances"
+                        }
+                    }
+                },
+                {
+                    "id": "71",
+                    "financial_year_id": "1",
+                    "ledger_id": "29",
+                    "name": "Entertainment",
+                    "chart_id": "5",
+                    "debit": "0.00",
+                    "credit": "0.00",
+                    "namespace": "erp/v1",
+                    "rest_base": "accounting/v1/opening-balances",
+                    "_links": {
+                        "self": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/opening-balances/71"
+                        },
+                        "collection": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/opening-balances"
+                        }
+                    }
+                },
+                {
+                    "id": "72",
+                    "financial_year_id": "1",
+                    "ledger_id": "30",
+                    "name": "Postage & Delivary",
+                    "chart_id": "5",
+                    "debit": "0.00",
+                    "credit": "0.00",
+                    "namespace": "erp/v1",
+                    "rest_base": "accounting/v1/opening-balances",
+                    "_links": {
+                        "self": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/opening-balances/72"
+                        },
+                        "collection": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/opening-balances"
+                        }
+                    }
+                },
+                {
+                    "id": "73",
+                    "financial_year_id": "1",
+                    "ledger_id": "31",
+                    "name": "General Expenses",
+                    "chart_id": "5",
+                    "debit": "0.00",
+                    "credit": "0.00",
+                    "namespace": "erp/v1",
+                    "rest_base": "accounting/v1/opening-balances",
+                    "_links": {
+                        "self": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/opening-balances/73"
+                        },
+                        "collection": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/opening-balances"
+                        }
+                    }
+                },
+                {
+                    "id": "74",
+                    "financial_year_id": "1",
+                    "ledger_id": "32",
+                    "name": "Insurance",
+                    "chart_id": "5",
+                    "debit": "0.00",
+                    "credit": "0.00",
+                    "namespace": "erp/v1",
+                    "rest_base": "accounting/v1/opening-balances",
+                    "_links": {
+                        "self": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/opening-balances/74"
+                        },
+                        "collection": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/opening-balances"
+                        }
+                    }
+                },
+                {
+                    "id": "75",
+                    "financial_year_id": "1",
+                    "ledger_id": "33",
+                    "name": "Legal Expenses",
+                    "chart_id": "5",
+                    "debit": "0.00",
+                    "credit": "0.00",
+                    "namespace": "erp/v1",
+                    "rest_base": "accounting/v1/opening-balances",
+                    "_links": {
+                        "self": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/opening-balances/75"
+                        },
+                        "collection": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/opening-balances"
+                        }
+                    }
+                },
+                {
+                    "id": "76",
+                    "financial_year_id": "1",
+                    "ledger_id": "34",
+                    "name": "Utilities",
+                    "chart_id": "5",
+                    "debit": "0.00",
+                    "credit": "0.00",
+                    "namespace": "erp/v1",
+                    "rest_base": "accounting/v1/opening-balances",
+                    "_links": {
+                        "self": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/opening-balances/76"
+                        },
+                        "collection": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/opening-balances"
+                        }
+                    }
+                },
+                {
+                    "id": "77",
+                    "financial_year_id": "1",
+                    "ledger_id": "35",
+                    "name": "Automobile Expenses",
+                    "chart_id": "5",
+                    "debit": "0.00",
+                    "credit": "0.00",
+                    "namespace": "erp/v1",
+                    "rest_base": "accounting/v1/opening-balances",
+                    "_links": {
+                        "self": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/opening-balances/77"
+                        },
+                        "collection": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/opening-balances"
+                        }
+                    }
+                },
+                {
+                    "id": "78",
+                    "financial_year_id": "1",
+                    "ledger_id": "36",
+                    "name": "Office Expenses",
+                    "chart_id": "5",
+                    "debit": "0.00",
+                    "credit": "0.00",
+                    "namespace": "erp/v1",
+                    "rest_base": "accounting/v1/opening-balances",
+                    "_links": {
+                        "self": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/opening-balances/78"
+                        },
+                        "collection": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/opening-balances"
+                        }
+                    }
+                },
+                {
+                    "id": "79",
+                    "financial_year_id": "1",
+                    "ledger_id": "37",
+                    "name": "Printing & Stationary",
+                    "chart_id": "5",
+                    "debit": "0.00",
+                    "credit": "0.00",
+                    "namespace": "erp/v1",
+                    "rest_base": "accounting/v1/opening-balances",
+                    "_links": {
+                        "self": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/opening-balances/79"
+                        },
+                        "collection": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/opening-balances"
+                        }
+                    }
+                },
+                {
+                    "id": "80",
+                    "financial_year_id": "1",
+                    "ledger_id": "38",
+                    "name": "Rent",
+                    "chart_id": "5",
+                    "debit": "0.00",
+                    "credit": "0.00",
+                    "namespace": "erp/v1",
+                    "rest_base": "accounting/v1/opening-balances",
+                    "_links": {
+                        "self": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/opening-balances/80"
+                        },
+                        "collection": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/opening-balances"
+                        }
+                    }
+                },
+                {
+                    "id": "81",
+                    "financial_year_id": "1",
+                    "ledger_id": "39",
+                    "name": "Repairs & Maintenance",
+                    "chart_id": "5",
+                    "debit": "0.00",
+                    "credit": "0.00",
+                    "namespace": "erp/v1",
+                    "rest_base": "accounting/v1/opening-balances",
+                    "_links": {
+                        "self": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/opening-balances/81"
+                        },
+                        "collection": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/opening-balances"
+                        }
+                    }
+                },
+                {
+                    "id": "82",
+                    "financial_year_id": "1",
+                    "ledger_id": "40",
+                    "name": "Wages & Salaries",
+                    "chart_id": "5",
+                    "debit": "0.00",
+                    "credit": "0.00",
+                    "namespace": "erp/v1",
+                    "rest_base": "accounting/v1/opening-balances",
+                    "_links": {
+                        "self": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/opening-balances/82"
+                        },
+                        "collection": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/opening-balances"
+                        }
+                    }
+                },
+                {
+                    "id": "83",
+                    "financial_year_id": "1",
+                    "ledger_id": "41",
+                    "name": "Payroll Tax Expense",
+                    "chart_id": "5",
+                    "debit": "0.00",
+                    "credit": "0.00",
+                    "namespace": "erp/v1",
+                    "rest_base": "accounting/v1/opening-balances",
+                    "_links": {
+                        "self": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/opening-balances/83"
+                        },
+                        "collection": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/opening-balances"
+                        }
+                    }
+                },
+                {
+                    "id": "84",
+                    "financial_year_id": "1",
+                    "ledger_id": "42",
+                    "name": "Dues & Subscriptions",
+                    "chart_id": "5",
+                    "debit": "0.00",
+                    "credit": "0.00",
+                    "namespace": "erp/v1",
+                    "rest_base": "accounting/v1/opening-balances",
+                    "_links": {
+                        "self": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/opening-balances/84"
+                        },
+                        "collection": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/opening-balances"
+                        }
+                    }
+                },
+                {
+                    "id": "85",
+                    "financial_year_id": "1",
+                    "ledger_id": "43",
+                    "name": "Telephone & Internet",
+                    "chart_id": "5",
+                    "debit": "0.00",
+                    "credit": "0.00",
+                    "namespace": "erp/v1",
+                    "rest_base": "accounting/v1/opening-balances",
+                    "_links": {
+                        "self": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/opening-balances/85"
+                        },
+                        "collection": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/opening-balances"
+                        }
+                    }
+                },
+                {
+                    "id": "86",
+                    "financial_year_id": "1",
+                    "ledger_id": "44",
+                    "name": "Travel",
+                    "chart_id": "5",
+                    "debit": "0.00",
+                    "credit": "0.00",
+                    "namespace": "erp/v1",
+                    "rest_base": "accounting/v1/opening-balances",
+                    "_links": {
+                        "self": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/opening-balances/86"
+                        },
+                        "collection": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/opening-balances"
+                        }
+                    }
+                },
+                {
+                    "id": "87",
+                    "financial_year_id": "1",
+                    "ledger_id": "45",
+                    "name": "Bad Debts",
+                    "chart_id": "5",
+                    "debit": "0.00",
+                    "credit": "0.00",
+                    "namespace": "erp/v1",
+                    "rest_base": "accounting/v1/opening-balances",
+                    "_links": {
+                        "self": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/opening-balances/87"
+                        },
+                        "collection": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/opening-balances"
+                        }
+                    }
+                },
+                {
+                    "id": "88",
+                    "financial_year_id": "1",
+                    "ledger_id": "46",
+                    "name": "Depreciation",
+                    "chart_id": "5",
+                    "debit": "0.00",
+                    "credit": "0.00",
+                    "namespace": "erp/v1",
+                    "rest_base": "accounting/v1/opening-balances",
+                    "_links": {
+                        "self": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/opening-balances/88"
+                        },
+                        "collection": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/opening-balances"
+                        }
+                    }
+                },
+                {
+                    "id": "89",
+                    "financial_year_id": "1",
+                    "ledger_id": "47",
+                    "name": "Income Tax Expense",
+                    "chart_id": "5",
+                    "debit": "0.00",
+                    "credit": "0.00",
+                    "namespace": "erp/v1",
+                    "rest_base": "accounting/v1/opening-balances",
+                    "_links": {
+                        "self": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/opening-balances/89"
+                        },
+                        "collection": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/opening-balances"
+                        }
+                    }
+                },
+                {
+                    "id": "90",
+                    "financial_year_id": "1",
+                    "ledger_id": "48",
+                    "name": "Employee Benefits Expense",
+                    "chart_id": "5",
+                    "debit": "0.00",
+                    "credit": "0.00",
+                    "namespace": "erp/v1",
+                    "rest_base": "accounting/v1/opening-balances",
+                    "_links": {
+                        "self": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/opening-balances/90"
+                        },
+                        "collection": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/opening-balances"
+                        }
+                    }
+                },
+                {
+                    "id": "91",
+                    "financial_year_id": "1",
+                    "ledger_id": "49",
+                    "name": "Interest Expense",
+                    "chart_id": "5",
+                    "debit": "0.00",
+                    "credit": "0.00",
+                    "namespace": "erp/v1",
+                    "rest_base": "accounting/v1/opening-balances",
+                    "_links": {
+                        "self": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/opening-balances/91"
+                        },
+                        "collection": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/opening-balances"
+                        }
+                    }
+                },
+                {
+                    "id": "92",
+                    "financial_year_id": "1",
+                    "ledger_id": "50",
+                    "name": "Bank Revaluations",
+                    "chart_id": "5",
+                    "debit": "0.00",
+                    "credit": "0.00",
+                    "namespace": "erp/v1",
+                    "rest_base": "accounting/v1/opening-balances",
+                    "_links": {
+                        "self": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/opening-balances/92"
+                        },
+                        "collection": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/opening-balances"
+                        }
+                    }
+                },
+                {
+                    "id": "93",
+                    "financial_year_id": "1",
+                    "ledger_id": "51",
+                    "name": "Unrealized Currency Gains",
+                    "chart_id": "5",
+                    "debit": "0.00",
+                    "credit": "0.00",
+                    "namespace": "erp/v1",
+                    "rest_base": "accounting/v1/opening-balances",
+                    "_links": {
+                        "self": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/opening-balances/93"
+                        },
+                        "collection": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/opening-balances"
+                        }
+                    }
+                },
+                {
+                    "id": "94",
+                    "financial_year_id": "1",
+                    "ledger_id": "52",
+                    "name": "Realized Currency Gains",
+                    "chart_id": "5",
+                    "debit": "0.00",
+                    "credit": "0.00",
+                    "namespace": "erp/v1",
+                    "rest_base": "accounting/v1/opening-balances",
+                    "_links": {
+                        "self": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/opening-balances/94"
+                        },
+                        "collection": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/opening-balances"
+                        }
+                    }
+                },
+                {
+                    "id": "95",
+                    "financial_year_id": "1",
+                    "ledger_id": "53",
+                    "name": "Sales Discount",
+                    "chart_id": "5",
+                    "debit": "0.00",
+                    "credit": "0.00",
+                    "namespace": "erp/v1",
+                    "rest_base": "accounting/v1/opening-balances",
+                    "_links": {
+                        "self": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/opening-balances/95"
+                        },
+                        "collection": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/opening-balances"
+                        }
+                    }
+                },
+                {
+                    "id": "96",
+                    "financial_year_id": "1",
+                    "ledger_id": "98",
+                    "name": "Amortization Expense",
+                    "chart_id": "5",
+                    "debit": "0.00",
+                    "credit": "0.00",
+                    "namespace": "erp/v1",
+                    "rest_base": "accounting/v1/opening-balances",
+                    "_links": {
+                        "self": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/opening-balances/96"
+                        },
+                        "collection": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/opening-balances"
+                        }
+                    }
+                },
+                {
+                    "id": "97",
+                    "financial_year_id": "1",
+                    "ledger_id": "99",
+                    "name": "Freight-Out",
+                    "chart_id": "5",
+                    "debit": "0.00",
+                    "credit": "0.00",
+                    "namespace": "erp/v1",
+                    "rest_base": "accounting/v1/opening-balances",
+                    "_links": {
+                        "self": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/opening-balances/97"
+                        },
+                        "collection": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/opening-balances"
+                        }
+                    }
+                },
+                {
+                    "id": "98",
+                    "financial_year_id": "1",
+                    "ledger_id": "100",
+                    "name": "Insurance Expense",
+                    "chart_id": "5",
+                    "debit": "0.00",
+                    "credit": "0.00",
+                    "namespace": "erp/v1",
+                    "rest_base": "accounting/v1/opening-balances",
+                    "_links": {
+                        "self": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/opening-balances/98"
+                        },
+                        "collection": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/opening-balances"
+                        }
+                    }
+                },
+                {
+                    "id": "99",
+                    "financial_year_id": "1",
+                    "ledger_id": "101",
+                    "name": "Loss on Disposal of Plant Assets",
+                    "chart_id": "5",
+                    "debit": "0.00",
+                    "credit": "0.00",
+                    "namespace": "erp/v1",
+                    "rest_base": "accounting/v1/opening-balances",
+                    "_links": {
+                        "self": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/opening-balances/99"
+                        },
+                        "collection": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/opening-balances"
+                        }
+                    }
+                },
+                {
+                    "id": "100",
+                    "financial_year_id": "1",
+                    "ledger_id": "102",
+                    "name": "Maintenance and Repairs Expense",
+                    "chart_id": "5",
+                    "debit": "0.00",
+                    "credit": "0.00",
+                    "namespace": "erp/v1",
+                    "rest_base": "accounting/v1/opening-balances",
+                    "_links": {
+                        "self": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/opening-balances/100"
+                        },
+                        "collection": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/opening-balances"
+                        }
+                    }
+                },
+                {
+                    "id": "101",
+                    "financial_year_id": "1",
+                    "ledger_id": "103",
+                    "name": "Purchase",
+                    "chart_id": "5",
+                    "debit": "0.00",
+                    "credit": "0.00",
+                    "namespace": "erp/v1",
+                    "rest_base": "accounting/v1/opening-balances",
+                    "_links": {
+                        "self": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/opening-balances/101"
+                        },
+                        "collection": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/opening-balances"
+                        }
+                    }
+                },
+                {
+                    "id": "102",
+                    "financial_year_id": "1",
+                    "ledger_id": "104",
+                    "name": "Asset Purchase",
+                    "chart_id": "5",
+                    "debit": "0.00",
+                    "credit": "0.00",
+                    "namespace": "erp/v1",
+                    "rest_base": "accounting/v1/opening-balances",
+                    "_links": {
+                        "self": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/opening-balances/102"
+                        },
+                        "collection": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/opening-balances"
+                        }
+                    }
+                },
+                {
+                    "id": "103",
+                    "financial_year_id": "1",
+                    "ledger_id": "105",
+                    "name": "Bank Account",
+                    "chart_id": "7",
+                    "debit": "0.00",
+                    "credit": "0.00",
+                    "namespace": "erp/v1",
+                    "rest_base": "accounting/v1/opening-balances",
+                    "_links": {
+                        "self": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/opening-balances/103"
+                        },
+                        "collection": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/opening-balances"
+                        }
+                    }
+                }
+            ]
+
+
+## Get Opening Balance Names [/opening-balances/names]
+A list of Opening Balance Names
+
+### List All Opening Balance Names [GET]
+
+Fetches all available opening-balance names
+
++ Response 200 (application/json)
+    + Body
+
+            [
+                {
+                    "id": "1",
+                    "name": "2020",
+                    "start_date": "2020-01-01",
+                    "end_date": "2020-12-31"
+                }
+            ]
+
+
+## Manage Opening Balance Count [/opening-balances/{id}/count]
+
++ Parameters
+    + id (string) - id of the financial year in the form of an string
+
+### Retrieve Opening Balance Count of a financial year [GET]
+
++ Request (application/json)
++ Response 200 (application/json)
+    + Body
+
+            "103"
+
+
+## Manage Opening Balance virtual accounts [/opening-balances/virtual-accts/{id}/]
+
++ Parameters
+    + id (string) - id of the financial year in the form of an string
+
+### Retrieve virtual accounts of an Opening Balance of a financial year [GET]
+
++ Request (application/json)
++ Response 200 (application/json)
+    + Body
+
+            {
+                "acct_receivable": [],
+                "acct_payable": [],
+                "tax_payable": []
+            }
+
+
+## Manage Opening Balance Payables & Receivables [/opening-balances/acc-payable-receivable]
+
+
+### Retrieve Opening Balance Payables & Receivablesr [GET]
+
++ Request (application/json)
++ Response 200 (application/json)
+    + Body
+
+            {
+                "invoice_acc": 0,
+                "bill_purchase_acc": 0
+            }

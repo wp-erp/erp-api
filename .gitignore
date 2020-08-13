@@ -21,3 +21,17 @@ node_modules/
 *.log
 *.sql
 *.sqlite
+
+config.codekit
+.idea
+.vscode
+.codekit-cache
+/vendor/
+node_modules
+build
+.DS_Store
+nbproject
+debug.log
+.netbeans.xml
+plugin-deploy.sh
+package-lock.json

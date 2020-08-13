@@ -1,0 +1,187 @@
+# Group Product Categories
+
+
+## Product Categories List [/product-cats/{?per_page,page,search}]
+
++ Parameters
+
+    + per_page: 20 (number, optional) - The number of results per page.
+        + Default: `20`
+    + page: 1 (number, optional) - The current page number of results.
+        + Default: `1`
+    + search (string, optional) - The search keyword.
+
+### List All Product Categories [GET]
+
+Fetches all available product-cats with pagination
+
++ Response 200 (application/json)
+    + Body
+
+            [
+                {
+                    "id": "1",
+                    "name": "Beverage",
+                    "parent": "0",
+                    "namespace": "erp/v1",
+                    "rest_base": "accounting/v1/product-cats",
+                    "_links": {
+                        "self": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/product-cats/1"
+                        },
+                        "collection": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/product-cats"
+                        }
+                    }
+                },
+                {
+                    "id": "2",
+                    "name": "Plugin",
+                    "parent": "0",
+                    "namespace": "erp/v1",
+                    "rest_base": "accounting/v1/product-cats",
+                    "_links": {
+                        "self": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/product-cats/2"
+                        },
+                        "collection": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/product-cats"
+                        }
+                    }
+                },
+                {
+                    "id": "3",
+                    "name": "Fast food",
+                    "parent": "0",
+                    "namespace": "erp/v1",
+                    "rest_base": "accounting/v1/product-cats",
+                    "_links": {
+                        "self": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/product-cats/3"
+                        },
+                        "collection": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/product-cats"
+                        }
+                    }
+                },
+                {
+                    "id": "4",
+                    "name": "Chemical solvent",
+                    "parent": "0",
+                    "namespace": "erp/v1",
+                    "rest_base": "accounting/v1/product-cats",
+                    "_links": {
+                        "self": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/product-cats/4"
+                        },
+                        "collection": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/product-cats"
+                        }
+                    }
+                }
+            ]
+
+## Product Categories List [/product-cats/]
+
+### Create A Product Category [POST]
+
+    Model (application/json)
+
+    {
+        "name": "Service",
+        "parent": 0
+    }
+
++ Response 201 (application/json)
+    + Body
+
+            {
+                "id": "2",
+                "name": "Plugin",
+                "parent": "0",
+                "namespace": "erp/v1",
+                "rest_base": "accounting/v1/product-cats",
+                "_links": {
+                    "self": {
+                        "href": "https://example.com/wp-json/erp/v1/accounting/v1/product-cats/2"
+                    },
+                    "collection": {
+                        "href": "https://example.com/wp-json/erp/v1/accounting/v1/product-cats"
+                    }
+                }
+            }
+
+
+## Manage Single Product Category [/product-cats/{id}]
+
++ Parameters
+    + id (string) - id of the product_cat in the form of an string
+
+### Retrieve A Product Category [GET]
+
++ Response 200 (application/json)
+    + Body
+
+            {
+                "id": "2",
+                "name": "Plugin",
+                "parent": "0",
+                "namespace": "erp/v1",
+                "rest_base": "accounting/v1/product-cats",
+                "_links": {
+                    "self": {
+                        "href": "https://example.com/wp-json/erp/v1/accounting/v1/product-cats/2"
+                    },
+                    "collection": {
+                        "href": "https://example.com/wp-json/erp/v1/accounting/v1/product-cats"
+                    }
+                }
+            }
+
+### Update A Product Category [PUT]
+
+    Model (application/json)
+
+    {
+        "name": "Service",
+        "parent": 0
+    }
+
++ Response 200 (application/json)
+    + Body
+
+            {
+                "id": "2",
+                "name": "Plugin",
+                "parent": "0",
+                "namespace": "erp/v1",
+                "rest_base": "accounting/v1/product-cats",
+                "_links": {
+                    "self": {
+                        "href": "https://example.com/wp-json/erp/v1/accounting/v1/product-cats/2"
+                    },
+                    "collection": {
+                        "href": "https://example.com/wp-json/erp/v1/accounting/v1/product-cats"
+                    }
+                }
+            }
+
+### Delete A Product Category [DELETE]
+
+Deletes a Product Category
+
++ Request (application/json)
++ Response 204 (application/json)
+
+
+## Bulk Delete Product Categories [/product-cats/{ids}]
+
++ Parameters
+    + ids (string) - ids of the product categories to be deleted seperated by comma
+
+### Bulk Delete Product Categories [DELETE]
+
+Bulk Deletes selected product categories
+
++ Request (application/json)
++ Response 204 (application/json)

@@ -1,0 +1,332 @@
+# Group Purchases
+
+
+## Purchase List [/purchases/{?per_page,page,search}]
+
++ Parameters
+
+    + per_page: 20 (number, optional) - The number of results per page.
+        + Default: `20`
+    + page: 1 (number, optional) - The current page number of results.
+        + Default: `1`
+    + search (string, optional) - The search keyword.
+
+### List All Purchases [GET]
+
+Fetches all available purchases with pagination
+
++ Response 200 (application/json)
+    + Body
+
+            [
+                {
+                    "id": 1,
+                    "editable": 1,
+                    "vendor_id": 6,
+                    "voucher_no": 6,
+                    "vendor_name": "Christine Tillman",
+                    "date": "2020-03-23",
+                    "due_date": "2020-03-23",
+                    "line_items": [
+                        {
+                            "product_id": "4",
+                            "qty": "1",
+                            "price": "200.00",
+                            "amount": "200.00",
+                            "name": "Dry cleaning",
+                            "product_type_id": "1",
+                            "category_id": "4",
+                            "vendor": "6",
+                            "cost_price": "200.00",
+                            "unit_price": "250.00",
+                            "line_total": "200.00"
+                        }
+                    ],
+                    "type": "purchase",
+                    "ref": "PUR001",
+                    "billing_address": "street_1: Constantin Creek; street_2: 56306 Kadin Fields; city: Roweville; state: NY; postal_code: 86336; country: US; ",
+                    "status": "2",
+                    "purchase_order": "0",
+                    "amount": "200.00",
+                    "created_at": "2020-03-23",
+                    "due": "-200.00",
+                    "attachments": [],
+                    "particulars": "purchase products",
+                    "namespace": "erp/v1",
+                    "rest_base": "accounting/v1/purchases",
+                    "_links": {
+                        "self": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/purchases/1"
+                        },
+                        "collection": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/purchases"
+                        }
+                    }
+                }
+            ]
+
+## Purchase List [/purchases]
+
+### Create A Purchase [POST]
+
+    Model (application/json)
+
+    {
+        "vendor_id": 6,
+        "vendor_name": "Christine Tillman",
+        "trn_date": "2020-03-23",
+        "due_date": "2020-03-23",
+        "ref": "PUR001",
+        "billing_address": "Constantin Creek, 56306 Kadin Fields Roweville New York, 86336 United States (US)",
+        "line_items": [
+            {
+                "product_id": "4",
+                "qty": 1,
+                "unit_price": "200.00",
+                "item_total": "200.00"
+            }
+        ],
+        "particulars": "purchase products",
+        "attachments": [],
+        "type": "purchase",
+        "status": 2,
+        "purchase_order": 0
+    }
+
++ Response 201 (application/json)
+    + Body
+
+            {
+                "id": 1,
+                "editable": 1,
+                "vendor_id": 6,
+                "voucher_no": 6,
+                "vendor_name": "Christine Tillman",
+                "date": "2020-03-23",
+                "due_date": "2020-03-23",
+                "line_items": [
+                    {
+                        "product_id": "4",
+                        "qty": "1",
+                        "price": "200.00",
+                        "amount": "200.00",
+                        "name": "Dry cleaning",
+                        "product_type_id": "1",
+                        "category_id": "4",
+                        "vendor": "6",
+                        "cost_price": "200.00",
+                        "unit_price": "250.00",
+                        "line_total": "200.00"
+                    }
+                ],
+                "type": "purchase",
+                "ref": "PUR001",
+                "billing_address": "street_1: Constantin Creek; street_2: 56306 Kadin Fields; city: Roweville; state: NY; postal_code: 86336; country: US; ",
+                "status": "2",
+                "purchase_order": "0",
+                "amount": "200.00",
+                "created_at": "2020-03-23",
+                "due": "-200.00",
+                "attachments": [],
+                "particulars": "purchase products",
+                "namespace": "erp/v1",
+                "rest_base": "accounting/v1/purchases",
+                "_links": {
+                    "self": {
+                        "href": "https://example.com/wp-json/erp/v1/accounting/v1/purchases/1"
+                    },
+                    "collection": {
+                        "href": "https://example.com/wp-json/erp/v1/accounting/v1/purchases"
+                    }
+                }
+            }
+
+
+## Manage Single Purchase [/purchases/{id}]
+
++ Parameters
+    + id (string) - id of the purchase in the form of an string
+
+### Retrieve A Purchase [GET]
+
++ Response 200 (application/json)
+    + Body
+
+            {
+                "id": 1,
+                "editable": 1,
+                "vendor_id": 6,
+                "voucher_no": 6,
+                "vendor_name": "Christine Tillman",
+                "date": "2020-03-23",
+                "due_date": "2020-03-23",
+                "line_items": [
+                    {
+                        "product_id": "4",
+                        "qty": "1",
+                        "price": "200.00",
+                        "amount": "200.00",
+                        "name": "Dry cleaning",
+                        "product_type_id": "1",
+                        "category_id": "4",
+                        "vendor": "6",
+                        "cost_price": "200.00",
+                        "unit_price": "250.00",
+                        "line_total": "200.00"
+                    }
+                ],
+                "type": "purchase",
+                "ref": "PUR001",
+                "billing_address": "street_1: Constantin Creek; street_2: 56306 Kadin Fields; city: Roweville; state: NY; postal_code: 86336; country: US; ",
+                "status": "2",
+                "purchase_order": "0",
+                "amount": "200.00",
+                "created_at": "2020-03-23",
+                "due": "-200.00",
+                "attachments": [],
+                "particulars": "purchase products",
+                "namespace": "erp/v1",
+                "rest_base": "accounting/v1/purchases",
+                "_links": {
+                    "self": {
+                        "href": "https://example.com/wp-json/erp/v1/accounting/v1/purchases/1"
+                    },
+                    "collection": {
+                        "href": "https://example.com/wp-json/erp/v1/accounting/v1/purchases"
+                    }
+                }
+            }
+
+### Update A Purchase [PUT]
+
+    Model (application/json)
+
+    {
+        "vendor_id": 6,
+        "vendor_name": "Christine Tillman",
+        "trn_date": "2020-03-23",
+        "due_date": "2020-03-23",
+        "ref": "PUR001",
+        "billing_address": "Constantin Creek, 56306 Kadin Fields Roweville New York, 86336 United States (US)",
+        "line_items": [
+            {
+                "product_id": "4",
+                "qty": 1,
+                "unit_price": "200.00",
+                "item_total": "200.00"
+            }
+        ],
+        "particulars": "purchase products",
+        "attachments": [],
+        "type": "purchase",
+        "status": 2,
+        "purchase_order": 0
+    }
+
++ Response 201 (application/json)
+    + Body
+
+            {
+                "id": 1,
+                "editable": 1,
+                "vendor_id": 6,
+                "voucher_no": 6,
+                "vendor_name": "Christine Tillman",
+                "date": "2020-03-23",
+                "due_date": "2020-03-23",
+                "line_items": [
+                    {
+                        "product_id": "4",
+                        "qty": "1",
+                        "price": "200.00",
+                        "amount": "200.00",
+                        "name": "Dry cleaning",
+                        "product_type_id": "1",
+                        "category_id": "4",
+                        "vendor": "6",
+                        "cost_price": "200.00",
+                        "unit_price": "250.00",
+                        "line_total": "200.00"
+                    }
+                ],
+                "type": "purchase",
+                "ref": "PUR001",
+                "billing_address": "street_1: Constantin Creek; street_2: 56306 Kadin Fields; city: Roweville; state: NY; postal_code: 86336; country: US; ",
+                "status": "2",
+                "purchase_order": "0",
+                "amount": "200.00",
+                "created_at": "2020-03-23",
+                "due": "-200.00",
+                "attachments": [],
+                "particulars": "purchase products",
+                "namespace": "erp/v1",
+                "rest_base": "accounting/v1/purchases",
+                "_links": {
+                    "self": {
+                        "href": "https://example.com/wp-json/erp/v1/accounting/v1/purchases/1"
+                    },
+                    "collection": {
+                        "href": "https://example.com/wp-json/erp/v1/accounting/v1/purchases"
+                    }
+                }
+            }
+
+## Void Purchases [/purchases/{id}/void/]
+
++ Parameters
+    + id (string) - id of the purchase in the form of an string
+
+### Void a Purchase [POST]
+
+Voids a particular purchase
+
++ Request (application/json)
++ Response 204 (application/json)
+
+
+## Due Purchases from a vendor [/purchases/due/{id}]
+
++ Parameters
+    + id (string) - id of the vendor in the form of an string
+
+### List All Due Purchases [GET]
+
+Fetches all due Purchases from a vendor
+
++ Response 200 (application/json)
+    + Body
+
+            [
+                {
+                    "id": 1,
+                    "editable": 0,
+                    "vendor_id": 6,
+                    "voucher_no": 6,
+                    "vendor_name": "Christine Tillman",
+                    "date": "2020-03-23",
+                    "due_date": "2020-03-23",
+                    "line_items": [],
+                    "type": "purchase",
+                    "ref": "PUR001",
+                    "billing_address": "street_1: Constantin Creek; street_2: 56306 Kadin Fields; city: Roweville; state: NY; postal_code: 86336; country: US; ",
+                    "status": "2",
+                    "purchase_order": "0",
+                    "amount": "200.00",
+                    "created_at": "2020-03-23",
+                    "due": "200.00",
+                    "attachments": [],
+                    "particulars": "purchase products",
+                    "namespace": "erp/v1",
+                    "rest_base": "accounting/v1/purchases",
+                    "_links": {
+                        "self": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/purchases/1"
+                        },
+                        "collection": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/purchases"
+                        }
+                    }
+                }
+            ]
+
+

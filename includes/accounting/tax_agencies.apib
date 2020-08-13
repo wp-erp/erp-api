@@ -1,0 +1,149 @@
+# Group Tax Agencies
+
+
+## Tax Agency List [/tax-agencies/{?per_page,page,search}]
+
++ Parameters
+
+    + per_page: 20 (number, optional) - The number of results per page.
+        + Default: `20`
+    + page: 1 (number, optional) - The current page number of results.
+        + Default: `1`
+    + search (string, optional) - The search keyword.
+
+### List All Tax Agencies [GET]
+
+Fetches all available tax agencies with pagination
+
++ Response 200 (application/json)
+    + Body
+
+            [
+                {
+                    "id": 1,
+                    "name": "Arizona Department of Revenue",
+                    "namespace": "erp/v1",
+                    "rest_base": "accounting/v1/tax-agencies",
+                    "_links": {
+                        "self": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/tax-agencies/1"
+                        },
+                        "collection": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/tax-agencies"
+                        }
+                    }
+                },
+                {
+                    "id": 2,
+                    "name": "State Board of Equalization",
+                    "namespace": "erp/v1",
+                    "rest_base": "accounting/v1/tax-agencies",
+                    "_links": {
+                        "self": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/tax-agencies/2"
+                        },
+                        "collection": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/tax-agencies"
+                        }
+                    }
+                }
+            ]
+
+## Tax Agency List [/tax-agencies]
+
+### Create A Tax Agency [POST]
+
+    Model (application/json)
+
+    {
+        "agency_name": "Ney York State Board"
+    }
+
++ Response 201 (application/json)
+    + Body
+
+            {
+                "id": 3,
+                "name": "Ney York State Board",
+                "namespace": "erp/v1",
+                "rest_base": "accounting/v1/tax-agencies",
+                "_links": {
+                    "collection": {
+                        "href": "https://example.com/wp-json/erp/v1/accounting/v1/tax-agencies"
+                    },
+                    "self": {
+                        "href": "https://example.com/wp-json/erp/v1/accounting/v1/tax-agencies/3"
+                    }
+                }
+            }
+
+
+## Manage Single Tax Agency [/tax-agencies/{id}]
+
++ Parameters
+    + id (string) - id of the tax agency in the form of an string
+
+### Retrieve A Tax Agency [GET]
+
++ Response 200 (application/json)
+    + Body
+
+            {
+                "id": 1,
+                "name": "Arizona Department of Revenue",
+                "namespace": "erp/v1",
+                "rest_base": "accounting/v1/tax-agencies",
+                "_links": {
+                    "self": {
+                        "href": "https://example.com/wp-json/erp/v1/accounting/v1/tax-agencies/1"
+                    },
+                    "collection": {
+                        "href": "https://example.com/wp-json/erp/v1/accounting/v1/tax-agencies"
+                    }
+                }
+            }
+
+### Update A Tax Agency [PUT]
+
+    Model (application/json)
+
+    {
+        "agency_name": "Arizona Revenue Department"
+    }
+
++ Response 201 (application/json)
+    + Body
+
+            {
+                "id": 1,
+                "name": "Arizona Revenue Department",
+                "namespace": "erp/v1",
+                "rest_base": "accounting/v1/tax-agencies",
+                "_links": {
+                    "collection": {
+                        "href": "https://example.com/wp-json/erp/v1/accounting/v1/tax-agencies"
+                    },
+                    "self": {
+                        "href": "https://example.com/wp-json/erp/v1/accounting/v1/tax-agencies/1"
+                    }
+                }
+            }
+
+### Delete A Tax Agency [DELETE]
+
+Deletes a tax agency
+
++ Request (application/json)
++ Response 204 (application/json)
+
+## Bulk Delete Tax Agencies [/tax-agencies/{ids}]
+
++ Parameters
+    + ids (string) - ids of the tax agencies to be deleted seperated by comma
+
+### Bulk Delete Tax Agencies [DELETE]
+
+Bulk Deletes selected tax agencies
+
++ Request (application/json)
++ Response 204 (application/json)

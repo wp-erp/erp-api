@@ -1,0 +1,52 @@
+# Group Closing Balances
+
+
+## Closing Balance List [/closing-balance]
+
+### Closing Balance Sheet of Current Financial Year [POST]
+
+Closing Balance Sheet of Current Financial Year
+
+    Model (application/json)
+
+    {
+        "end_date": "2019-12-31",
+        "start_date": "2019-01-01",
+        "f_year_id": "1"
+    }
+
++ Response 200 (application/json)
+
+## Get Closest Financial Year [/closing-balance/closest-fn-year]
+Get Closest Financial Year
+
+### Get Closest Financial Year [GET]
+
+Fetches next closest financial year
+
++ Response 200 (application/json)
+    + Body
+
+            {
+                "id": "1",
+                "name": "2020",
+                "end_date": "2020-12-31",
+                "start_date": "2020-01-01"
+            }
+
+## Get Next Financial Year [/closing-balance/next-fn-year/{?date}]
++ Parameters
+    + date (string) - last date of the current financial year in the form of an string
+
+### List Next Financial Year[GET]
+
+Fetches next financial year
+
++ Response 200 (application/json)
+    + Body
+
+            {
+                "id": "1",
+                "start_date": "2020-01-01",
+                "end_date": "2020-12-31"
+            }

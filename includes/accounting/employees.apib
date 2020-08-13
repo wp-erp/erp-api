@@ -1,0 +1,187 @@
+# Group Employees
+
+
+## Employee List [/employees/{?per_page,page,search}]
+
++ Parameters
+
+    + per_page: 20 (number, optional) - The number of results per page.
+        + Default: `20`
+    + page: 1 (number, optional) - The current page number of results.
+        + Default: `1`
+    + search (string, optional) - The search keyword.
+
+
+### List All Employees [GET]
+
+Fetches all available employees with pagination
+
++ Response 200 (application/json)
+    + Body
+
+            [
+                {
+                    "employee_id": "1001",
+                    "designation": "Print Designer",
+                    "department": "Design",
+                    "location": "0",
+                    "hiring_source": "social",
+                    "hiring_date": "06-26-2016",
+                    "termination_date": "0000-00-00",
+                    "date_of_birth": "07-15-1991",
+                    "reporting_to": 0,
+                    "pay_rate": "30000",
+                    "pay_type": "monthly",
+                    "type": "contract",
+                    "status": "active",
+                    "end_date": [],
+                    "photo_id": 0,
+                    "first_name": "Lia",
+                    "middle_name": "",
+                    "last_name": "Wolff",
+                    "other_email": "",
+                    "phone": "217.378.3982 x06739",
+                    "work_phone": "",
+                    "blood_group": "-1",
+                    "spouse_name": "",
+                    "father_name": "",
+                    "mother_name": "",
+                    "mobile": "",
+                    "address": "",
+                    "gender": "other",
+                    "marital_status": "single",
+                    "nationality": "US",
+                    "driving_license": "",
+                    "hobbies": "",
+                    "user_url": "https://example.com/wp-admin/admin.php?page=erp-hr&section=employee&action=view&id=5",
+                    "description": "I shall see it again, but it all seemed quite natural to Alice an excellent plan, no doubt, and very soon finished it off. * * * * * * * * * * * * CHAPTER II. The Pool of Tears 'Curiouser and.",
+                    "street_1": null,
+                    "street_2": null,
+                    "city": null,
+                    "country": "-1",
+                    "state": "",
+                    "postal_code": null,
+                    "full_name": "Lia Wolff",
+                    "namespace": "erp/v1",
+                    "rest_base": "accounting/v1/employees",
+                    "id": 5,
+                    "user_id": 5,
+                    "email": "tessie33@yahoo.com",
+                    "people_id": "6",
+                    "_links": {
+                        "self": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/employees/5"
+                        },
+                        "collection": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/employees"
+                        }
+                    }
+                }
+            ]
+
+## Manage Single Employee [/employees/{id}]
+
++ Parameters
+    + id (string) - people id of the employee in the form of an string
+
+### Retrieve A Employee [GET]
+
++ Request (application/json)
++ Response 200 (application/json)
+    + Body
+
+            {
+                "id": "6",
+                "user_id": "5",
+                "first_name": "Lia",
+                "last_name": "Wolff",
+                "company": null,
+                "email": "tessie33@yahoo.com",
+                "phone": "217.378.3982 x06739",
+                "mobile": "",
+                "other": null,
+                "website": null,
+                "fax": null,
+                "notes": null,
+                "street_1": "",
+                "street_2": "",
+                "city": "",
+                "state": "",
+                "postal_code": "",
+                "country": "-1",
+                "currency": null,
+                "life_stage": null,
+                "contact_owner": null,
+                "hash": "48583f44ce1dcc82081bfe4f9d935908eb9362de",
+                "created_by": "1",
+                "created": "2020-03-30 18:11:22",
+                "types": [
+                    "employee"
+                ],
+                "designation": "Print Designer",
+                "department": "Design",
+                "reporting_to": 0,
+                "avatar": "<img alt='' src='http://1.gravatar.com/avatar/4044fc241a06c56ebdcc4bf815643c0c?s=32&#038;d=mm&#038;r=g' srcset='http://1.gravatar.com/avatar/4044fc241a06c56ebdcc4bf815643c0c?s=64&#038;d=mm&#038;r=g 2x' class='avatar avatar-32 photo' height='32' width='32' />",
+                "_links": {
+                    "self": {
+                        "href": "https://example.com/wp-json/erp/v1/accounting/v1/employees/6"
+                    },
+                    "collection": {
+                        "href": "https://example.com/wp-json/erp/v1/accounting/v1/employees"
+                    }
+                }
+            }
+
+## Employee Transactions [/employees/{id}/transactions/{?per_page,page,search}]
+
++ Parameters
+
+    + id (string) - people id of the employee in the form of an string
+    + per_page: 20 (number, optional) - The number of results per page.
+        + Default: `20`
+    + page: 1 (number, optional) - The current page number of results.
+        + Default: `1`
+    + search (string, optional) - The search keyword.
+
+### List All Transactions of an Employee [GET]
+
++ Request (application/json)
++ Response 200 (application/json)
+    + Body
+
+            [
+                {
+                    "voucher_no": null,
+                    "particulars": "Opening Balance",
+                    "people_id": null,
+                    "trn_no": null,
+                    "trn_date": null,
+                    "created_at": null,
+                    "debit": null,
+                    "credit": null,
+                    "balance": -1500,
+                    "balance_val": 0
+                },
+                {
+                    "voucher_no": "16",
+                    "people_id": "6",
+                    "trn_date": "2020-03-30",
+                    "debit": "0.00",
+                    "credit": "0.00",
+                    "particulars": "Salary for the month of march",
+                    "created_at": "2020-03-30",
+                    "balance_val": -1500,
+                    "balance": "$1500 Cr"
+                },
+                {
+                    "voucher_no": null,
+                    "particulars": "Total",
+                    "people_id": null,
+                    "trn_no": null,
+                    "trn_date": null,
+                    "created_at": null,
+                    "debit": 0,
+                    "credit": 1500,
+                    "balance": null
+                }
+            ]

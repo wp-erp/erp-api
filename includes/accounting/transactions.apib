@@ -1,0 +1,835 @@
+# Group Transactions
+
+
+## Retrieve Transaction type of a voucher number [/transactions/type/{voucher_no}]
+
++ Parameters
+    + voucher_no (string) - id of the transaction in the form of an string
+
+### Retrieve The Type of a Transaction [GET]
+
++ Response 200 (application/json)
+    + Body
+
+            {
+                "journal"
+            }
+
+
+## Retrieve Transaction statuses [/transactions/statuses]
+
+### Retrieve all The Statuses of a Transactions [GET]
+
++ Response 200 (application/json)
+    + Body
+
+            [
+                {
+                    "id": "0",
+                    "type_name": "all",
+                    "name": "All",
+                    "slug": "all"
+                },
+                {
+                    "id": "1",
+                    "name": "Draft",
+                    "slug": "draft"
+                },
+                {
+                    "id": "2",
+                    "name": "Awaiting Payment",
+                    "slug": "awaiting_payment"
+                },
+                {
+                    "id": "3",
+                    "name": "Pending",
+                    "slug": "pending"
+                },
+                {
+                    "id": "4",
+                    "name": "Paid",
+                    "slug": "paid"
+                },
+                {
+                    "id": "5",
+                    "name": "Partially Paid",
+                    "slug": "partially_paid"
+                },
+                {
+                    "id": "6",
+                    "name": "Approved",
+                    "slug": "approved"
+                },
+                {
+                    "id": "7",
+                    "name": "Closed",
+                    "slug": "closed"
+                },
+                {
+                    "id": "8",
+                    "name": "Void",
+                    "slug": "void"
+                }
+            ]
+
+
+## Retrieve Sales Transactions [/transactions/sales]
+
+### Retrieve all The Sales Transactions [GET]
+
++ Response 200 (application/json)
+    + Body
+
+            [
+                {
+                    "id": "5",
+                    "type": "invoice",
+                    "editable": "1",
+                    "inv_cus_id": "20",
+                    "inv_cus_name": "Clarabelle Larson",
+                    "pay_cus_name": null,
+                    "invoice_trn_date": "2020-03-20",
+                    "payment_trn_date": null,
+                    "ref": null,
+                    "due_date": "2020-03-20",
+                    "estimate": "0",
+                    "sales_amount": "54.00",
+                    "due": "54.00",
+                    "payment_amount": null,
+                    "inv_status": "2",
+                    "pay_status": null,
+                    "status": "Awaiting Payment",
+                    "status_code": "2",
+                    "namespace": "erp/v1",
+                    "rest_base": "accounting/v1/transactions",
+                    "_links": {
+                        "self": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/transactions/5"
+                        },
+                        "collection": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/transactions"
+                        }
+                    }
+                },
+                {
+                    "id": "3",
+                    "type": "payment",
+                    "editable": "0",
+                    "inv_cus_id": null,
+                    "inv_cus_name": null,
+                    "pay_cus_name": "Zetta Kreiger",
+                    "invoice_trn_date": null,
+                    "payment_trn_date": "2020-03-20",
+                    "ref": "ref",
+                    "due_date": null,
+                    "estimate": null,
+                    "sales_amount": null,
+                    "due": null,
+                    "payment_amount": "59.50",
+                    "inv_status": null,
+                    "pay_status": "4",
+                    "status": "Paid",
+                    "status_code": "4",
+                    "namespace": "erp/v1",
+                    "rest_base": "accounting/v1/transactions",
+                    "_links": {
+                        "self": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/transactions/3"
+                        },
+                        "collection": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/transactions"
+                        }
+                    }
+                },
+                {
+                    "id": "2",
+                    "type": "invoice",
+                    "editable": "1",
+                    "inv_cus_id": "25",
+                    "inv_cus_name": "Zetta Kreiger",
+                    "pay_cus_name": null,
+                    "invoice_trn_date": "2020-03-20",
+                    "payment_trn_date": null,
+                    "ref": null,
+                    "due_date": "2020-03-20",
+                    "estimate": "0",
+                    "sales_amount": "59.50",
+                    "due": "0.00",
+                    "payment_amount": null,
+                    "inv_status": "4",
+                    "pay_status": null,
+                    "status": "Paid",
+                    "status_code": "4",
+                    "namespace": "erp/v1",
+                    "rest_base": "accounting/v1/transactions",
+                    "_links": {
+                        "self": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/transactions/2"
+                        },
+                        "collection": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/transactions"
+                        }
+                    }
+                }
+            ]
+
+
+## Retrieve Expenses Transactions [/transactions/expenses]
+
+### Retrieve all The Expenses Transactions [GET]
+
++ Response 200 (application/json)
+    + Body
+
+            [
+                {
+                    "id": "14",
+                    "type": "expense",
+                    "vendor_id": null,
+                    "vendor_name": null,
+                    "pay_bill_vendor_name": null,
+                    "expense_people_name": "Hailee West",
+                    "bill_trn_date": null,
+                    "pay_bill_trn_date": null,
+                    "expense_trn_date": "2019-08-01",
+                    "due_date": null,
+                    "amount": null,
+                    "ref": null,
+                    "exp_ref": "",
+                    "pay_bill_amount": null,
+                    "expense_amount": "300.00",
+                    "due": null,
+                    "bill_status": null,
+                    "pay_bill_status": null,
+                    "expense_status": "4",
+                    "status": "Paid",
+                    "status_code": "4",
+                    "namespace": "erp/v1",
+                    "rest_base": "accounting/v1/transactions",
+                    "_links": {
+                        "self": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/transactions/14"
+                        },
+                        "collection": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/transactions"
+                        }
+                    }
+                },
+                {
+                    "id": "13",
+                    "type": "check",
+                    "vendor_id": null,
+                    "vendor_name": null,
+                    "pay_bill_vendor_name": null,
+                    "expense_people_name": "Shemar Emmerich",
+                    "bill_trn_date": null,
+                    "pay_bill_trn_date": null,
+                    "expense_trn_date": "2020-03-25",
+                    "due_date": null,
+                    "amount": null,
+                    "ref": null,
+                    "exp_ref": "",
+                    "pay_bill_amount": null,
+                    "expense_amount": "100.00",
+                    "due": null,
+                    "bill_status": null,
+                    "pay_bill_status": null,
+                    "expense_status": "4",
+                    "status": "Paid",
+                    "status_code": "4",
+                    "namespace": "erp/v1",
+                    "rest_base": "accounting/v1/transactions",
+                    "_links": {
+                        "self": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/transactions/13"
+                        },
+                        "collection": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/transactions"
+                        }
+                    }
+                },
+                {
+                    "id": "12",
+                    "type": "expense",
+                    "vendor_id": null,
+                    "vendor_name": null,
+                    "pay_bill_vendor_name": null,
+                    "expense_people_name": "Bryce Keebler",
+                    "bill_trn_date": null,
+                    "pay_bill_trn_date": null,
+                    "expense_trn_date": "2020-03-25",
+                    "due_date": null,
+                    "amount": null,
+                    "ref": null,
+                    "exp_ref": "Expense",
+                    "pay_bill_amount": null,
+                    "expense_amount": "470.00",
+                    "due": null,
+                    "bill_status": null,
+                    "pay_bill_status": null,
+                    "expense_status": "4",
+                    "status": "Paid",
+                    "status_code": "4",
+                    "namespace": "erp/v1",
+                    "rest_base": "accounting/v1/transactions",
+                    "_links": {
+                        "self": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/transactions/12"
+                        },
+                        "collection": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/transactions"
+                        }
+                    }
+                },
+                {
+                    "id": "10",
+                    "type": "pay_bill",
+                    "vendor_id": null,
+                    "vendor_name": null,
+                    "pay_bill_vendor_name": "Zetta Kreiger",
+                    "expense_people_name": null,
+                    "bill_trn_date": null,
+                    "pay_bill_trn_date": "2020-03-24",
+                    "expense_trn_date": null,
+                    "due_date": null,
+                    "amount": null,
+                    "ref": null,
+                    "exp_ref": null,
+                    "pay_bill_amount": "500.00",
+                    "expense_amount": null,
+                    "due": null,
+                    "bill_status": null,
+                    "pay_bill_status": "4",
+                    "expense_status": null,
+                    "status": "Paid",
+                    "status_code": "4",
+                    "namespace": "erp/v1",
+                    "rest_base": "accounting/v1/transactions",
+                    "_links": {
+                        "self": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/transactions/10"
+                        },
+                        "collection": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/transactions"
+                        }
+                    }
+                },
+                {
+                    "id": "9",
+                    "type": "bill",
+                    "vendor_id": "25",
+                    "vendor_name": "Zetta Kreiger",
+                    "pay_bill_vendor_name": null,
+                    "expense_people_name": null,
+                    "bill_trn_date": "2020-03-24",
+                    "pay_bill_trn_date": null,
+                    "expense_trn_date": null,
+                    "due_date": "2020-03-24",
+                    "amount": "500.00",
+                    "ref": "Bill Ref",
+                    "exp_ref": null,
+                    "pay_bill_amount": null,
+                    "expense_amount": null,
+                    "due": "0.00",
+                    "bill_status": "4",
+                    "pay_bill_status": null,
+                    "expense_status": null,
+                    "status": "Paid",
+                    "status_code": "4",
+                    "namespace": "erp/v1",
+                    "rest_base": "accounting/v1/transactions",
+                    "_links": {
+                        "self": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/transactions/9"
+                        },
+                        "collection": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/transactions"
+                        }
+                    }
+                }
+            ]
+
+
+## Retrieve Purchases Transactions [/transactions/purchases]
+
+### Retrieve all The Purchases Transactions [GET]
+
++ Response 200 (application/json)
+    + Body
+
+            [
+                {
+                    "id": "8",
+                    "type": "purchase",
+                    "vendor_id": "6",
+                    "vendor_name": "Christine Tillman",
+                    "pay_bill_vendor_name": null,
+                    "bill_trn_date": "2020-03-24",
+                    "pay_bill_trn_date": null,
+                    "due_date": "2020-03-24",
+                    "amount": "500.00",
+                    "ref": "Another Purchase",
+                    "purchase_order": "0",
+                    "pay_bill_amount": null,
+                    "due": "500.00",
+                    "purchase_status": "2",
+                    "pay_purchase_status": null,
+                    "status": "Awaiting Payment",
+                    "status_code": "2",
+                    "namespace": "erp/v1",
+                    "rest_base": "accounting/v1/transactions",
+                    "_links": {
+                        "self": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/transactions/8"
+                        },
+                        "collection": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/transactions"
+                        }
+                    }
+                },
+                {
+                    "id": "7",
+                    "type": "pay_purchase",
+                    "vendor_id": null,
+                    "vendor_name": null,
+                    "pay_bill_vendor_name": "Christine Tillman",
+                    "bill_trn_date": null,
+                    "pay_bill_trn_date": "2020-03-23",
+                    "due_date": null,
+                    "amount": null,
+                    "ref": null,
+                    "purchase_order": null,
+                    "pay_bill_amount": "200.00",
+                    "due": null,
+                    "purchase_status": null,
+                    "pay_purchase_status": "4",
+                    "status": "Paid",
+                    "status_code": "4",
+                    "namespace": "erp/v1",
+                    "rest_base": "accounting/v1/transactions",
+                    "_links": {
+                        "self": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/transactions/7"
+                        },
+                        "collection": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/transactions"
+                        }
+                    }
+                },
+                {
+                    "id": "6",
+                    "type": "purchase",
+                    "vendor_id": "6",
+                    "vendor_name": "Christine Tillman",
+                    "pay_bill_vendor_name": null,
+                    "bill_trn_date": "2020-03-23",
+                    "pay_bill_trn_date": null,
+                    "due_date": "2020-03-23",
+                    "amount": "200.00",
+                    "ref": "PUR001",
+                    "purchase_order": "0",
+                    "pay_bill_amount": null,
+                    "due": "0.00",
+                    "purchase_status": "4",
+                    "pay_purchase_status": null,
+                    "status": "Paid",
+                    "status_code": "4",
+                    "namespace": "erp/v1",
+                    "rest_base": "accounting/v1/transactions",
+                    "_links": {
+                        "self": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/transactions/6"
+                        },
+                        "collection": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/transactions"
+                        }
+                    }
+                }
+            ]
+
+
+## Retrieve Sales Chart Statuses [/transactions/sales/chart-status]
+
+### Retrieve Sales Chart Status Data [GET]
+
++ Response 200 (application/json)
+    + Body
+
+            [
+                {
+                    "sub_total": "1",
+                    "type_name": "Awaiting Payment"
+                },
+                {
+                    "sub_total": "1",
+                    "type_name": "Paid"
+                }
+            ]
+
+
+## Retrieve Sales Chart Payments [/transactions/sales/chart-payment]
+
+### Retrieve Sales Chart Payment Data [GET]
+
++ Response 200 (application/json)
+    + Body
+
+            {
+                "received": "59.50",
+                "outstanding": "54.00"
+            }
+
+
+## Get Incomes Expense Overview [/transactions/income-expense-overview]
+
+### Retrieve Incomes Expense Overview Data [GET]
+
++ Response 200 (application/json)
+    + Body
+
+            {
+                "thisMonth": {
+                    "labels": [
+                        "20-03"
+                    ],
+                    "income": [
+                        100
+                    ],
+                    "expense": [
+                        0,
+                        200,
+                        1000,
+                        570
+                    ]
+                },
+                "lastMonth": {
+                    "labels": [],
+                    "income": [],
+                    "expense": []
+                },
+                "thisYear": {
+                    "labels": [
+                        "Jan",
+                        "Feb",
+                        "Mar",
+                        "Apr",
+                        "May",
+                        "Jun",
+                        "Jul",
+                        "Aug",
+                        "Sep",
+                        "Oct",
+                        "Nov",
+                        "Dec"
+                    ],
+                    "income": [
+                        0,
+                        0,
+                        100,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0
+                    ],
+                    "expense": [
+                        0,
+                        0,
+                        1770,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0
+                    ]
+                },
+                "lastYear": {
+                    "labels": [
+                        "Jan",
+                        "Feb",
+                        "Mar",
+                        "Apr",
+                        "May",
+                        "Jun",
+                        "Jul",
+                        "Aug",
+                        "Sep",
+                        "Oct",
+                        "Nov",
+                        "Dec"
+                    ],
+                    "income": [
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0
+                    ],
+                    "expense": [
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        300,
+                        0,
+                        0,
+                        0,
+                        0
+                    ]
+                }
+            }
+
+
+## Retrieve Expenses Chart Payments [/transactions/expense/chart-expense]
+
+### Retrieve Expenses Chart Payment Data [GET]
+
++ Response 200 (application/json)
+    + Body
+
+            {
+                "paid": 1370,
+                "payable": 0
+            }
+
+
+## Retrieve Expenses Chart Statuses [/transactions/expense/chart-status]
+
+### Retrieve Expenses Chart Status Data [GET]
+
++ Response 200 (application/json)
+    + Body
+
+            [
+                {
+                    "type_name": "Paid",
+                    "sub_total": "1"
+                }
+            ]
+
+
+## Retrieve Purchases Chart Payments [/transactions/purchase/chart-purchase]
+
+### Retrieve Purchases Chart Payment Data [GET]
+
++ Response 200 (application/json)
+    + Body
+
+            {
+                "paid": "200.00",
+                "payable": "500.00"
+            }
+
+
+## Retrieve Purchases Chart Statuses [/transactions/purchase/chart-status]
+
+### Retrieve Purchases Chart Status Data [GET]
+
++ Response 200 (application/json)
+    + Body
+
+            [
+                {
+                    "type_name": "Awaiting Payment",
+                    "sub_total": "1"
+                },
+                {
+                    "type_name": "Paid",
+                    "sub_total": "1"
+                }
+            ]
+
+
+## Retrieve Payment Methods [/transactions/payment-methods]
+
+### Retrieve Available Payment Methods data [GET]
+
++ Response 200 (application/json)
+    + Body
+
+            [
+                {
+                    "id": "1",
+                    "name": "Cash"
+                },
+                {
+                    "id": "2",
+                    "name": "Bank"
+                },
+                {
+                    "id": "3",
+                    "name": "Check"
+                }
+            ]
+
+
+## Retrieve People Transaction Data [/transactions/people-chart/trn-amount/{id}]
+
++ Parameters
+    + id (string) - id of the people in the form of an string
+
+### Retrieve Purchases Chart Payment Data [GET]
+
++ Response 200 (application/json)
+    + Body
+
+            {
+                "paid": 559.5,
+                "payable": 0
+            }
+
+
+## Retrieve Purchases Chart Statuses [/transactions/people-chart/trn-status/{id}]
+
++ Parameters
+    + id (string) - id of the people in the form of an string
+
+### Retrieve Purchases Chart Status Data [GET]
+
++ Response 200 (application/json)
+    + Body
+
+            [
+                {
+                    "type_name": "Paid",
+                    "sub_total": 2
+                },
+                {
+                    "type_name": "Paid",
+                    "sub_total": 2
+                }
+            ]
+
+
+# Group Transaction Pdf & Mail
+
+## Send a transaction copy by mail [transactions/send-pdf/{id}]
+
++ Parameters
+    + id (string) - id of the transaction to be sent as pdf in the form of an string
+
+### Send a transaction copy by mail as pdf [POST]
+
+    Model
+
+    {
+        "trn_data": {
+            "editable": "1",
+            "currency": "148",
+            "id": "1",
+            "voucher_no": "2",
+            "customer_id": "25",
+            "customer_name": "Zetta Kreiger",
+            "trn_date": "2020-03-20",
+            "due_date": "2020-03-20",
+            "billing_address": "Hilpert Keys, 65668 Gutkowski Center Lake Naomie Idaho, 07711-2842 Cape Verde",
+            "amount": "50.00",
+            "discount": "0.00",
+            "discount_type": "discount-percent",
+            "tax": "9.50",
+            "estimate": "0",
+            "attachments": [],
+            "status": "4",
+            "particulars": "Invoice created with voucher no 2",
+            "created_at": "2020-03-20",
+            "debit": "59.50",
+            "credit": "0.00",
+            "line_items": [
+                {
+                    "product_id": "1",
+                    "qty": "1",
+                    "unit_price": "50.00",
+                    "discount": "0.00",
+                    "tax": "9.50",
+                    "item_total": "50.00",
+                    "ecommerce_type": null,
+                    "tax_rate": "19.00",
+                    "name": null,
+                    "product_type_id": null,
+                    "category_id": null,
+                    "vendor": null,
+                    "cost_price": null,
+                    "sale_price": null,
+                    "tax_cat_id": null,
+                    "line_total": 59.5
+                }
+            ],
+            "tax_rate_id": "4",
+            "total_due": "0.00",
+            "pdf_link": "https://example.com/wp-content/uploads/erp-pdfs/voucher_2.pdf",
+            "readonly_url": "https://example.com/wperp?query=readonly_invoice&trans_id=2&auth=c19b2bc641851c073e99e8dca98ffe230dcfbb6f0b8fa0f351215996840a49d6",
+            "namespace": "erp/v1",
+            "rest_base": "accounting/v1/invoices",
+            "_links": {
+                "self": {
+                    "href": "https://example.com/wp-json/erp/v1/accounting/v1/invoices/1"
+                },
+                "collection": {
+                    "href": "https://example.com/wp-json/erp/v1/accounting/v1/invoices"
+                }
+            }
+        },
+        "type": "invoice",
+        "receiver": [
+            "feil.fatima@hessel.com"
+        ],
+        "subject": "Invoice",
+        "message": "Here is the invoice attached",
+        "attachment": true
+    }
+
+
++ Response 200 (application/json)
+    + Body
+
+            {
+                "id": 1,
+                "voucher_no": {
+                    "id": "1",
+                    "voucher_no": "15",
+                    "particulars": "Invoice created with voucher no 15",
+                    "amount": "5.00",
+                    "trn_date": "2020-03-29",
+                    "voucher_type": "debit",
+                    "trn_by": "1",
+                    "agency_id": "1",
+                    "ledger_id": "7",
+                    "created_at": "2020-03-29"
+                },
+                "agency_id": "Arizona Revenue Department",
+                "trn_date": "2020-03-29",
+                "particulars": "",
+                "amount": 5,
+                "trn_by": "1",
+                "ledger_id": "Cash",
+                "voucher_type": "debit",
+                "created_at": null,
+                "namespace": "erp/v1",
+                "rest_base": "accounting/v1/taxes",
+                "_links": {
+                    "self": {
+                        "href": "https://example.com/wp-json/erp/v1/accounting/v1/taxes/1"
+                    },
+                    "collection": {
+                        "href": "https://example.com/wp-json/erp/v1/accounting/v1/taxes"
+                    }
+                }
+            }

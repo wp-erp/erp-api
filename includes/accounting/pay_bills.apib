@@ -1,0 +1,281 @@
+# Group Pay Bills
+
+## Pay Bill List [/pay_bills/{?per_page,page,search}]
+
++ Parameters
+
+    + per_page: 20 (number, optional) - The number of results per page.
+        + Default: `20`
+    + page: 1 (number, optional) - The current page number of results.
+        + Default: `1`
+    + search (string, optional) - The search keyword.
+
+
+### List All Pay Bills [GET]
+
+Fetches all available pay bills with pagination
+
++ Response 200 (application/json)
+    + Body
+
+            [
+                {
+                    "id": 1,
+                    "voucher_no": 10,
+                    "vendor_id": 25,
+                    "trn_date": "2020-03-24",
+                    "amount": "500.00",
+                    "billing_address": {
+                        "street_1": "Hilpert Keys",
+                        "street_2": "65668 Gutkowski Center",
+                        "city": "Lake Naomie",
+                        "state": "Idaho",
+                        "postal_code": "07711-2842",
+                        "country": "Cape Verde"
+                    },
+                    "bill_details": [
+                        {
+                            "id": "1",
+                            "voucher_no": "10",
+                            "bill_no": "9",
+                            "amount": "500.00"
+                        }
+                    ],
+                    "type": "pay_bill",
+                    "status": "4",
+                    "particulars": "Paying Bill",
+                    "trn_by": "Cash",
+                    "created_at": "2020-03-24",
+                    "attachments": [
+                        null
+                    ],
+                    "namespace": "erp/v1",
+                    "rest_base": "accounting/v1/pay-bills",
+                    "_links": {
+                        "self": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/pay-bills/1"
+                        },
+                        "collection": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/pay-bills"
+                        }
+                    }
+                }
+            ]
+
+
+## Pay Bill List [/pay-bills]
+
+### Create A Pay Bill [POST]
+
+    Model (application/json)
+
+    {
+        "vendor_id": 25,
+        "ref": "Pay bill-zetta",
+        "trn_date": "2020-03-24",
+        "bill_details": [
+            {
+                "id": 1,
+                "voucher_no": 9,
+                "due_date": "2020-03-24",
+                "amount": 500,
+                "due": 500
+            }
+        ],
+        "attachments": [
+            null
+        ],
+        "type": "pay_bill",
+        "status": 4,
+        "particulars": "Paying Bill",
+        "deposit_to": "7",
+        "trn_by": "1",
+        "check_no": null,
+        "name": "",
+        "bank": ""
+    }
+
++ Response 201 (application/json)
+    + Body
+
+            {
+                "id": 1,
+                "voucher_no": 10,
+                "vendor_id": 25,
+                "trn_date": "2020-03-24",
+                "amount": "500.00",
+                "billing_address": {
+                    "street_1": "Hilpert Keys",
+                    "street_2": "65668 Gutkowski Center",
+                    "city": "Lake Naomie",
+                    "state": "Idaho",
+                    "postal_code": "07711-2842",
+                    "country": "Cape Verde"
+                },
+                "bill_details": [
+                    {
+                        "id": "1",
+                        "voucher_no": "10",
+                        "bill_no": "9",
+                        "amount": "500.00"
+                    }
+                ],
+                "type": "pay_bill",
+                "status": "4",
+                "particulars": "Paying Bill",
+                "trn_by": "Cash",
+                "created_at": "2020-03-24",
+                "attachments": [
+                    null
+                ],
+                "namespace": "erp/v1",
+                "rest_base": "accounting/v1/pay-bills",
+                "_links": {
+                    "self": {
+                        "href": "https://example.com/wp-json/erp/v1/accounting/v1/pay-bills/1"
+                    },
+                    "collection": {
+                        "href": "https://example.com/wp-json/erp/v1/accounting/v1/pay-bills"
+                    }
+                }
+            }
+
+## Manage Single Pay Bill [/pay-bill/{id}]
+
++ Parameters
+    + id (string) - id of the pay-bill in the form of an string
+
+### Retrieve An Pay Bill [GET]
+
++ Response 200 (application/json)
+    + Body
+
+            {
+                "id": 1,
+                "voucher_no": 10,
+                "vendor_id": 25,
+                "trn_date": "2020-03-24",
+                "amount": "500.00",
+                "billing_address": {
+                    "street_1": "Hilpert Keys",
+                    "street_2": "65668 Gutkowski Center",
+                    "city": "Lake Naomie",
+                    "state": "Idaho",
+                    "postal_code": "07711-2842",
+                    "country": "Cape Verde"
+                },
+                "bill_details": [
+                    {
+                        "id": "1",
+                        "voucher_no": "10",
+                        "bill_no": "9",
+                        "amount": "500.00"
+                    }
+                ],
+                "type": "pay_bill",
+                "status": "4",
+                "particulars": "Paying Bill",
+                "trn_by": "Cash",
+                "created_at": "2020-03-24",
+                "attachments": [
+                    null
+                ],
+                "namespace": "erp/v1",
+                "rest_base": "accounting/v1/pay-bills",
+                "_links": {
+                    "self": {
+                        "href": "https://example.com/wp-json/erp/v1/accounting/v1/pay-bills/1"
+                    },
+                    "collection": {
+                        "href": "https://example.com/wp-json/erp/v1/accounting/v1/pay-bills"
+                    }
+                }
+            }
+
+### Update An Pay Bill [PUT]
+
+    Model (application/json)
+
+    {
+        "vendor_id": 25,
+        "ref": "Pay bill-zetta",
+        "trn_date": "2020-03-24",
+        "bill_details": [
+            {
+                "id": 1,
+                "voucher_no": 9,
+                "due_date": "2020-03-24",
+                "amount": 500,
+                "due": 500
+            }
+        ],
+        "attachments": [
+            null
+        ],
+        "type": "pay_bill",
+        "status": 4,
+        "particulars": "Paying Bill",
+        "deposit_to": "7",
+        "trn_by": "1",
+        "check_no": null,
+        "name": "",
+        "bank": ""
+    }
+
++ Response 201 (application/json)
+    + Body
+
+            {
+                "id": 1,
+                "voucher_no": 10,
+                "vendor_id": 25,
+                "trn_date": "2020-03-24",
+                "amount": "500.00",
+                "billing_address": {
+                    "street_1": "Hilpert Keys",
+                    "street_2": "65668 Gutkowski Center",
+                    "city": "Lake Naomie",
+                    "state": "Idaho",
+                    "postal_code": "07711-2842",
+                    "country": "Cape Verde"
+                },
+                "bill_details": [
+                    {
+                        "id": "1",
+                        "voucher_no": "10",
+                        "bill_no": "9",
+                        "amount": "500.00"
+                    }
+                ],
+                "type": "pay_bill",
+                "status": "4",
+                "particulars": "Paying Bill",
+                "trn_by": "Cash",
+                "created_at": "2020-03-24",
+                "attachments": [
+                    null
+                ],
+                "namespace": "erp/v1",
+                "rest_base": "accounting/v1/pay-bills",
+                "_links": {
+                    "self": {
+                        "href": "https://example.com/wp-json/erp/v1/accounting/v1/pay-bills/1"
+                    },
+                    "collection": {
+                        "href": "https://example.com/wp-json/erp/v1/accounting/v1/pay-bills"
+                    }
+                }
+            }
+
+## Void Pay Bill [/pay-bills/{id}/void/]
+
++ Parameters
+    + id (string) - id of the Pay Bill in the form of an string
+
+### Void a Pay Bill [POST]
+
+Voids a particular Pay Bill
+
++ Request (application/json)
++ Response 204 (application/json)
+

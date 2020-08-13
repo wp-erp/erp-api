@@ -1,0 +1,203 @@
+# Group Tax Categories
+
+
+## Tax Category List [/tax-cats/{?per_page,page,search}]
+
++ Parameters
+
+    + per_page: 20 (number, optional) - The number of results per page.
+        + Default: `20`
+    + page: 1 (number, optional) - The current page number of results.
+        + Default: `1`
+    + search (string, optional) - The search keyword.
+
+### List All Tax Categories [GET]
+
+Fetches all available tax categorys with pagination
+
++ Response 200 (application/json)
+    + Body
+
+            [
+                {
+                    "description": "Drive Safe",
+                    "id": 5,
+                    "name": "Auto",
+                    "_links": {
+                        "collection": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/tax-cats"
+                        },
+                        "self": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/tax-cats/5"
+                        }
+                    },
+                    "namespace": "erp/v1",
+                    "rest_base": "accounting/v1/tax-cats"
+                },
+                {
+                    "description": "Live long",
+                    "id": 4,
+                    "name": "Home",
+                    "_links": {
+                        "collection": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/tax-cats"
+                        },
+                        "self": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/tax-cats/4"
+                        }
+                    },
+                    "namespace": "erp/v1",
+                    "rest_base": "accounting/v1/tax-cats"
+                },
+                {
+                    "description": "Beverage",
+                    "id": 3,
+                    "name": "Soft Drinks",
+                    "_links": {
+                        "collection": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/tax-cats"
+                        },
+                        "self": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/tax-cats/3"
+                        }
+                    },
+                    "namespace": "erp/v1",
+                    "rest_base": "accounting/v1/tax-cats"
+                },
+                {
+                    "description": "Eat healthy",
+                    "id": 2,
+                    "name": "Food",
+                    "_links": {
+                        "collection": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/tax-cats"
+                        },
+                        "self": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/tax-cats/2"
+                        }
+                    },
+                    "namespace": "erp/v1",
+                    "rest_base": "accounting/v1/tax-cats"
+                },
+                {
+                    "description": "Software development",
+                    "id": 1,
+                    "name": "Software Service",
+                    "_links": {
+                        "collection": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/tax-cats"
+                        },
+                        "self": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/tax-cats/1"
+                        }
+                    },
+                    "namespace": "erp/v1",
+                    "rest_base": "accounting/v1/tax-cats"
+                }
+            ]
+
+## Tax Category List [/tax-cats]
+
+### Create A Tax Category [POST]
+
+    Model (application/json)
+
+    {
+        "description": "Drive Safe",
+        "name": "Auto"
+    }
+
++ Response 201 (application/json)
+    + Body
+
+            {
+                "id": 5,
+                "name": "Auto",
+                "description": "Drive Safe",
+                "namespace": "erp/v1",
+                "rest_base": "accounting/v1/tax-cats",
+                "_links": {
+                    "self": {
+                        "href": "https://example.com/wp-json/erp/v1/accounting/v1/tax-cats/5"
+                    },
+                    "collection": {
+                        "href": "https://example.com/wp-json/erp/v1/accounting/v1/tax-cats"
+                    }
+                }
+            }
+
+
+## Manage Single Tax Category [/tax-cats/{id}]
+
++ Parameters
+    + id (string) - id of the tax category in the form of an string
+
+### Retrieve A Tax Category [GET]
+
++ Response 200 (application/json)
+    + Body
+
+            {
+                "id": 1,
+                "name": "Software Service",
+                "description": "Software development",
+                "namespace": "erp/v1",
+                "rest_base": "accounting/v1/tax-cats",
+                "_links": {
+                    "self": {
+                        "href": "https://example.com/wp-json/erp/v1/accounting/v1/tax-cats/1"
+                    },
+                    "collection": {
+                        "href": "https://example.com/wp-json/erp/v1/accounting/v1/tax-cats"
+                    }
+                }
+            }
+
+### Update A Tax Category [PUT]
+
+    Model (application/json)
+
+
+    {
+        "description": "Drive Safely",
+        "name": "Auto"
+    }
+
++ Response 201 (application/json)
+    + Body
+
+            {
+                "id": 5,
+                "name": "Auto",
+                "description": "Drive Safely",
+                "namespace": "erp/v1",
+                "rest_base": "accounting/v1/tax-cats",
+                "_links": {
+                    "self": {
+                        "href": "https://example.com/wp-json/erp/v1/accounting/v1/tax-cats/5"
+                    },
+                    "collection": {
+                        "href": "https://example.com/wp-json/erp/v1/accounting/v1/tax-cats"
+                    }
+                }
+            }
+
+### Delete A Tax Category [DELETE]
+
+Deletes a tax category
+
++ Request (application/json)
++ Response 204 (application/json)
+
+## Bulk Delete Tax Categories [/tax-cats/{ids}]
+
++ Parameters
+    + ids (string) - ids of the tax categories to be deleted seperated by comma
+
+### Bulk Delete Tax Categories [DELETE]
+
+Bulk Deletes selected tax categories
+
++ Request (application/json)
++ Response 204 (application/json)
+

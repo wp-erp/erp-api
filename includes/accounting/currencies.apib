@@ -1,0 +1,322 @@
+# Group Currencies
+
+
+## Currency List [/currencies/{?per_page,page,search}]
+
++ Parameters
+
+    + per_page: 20 (number, optional) - The number of results per page.
+        + Default: `20`
+    + page: 1 (number, optional) - The current page number of results.
+        + Default: `1`
+    + search (string, optional) - The search keyword.
+
+### List All Currencies [GET]
+
+Fetches all available currencies
+
++ Response 200 (application/json)
+    + Body
+
+            [
+                {
+                    "id": "1",
+                    "name": "AED",
+                    "sign": "د.إ",
+                    "namespace": "erp/v1",
+                    "rest_base": "accounting/v1/currencies",
+                    "_links": {
+                        "self": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/currencies/1"
+                        },
+                        "collection": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/currencies"
+                        }
+                    }
+                },
+                {
+                    "id": "2",
+                    "name": "AFN",
+                    "sign": "؋",
+                    "namespace": "erp/v1",
+                    "rest_base": "accounting/v1/currencies",
+                    "_links": {
+                        "self": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/currencies/2"
+                        },
+                        "collection": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/currencies"
+                        }
+                    }
+                },
+                {
+                    "id": "3",
+                    "name": "ALL",
+                    "sign": "L",
+                    "namespace": "erp/v1",
+                    "rest_base": "accounting/v1/currencies",
+                    "_links": {
+                        "self": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/currencies/3"
+                        },
+                        "collection": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/currencies"
+                        }
+                    }
+                },
+                {
+                    "id": "4",
+                    "name": "AMD",
+                    "sign": "AMD",
+                    "namespace": "erp/v1",
+                    "rest_base": "accounting/v1/currencies",
+                    "_links": {
+                        "self": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/currencies/4"
+                        },
+                        "collection": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/currencies"
+                        }
+                    }
+                },
+                {
+                    "id": "5",
+                    "name": "ANG",
+                    "sign": "ƒ",
+                    "namespace": "erp/v1",
+                    "rest_base": "accounting/v1/currencies",
+                    "_links": {
+                        "self": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/currencies/5"
+                        },
+                        "collection": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/currencies"
+                        }
+                    }
+                },
+                {
+                    "id": "6",
+                    "name": "AOA",
+                    "sign": "Kz",
+                    "namespace": "erp/v1",
+                    "rest_base": "accounting/v1/currencies",
+                    "_links": {
+                        "self": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/currencies/6"
+                        },
+                        "collection": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/currencies"
+                        }
+                    }
+                },
+                {
+                    "id": "7",
+                    "name": "ARS",
+                    "sign": "$",
+                    "namespace": "erp/v1",
+                    "rest_base": "accounting/v1/currencies",
+                    "_links": {
+                        "self": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/currencies/7"
+                        },
+                        "collection": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/currencies"
+                        }
+                    }
+                },
+                {
+                    "id": "8",
+                    "name": "AUD",
+                    "sign": "$",
+                    "namespace": "erp/v1",
+                    "rest_base": "accounting/v1/currencies",
+                    "_links": {
+                        "self": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/currencies/8"
+                        },
+                        "collection": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/currencies"
+                        }
+                    }
+                },
+                {
+                    "id": "9",
+                    "name": "AWG",
+                    "sign": "ƒ",
+                    "namespace": "erp/v1",
+                    "rest_base": "accounting/v1/currencies",
+                    "_links": {
+                        "self": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/currencies/9"
+                        },
+                        "collection": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/currencies"
+                        }
+                    }
+                },
+                {
+                    "id": "10",
+                    "name": "AZN",
+                    "sign": "₼",
+                    "namespace": "erp/v1",
+                    "rest_base": "accounting/v1/currencies",
+                    "_links": {
+                        "self": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/currencies/10"
+                        },
+                        "collection": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/currencies"
+                        }
+                    }
+                },
+                {
+                    "id": "11",
+                    "name": "BAM",
+                    "sign": "KM",
+                    "namespace": "erp/v1",
+                    "rest_base": "accounting/v1/currencies",
+                    "_links": {
+                        "self": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/currencies/11"
+                        },
+                        "collection": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/currencies"
+                        }
+                    }
+                },
+                {
+                    "id": "12",
+                    "name": "BBD",
+                    "sign": "$",
+                    "namespace": "erp/v1",
+                    "rest_base": "accounting/v1/currencies",
+                    "_links": {
+                        "self": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/currencies/12"
+                        },
+                        "collection": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/currencies"
+                        }
+                    }
+                },
+                {
+                    "id": "13",
+                    "name": "BDT",
+                    "sign": "৳",
+                    "namespace": "erp/v1",
+                    "rest_base": "accounting/v1/currencies",
+                    "_links": {
+                        "self": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/currencies/13"
+                        },
+                        "collection": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/currencies"
+                        }
+                    }
+                },
+                {
+                    "id": "14",
+                    "name": "BGN",
+                    "sign": "лв",
+                    "namespace": "erp/v1",
+                    "rest_base": "accounting/v1/currencies",
+                    "_links": {
+                        "self": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/currencies/14"
+                        },
+                        "collection": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/currencies"
+                        }
+                    }
+                },
+                {
+                    "id": "15",
+                    "name": "BHD",
+                    "sign": ".د.ب",
+                    "namespace": "erp/v1",
+                    "rest_base": "accounting/v1/currencies",
+                    "_links": {
+                        "self": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/currencies/15"
+                        },
+                        "collection": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/currencies"
+                        }
+                    }
+                },
+                {
+                    "id": "16",
+                    "name": "BIF",
+                    "sign": "Fr",
+                    "namespace": "erp/v1",
+                    "rest_base": "accounting/v1/currencies",
+                    "_links": {
+                        "self": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/currencies/16"
+                        },
+                        "collection": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/currencies"
+                        }
+                    }
+                },
+                {
+                    "id": "17",
+                    "name": "BMD",
+                    "sign": "$",
+                    "namespace": "erp/v1",
+                    "rest_base": "accounting/v1/currencies",
+                    "_links": {
+                        "self": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/currencies/17"
+                        },
+                        "collection": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/currencies"
+                        }
+                    }
+                },
+                {
+                    "id": "18",
+                    "name": "BND",
+                    "sign": "$",
+                    "namespace": "erp/v1",
+                    "rest_base": "accounting/v1/currencies",
+                    "_links": {
+                        "self": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/currencies/18"
+                        },
+                        "collection": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/currencies"
+                        }
+                    }
+                },
+                {
+                    "id": "19",
+                    "name": "BOB",
+                    "sign": "Bs.",
+                    "namespace": "erp/v1",
+                    "rest_base": "accounting/v1/currencies",
+                    "_links": {
+                        "self": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/currencies/19"
+                        },
+                        "collection": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/currencies"
+                        }
+                    }
+                },
+                {
+                    "id": "20",
+                    "name": "BRL",
+                    "sign": "R$",
+                    "namespace": "erp/v1",
+                    "rest_base": "accounting/v1/currencies",
+                    "_links": {
+                        "self": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/currencies/20"
+                        },
+                        "collection": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/currencies"
+                        }
+                    }
+                }
+            ]

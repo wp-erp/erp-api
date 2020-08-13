@@ -1,0 +1,280 @@
+# Group Products
+
+
+## Product List [/products/{?per_page,page,search}]
+
++ Parameters
+
+    + per_page: 20 (number, optional) - The number of results per page.
+        + Default: `20`
+    + page: 1 (number, optional) - The current page number of results.
+        + Default: `1`
+    + search (string, optional) - The search keyword.
+
+### List All Products [GET]
+
+Fetches all available products with pagination
+
++ Response 200 (application/json)
+    + Body
+
+            [
+                {
+                    "id": "4",
+                    "name": "Dry cleaning",
+                    "product_type_id": "1",
+                    "product_type_name": "Inventory",
+                    "category_id": "4",
+                    "tax_cat_id": "4",
+                    "vendor": "6",
+                    "cost_price": "200.00",
+                    "sale_price": "250.00",
+                    "vendor_name": "Christine Tillman",
+                    "cat_name": "Chemical solvent",
+                    "tax_cat_name": "Home",
+                    "namespace": "erp/v1",
+                    "rest_base": "accounting/v1/products",
+                    "_links": {
+                        "self": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/products/4"
+                        },
+                        "collection": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/products"
+                        }
+                    }
+                },
+                {
+                    "id": "3",
+                    "name": "Burger",
+                    "product_type_id": "1",
+                    "product_type_name": "Inventory",
+                    "category_id": "3",
+                    "tax_cat_id": "2",
+                    "vendor": null,
+                    "cost_price": "120.00",
+                    "sale_price": "150.00",
+                    "vendor_name": null,
+                    "cat_name": "Fast food",
+                    "tax_cat_name": "Food",
+                    "namespace": "erp/v1",
+                    "rest_base": "accounting/v1/products",
+                    "_links": {
+                        "self": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/products/3"
+                        },
+                        "collection": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/products"
+                        }
+                    }
+                }
+            ]
+
+## Product List [/products]
+
+### Create A Product [POST]
+
+    Model (application/json)
+
+    {
+        "name": "WP ERP",
+        "product_type_id": {
+            "id": "2",
+            "name": "Service",
+            "slug": "service",
+            "created_at": null,
+            "created_by": null,
+            "updated_at": null,
+            "updated_by": null
+        },
+        "category_id": {
+            "id": "2",
+            "name": "Plugin",
+            "parent": "0"
+        },
+        "tax_cat_id": {
+            "id": 1,
+            "name": "Software Service",
+            "description": "Software development"
+        },
+        "vendor": {
+            "id": 6,
+            "name": "Christine Tillman"
+        },
+        "cost_price": 0,
+        "sale_price": "1000"
+    }
+
++ Response 201 (application/json)
+    + Body
+
+            {
+                "id": "4",
+                "name": "Dry cleaning",
+                "product_type_id": "1",
+                "product_type_name": "Inventory",
+                "category_id": "4",
+                "tax_cat_id": "4",
+                "vendor": "6",
+                "cost_price": "200.00",
+                "sale_price": "250.00",
+                "vendor_name": "Christine Tillman",
+                "cat_name": "Chemical solvent",
+                "tax_cat_name": "Home",
+                "namespace": "erp/v1",
+                "rest_base": "accounting/v1/products",
+                "_links": {
+                    "self": {
+                        "href": "https://example.com/wp-json/erp/v1/accounting/v1/products/4"
+                    },
+                    "collection": {
+                        "href": "https://example.com/wp-json/erp/v1/accounting/v1/products"
+                    }
+                }
+            }
+
+
+## Manage Single Product [/products/{id}]
+
++ Parameters
+    + id (string) - id of the product in the form of an string
+
+### Retrieve A Product [GET]
+
++ Response 200 (application/json)
+    + Body
+
+            {
+                "id": "4",
+                "name": "Dry cleaning",
+                "product_type_id": "1",
+                "product_type_name": "Inventory",
+                "category_id": "4",
+                "tax_cat_id": "4",
+                "vendor": "6",
+                "cost_price": "200.00",
+                "sale_price": "250.00",
+                "vendor_name": "Christine Tillman",
+                "cat_name": "Chemical solvent",
+                "tax_cat_name": "Home",
+                "namespace": "erp/v1",
+                "rest_base": "accounting/v1/products",
+                "_links": {
+                    "self": {
+                        "href": "https://example.com/wp-json/erp/v1/accounting/v1/products/4"
+                    },
+                    "collection": {
+                        "href": "https://example.com/wp-json/erp/v1/accounting/v1/products"
+                    }
+                }
+            }
+
+### Update A Product [PUT]
+
+    Model (application/json)
+
+    {
+        "name": "WP ERP",
+        "product_type_id": {
+            "id": "2",
+            "name": "Service",
+            "slug": "service",
+            "created_at": null,
+            "created_by": null,
+            "updated_at": null,
+            "updated_by": null
+        },
+        "category_id": {
+            "id": "2",
+            "name": "Plugin",
+            "parent": "0"
+        },
+        "tax_cat_id": {
+            "id": 1,
+            "name": "Software Service",
+            "description": "Software development"
+        },
+        "vendor": {
+            "id": 6,
+            "name": "Christine Tillman"
+        },
+        "cost_price": 0,
+        "sale_price": "1000"
+    }
+
++ Response 201 (application/json)
+    + Body
+
+            {
+                "id": "4",
+                "name": "Dry cleaning",
+                "product_type_id": "1",
+                "product_type_name": "Inventory",
+                "category_id": "4",
+                "tax_cat_id": "4",
+                "vendor": "6",
+                "cost_price": "200.00",
+                "sale_price": "250.00",
+                "vendor_name": "Christine Tillman",
+                "cat_name": "Chemical solvent",
+                "tax_cat_name": "Home",
+                "namespace": "erp/v1",
+                "rest_base": "accounting/v1/products",
+                "_links": {
+                    "self": {
+                        "href": "https://example.com/wp-json/erp/v1/accounting/v1/products/4"
+                    },
+                    "collection": {
+                        "href": "https://example.com/wp-json/erp/v1/accounting/v1/products"
+                    }
+                }
+            }
+
+### Delete A Product [DELETE]
+
+Deletes a product
+
++ Request (application/json)
++ Response 204 (application/json)
+
+## Bulk Delete Products [/products/{ids}]
+
++ Parameters
+    + ids (string) - ids of the products to be deleted seperated by comma
+
+### Bulk Delete Products [DELETE]
+
+Bulk Deletes selected products
+
++ Request (application/json)
++ Response 204 (application/json)
+
+
+## Get Product types [/products/types]
+
+### Retrieves the product types [GET]
+
+Retrieve the available product types
+
++ Response 200 (application/json)
+    + Body
+
+            [
+                {
+                    "id": "1",
+                    "name": "Inventory",
+                    "slug": "inventory",
+                    "created_at": null,
+                    "created_by": null,
+                    "updated_at": null,
+                    "updated_by": null
+                },
+                {
+                    "id": "2",
+                    "name": "Service",
+                    "slug": "service",
+                    "created_at": null,
+                    "created_by": null,
+                    "updated_at": null,
+                    "updated_by": null
+                }
+            ]

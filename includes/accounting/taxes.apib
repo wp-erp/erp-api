@@ -1,0 +1,567 @@
+# Group Tax Rates
+
+
+## Tax Rate List [taxes/{?per_page,page,search}]
+
++ Parameters
+
+    + per_page: 20 (number, optional) - The number of results per page.
+        + Default: `20`
+    + page: 1 (number, optional) - The current page number of results.
+        + Default: `1`
+    + search (string, optional) - The search keyword.
+
+
+### List All Tax Rates [GET]
+
+Fetches all available tax_rates with pagination
+
++ Response 200 (application/json)
+    + Body
+
+            [
+                {
+                    "id": 1,
+                    "tax_rate_name": "California",
+                    "tax_rate": "",
+                    "tax_components": "",
+                    "namespace": "erp/v1",
+                    "rest_base": "accounting/v1/taxes",
+                    "_links": {
+                        "self": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/taxes/1"
+                        },
+                        "collection": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/taxes"
+                        }
+                    }
+                },
+                {
+                    "id": 2,
+                    "tax_rate_name": "Tucson",
+                    "tax_rate": "",
+                    "tax_components": "",
+                    "namespace": "erp/v1",
+                    "rest_base": "accounting/v1/taxes",
+                    "_links": {
+                        "self": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/taxes/2"
+                        },
+                        "collection": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/taxes"
+                        }
+                    }
+                },
+                {
+                    "id": 3,
+                    "tax_rate_name": "Arizona",
+                    "tax_rate": "",
+                    "tax_components": "",
+                    "namespace": "erp/v1",
+                    "rest_base": "accounting/v1/taxes",
+                    "_links": {
+                        "self": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/taxes/3"
+                        },
+                        "collection": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/taxes"
+                        }
+                    }
+                }
+            ]
+
+### Create A Tax Rate [POST]
+
+    Model (application/json)
+
+    {
+        "tax_rate_name": "4",
+        "tax_components": [
+            {
+                "component_name": "Tax 1",
+                "agency_id": 3,
+                "tax_category_id": 5,
+                "tax_rate": "200"
+            },
+            {
+                "component_name": "Tax 2",
+                "agency_id": 2,
+                "tax_category_id": 1,
+                "tax_rate": "10"
+            }
+        ],
+        "is_compound": true
+    }
+
++ Response 201 (application/json)
+    + Body
+
+            {
+                "tax_components": [
+                    {
+                        "component_name": "Tax 1",
+                        "agency_id": 3,
+                        "tax_category_id": 5,
+                        "tax_rate": "200"
+                    },
+                    {
+                        "component_name": "Tax 2",
+                        "agency_id": 2,
+                        "tax_category_id": 1,
+                        "tax_rate": "10"
+                    }
+                ],
+                "tax_rate": 210,
+                "id": 4,
+                "namespace": "erp/v1",
+                "tax_rate_name": "4",
+                "rest_base": "accounting/v1/taxes",
+                "_links": {
+                    "self": {
+                        "href": "https://example.com/wp-json/erp/v1/accounting/v1/taxes/4"
+                    },
+                    "collection": {
+                        "href": "https://example.com/wp-json/erp/v1/accounting/v1/taxes"
+                    }
+                }
+            }
+
+
+## Manage Single Tax Rate [taxes/{id}]
+
++ Parameters
+    + id (string) - id of the tax_rate in the form of an string
+
+### Retrieve A Tax Rate [GET]
+
++ Response 200 (application/json)
+    + Body
+
+            {
+                "id": 1,
+                "tax_rate_name": "California",
+                "tax_rate": "",
+                "tax_components": [
+                    {
+                        "db_id": "1",
+                        "tax_id": "1",
+                        "component_name": "Software Tax",
+                        "agency_id": "1",
+                        "tax_cat_id": "1",
+                        "tax_rate": "5.00",
+                        "agency": null,
+                        "category": null,
+                        "agency_name": "Arizona Revenue Department",
+                        "tax_cat_name": "Software Service"
+                    },
+                    {
+                        "db_id": "2",
+                        "tax_id": "1",
+                        "component_name": "Food Tax",
+                        "agency_id": "1",
+                        "tax_cat_id": "2",
+                        "tax_rate": "4.00",
+                        "agency": null,
+                        "category": null,
+                        "agency_name": "Arizona Revenue Department",
+                        "tax_cat_name": "Food"
+                    },
+                    {
+                        "db_id": "3",
+                        "tax_id": "1",
+                        "component_name": "Food Tax",
+                        "agency_id": "2",
+                        "tax_cat_id": "2",
+                        "tax_rate": "4.00",
+                        "agency": null,
+                        "category": null,
+                        "agency_name": "State Board of Equalization",
+                        "tax_cat_name": "Food"
+                    },
+                    {
+                        "db_id": "4",
+                        "tax_id": "1",
+                        "component_name": "Drink Tax",
+                        "agency_id": "1",
+                        "tax_cat_id": "3",
+                        "tax_rate": "8.00",
+                        "agency": null,
+                        "category": null,
+                        "agency_name": "Arizona Revenue Department",
+                        "tax_cat_name": "Soft Drinks"
+                    },
+                    {
+                        "db_id": "5",
+                        "tax_id": "1",
+                        "component_name": "Housing Tax",
+                        "agency_id": "1",
+                        "tax_cat_id": "4",
+                        "tax_rate": "10.00",
+                        "agency": null,
+                        "category": null,
+                        "agency_name": "Arizona Revenue Department",
+                        "tax_cat_name": "Home"
+                    },
+                    {
+                        "db_id": "13",
+                        "tax_id": "1",
+                        "component_name": "vat",
+                        "agency_id": "1",
+                        "tax_cat_id": "4",
+                        "tax_rate": "0.00",
+                        "agency": null,
+                        "category": null,
+                        "agency_name": "Arizona Revenue Department",
+                        "tax_cat_name": "Home"
+                    }
+                ],
+                "namespace": "erp/v1",
+                "rest_base": "accounting/v1/taxes",
+                "_links": {
+                    "self": {
+                        "href": "https://example.com/wp-json/erp/v1/accounting/v1/taxes/1"
+                    },
+                    "collection": {
+                        "href": "https://example.com/wp-json/erp/v1/accounting/v1/taxes"
+                    }
+                }
+            }
+
+
+### Update A Tax Rate [PUT]
+
+    Model (application/json)
+
+    {
+        "tax_rate_name": "4",
+        "tax_components": [
+            {
+                "component_name": "Tax 1",
+                "agency_id": 3,
+                "tax_category_id": 5,
+                "tax_rate": "200"
+            },
+            {
+                "component_name": "Tax 2",
+                "agency_id": 2,
+                "tax_category_id": 1,
+                "tax_rate": "9"
+            }
+        ],
+        "is_compound": true
+    }
+
++ Response 201 (application/json)
+        + Body
+
+                {
+                    "tax_components": [
+                        {
+                            "component_name": "Tax 1",
+                            "agency_id": 3,
+                            "tax_category_id": 5,
+                            "tax_rate": "200"
+                        },
+                        {
+                            "component_name": "Tax 2",
+                            "agency_id": 2,
+                            "tax_category_id": 1,
+                            "tax_rate": "9"
+                        }
+                    ],
+                    "tax_rate": 209,
+                    "id": 4,
+                    "namespace": "erp/v1",
+                    "tax_rate_name": "4",
+                    "rest_base": "accounting/v1/taxes",
+                    "_links": {
+                        "self": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/taxes/4"
+                        },
+                        "collection": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/taxes"
+                        }
+                    }
+                }
+
+
+### Delete A Tax Rate [DELETE]
+
+Deletes a tax rate
+
++ Request (application/json)
++ Response 204 (application/json)
+
+
+## Bulk Delete Tax Rates [/taxes/{ids}]
+
++ Parameters
+    + ids (string) - ids of the tax rates to be deleted seperated by comma
+
+
+### Bulk Delete Tax Rates [DELETE]
+
+Bulk Deletes selected tax rates
+
++ Request (application/json)
++ Response 204 (application/json)
+
+
+# Group Tax Rate Lines
+
+
+## Manage Single Tax Rate Line Add [taxes/{id}/line-add]
+
++ Parameters
+    + id (string) - id of the tax_rate in the form of an string
+
+
+### Add A Line in Tax Rate [POST]
+
+    Model (application/json)
+
+    {
+        "db_id": "1",
+        "tax_id": "1",
+        "tax_cat_id": 1,
+        "row_id": null,
+        "tax_rate": "5.00",
+        "component_name": "Software Tax",
+        "agency_id": 1
+    }
+
++ Response 201 (application/json)
+        + Body
+
+
+                {
+                    "db_id": "1",
+                    "component_name": "Software Tax",
+                    "agency_id": 1,
+                    "tax_rate": "5.00",
+                    "namespace": "erp/v1",
+                    "tax_cat_id": 1,
+                    "tax_id": "1",
+                    "rest_base": "accounting/v1/taxes",
+                    "_links": {
+                        "self": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/taxes/0"
+                        },
+                        "collection": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/taxes"
+                        }
+                    }
+                }
+
+
+## Manage Single Tax Rate Line Edit [taxes/{id}/line-edit]
+
++ Parameters
+    + id (string) - id of the tax_rate in the form of an string
+
+
+### Update A Line in Tax Rate [PUT]
+
+    Model (application/json)
+
+    {
+        "db_id": "1",
+        "tax_id": "1",
+        "tax_cat_id": 1,
+        "row_id": null,
+        "tax_rate": "9.00",
+        "component_name": "Software Tax",
+        "agency_id": 1
+    }
+
++ Response 201 (application/json)
+        + Body
+
+
+                {
+                    "db_id": "1",
+                    "component_name": "Software Tax",
+                    "agency_id": 1,
+                    "tax_rate": "9.00",
+                    "namespace": "erp/v1",
+                    "tax_cat_id": 1,
+                    "tax_id": "1",
+                    "rest_base": "accounting/v1/taxes",
+                    "_links": {
+                        "self": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/taxes/0"
+                        },
+                        "collection": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/taxes"
+                        }
+                    }
+                }
+
+## Manage Single Tax Rate Line Delete [taxes/{id}/line-delete/{db_id}]
+
++ Parameters
+    + id (string) - id of the tax_rate in the form of an string
+    + db_id (string) - id of the tax_rate line in the form of an string
+
+
+Deletes a tax rate line
+
++ Request (application/json)
++ Response 204 (application/json)
+
+
+# Group Tax Records
+
+
+## Manage All Tax Records [taxes/tax-records]
+
+### Retrieve All Tax Records [GET]
+
++ Response 200 (application/json)
+    + Body
+
+            [
+                {
+                    "id": 1,
+                    "voucher_no": "15",
+                    "agency_id": "Arizona Revenue Department",
+                    "trn_date": "2020-03-29",
+                    "particulars": "Invoice created with voucher no 15",
+                    "amount": "5.00",
+                    "trn_by": "1",
+                    "ledger_id": "Cash",
+                    "voucher_type": "debit",
+                    "created_at": "2020-03-29",
+                    "namespace": "erp/v1",
+                    "rest_base": "accounting/v1/taxes",
+                    "_links": {
+                        "self": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/taxes/1"
+                        },
+                        "collection": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/taxes"
+                        }
+                    }
+                }
+            ]
+
+
+## Manage Single Tax Record [taxes/tax-records/{id}]
+
++ Parameters
+    + id (string) - id of the tax_rate in the form of an string
+
+### Retrieve A SIngle Tax Record [GET]
+
++ Response 200 (application/json)
+    + Body
+
+            {
+                "id": 1,
+                "voucher_no": "15",
+                "agency_id": "Arizona Revenue Department",
+                "trn_date": "2020-03-29",
+                "particulars": "Invoice created with voucher no 15",
+                "amount": "5.00",
+                "trn_by": "1",
+                "ledger_id": "Cash",
+                "voucher_type": "debit",
+                "created_at": "2020-03-29",
+                "namespace": "erp/v1",
+                "rest_base": "accounting/v1/taxes",
+                "_links": {
+                    "self": {
+                        "href": "https://example.com/wp-json/erp/v1/accounting/v1/taxes/1"
+                    },
+                    "collection": {
+                        "href": "https://example.com/wp-json/erp/v1/accounting/v1/taxes"
+                    }
+                }
+            }
+
+## Manage All Tax Records [taxes/tax-records]
+
+### Retrieve All Tax Records [GET]
+
++ Response 200 (application/json)
+    + Body
+
+            [
+                {
+                    "id": 1,
+                    "voucher_no": "15",
+                    "agency_id": "Arizona Revenue Department",
+                    "trn_date": "2020-03-29",
+                    "particulars": "Invoice created with voucher no 15",
+                    "amount": "5.00",
+                    "trn_by": "1",
+                    "ledger_id": "Cash",
+                    "voucher_type": "debit",
+                    "created_at": "2020-03-29",
+                    "namespace": "erp/v1",
+                    "rest_base": "accounting/v1/taxes",
+                    "_links": {
+                        "self": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/taxes/1"
+                        },
+                        "collection": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/taxes"
+                        }
+                    }
+                }
+            ]
+
+
+## Pay against Tax Records [taxes/pay-tax]
+
+### Pay against a Tax Record [POST]
+
+    Model
+
+    {
+        "agency_id": 1,
+        "trn_date": "2020-03-29",
+        "trn_by": "1",
+        "ledger_id": "7",
+        "particulars": "",
+        "voucher_type": "debit",
+        "amount": 5
+    }
+
+
++ Response 200 (application/json)
+    + Body
+
+            {
+                "id": 1,
+                "voucher_no": {
+                    "id": "1",
+                    "voucher_no": "15",
+                    "particulars": "Invoice created with voucher no 15",
+                    "amount": "5.00",
+                    "trn_date": "2020-03-29",
+                    "voucher_type": "debit",
+                    "trn_by": "1",
+                    "agency_id": "1",
+                    "ledger_id": "7",
+                    "created_at": "2020-03-29"
+                },
+                "agency_id": "Arizona Revenue Department",
+                "trn_date": "2020-03-29",
+                "particulars": "",
+                "amount": 5,
+                "trn_by": "1",
+                "ledger_id": "Cash",
+                "voucher_type": "debit",
+                "created_at": null,
+                "namespace": "erp/v1",
+                "rest_base": "accounting/v1/taxes",
+                "_links": {
+                    "self": {
+                        "href": "https://example.com/wp-json/erp/v1/accounting/v1/taxes/1"
+                    },
+                    "collection": {
+                        "href": "https://example.com/wp-json/erp/v1/accounting/v1/taxes"
+                    }
+                }
+            }

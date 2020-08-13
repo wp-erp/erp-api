@@ -1,0 +1,212 @@
+# Group Accounts and Transfers
+
+
+## Account List [/accounts/{?per_page,page,search}]
+
++ Parameters
+
+    + per_page: 20 (number, optional) - The number of results per page.
+        + Default: `20`
+    + page: 1 (number, optional) - The current page number of results.
+        + Default: `1`
+    + search (string, optional) - The search keyword.
+
+
+### List All Accounts [GET]
+
+Fetches all available accounts with pagination
+
++ Response 200 (application/json)
+    + Body
+
+            [
+                {
+                    "id": 7,
+                    "name": "Cash",
+                    "balance": 10359.5
+                },
+                {
+                    "id": 105,
+                    "name": "Bank Account",
+                    "balance": 0
+                }
+            ]
+
+
+## Manage Single Accounts [/accounts/{id}]
+
++ Parameters
+    + id (string) - id of the account in the form of an string
+
+### Retrieve an Account [GET]
+
++ Response 200 (application/json)
+    + Body
+
+            {
+                "id": "105",
+                "chart_id": "7",
+                "category_id": null,
+                "name": "Bank Account",
+                "slug": "bank_account",
+                "code": "123232",
+                "trn_count": "0",
+                "system": null,
+                "balance": null
+            }
+
+### Delete an Account [DELETE]
+
++ Request (application/json)
++ Response 204 (application/json)
+
+## Get Cash and Bamk Accounts [/accounts/bank-accounts]
+
+### Get all Cash related Accounts [GET]
+
++ Response 200 (application/json)
+    + Body
+
+            [
+                {
+                    "id": "7",
+                    "name": "Cash",
+                    "code": "90",
+                    "obalance": 0,
+                    "balance": 10159.5,
+                    "total_debit": 0,
+                    "total_credit": 0
+                },
+                {
+                    "id": "105",
+                    "name": "Bank Account",
+                    "code": "123232",
+                    "obalance": 0,
+                    "balance": 200,
+                    "total_debit": 0,
+                    "total_credit": 0
+                }
+            ]
+
+
+## Get Dashboard Accounts [/accounts/cash-at-bank]
+
+### Get all Accounts shown in dashboard[GET]
+
++ Response 200 (application/json)
+    + Body
+
+            [
+                {
+                    "name": "Cash",
+                    "balance": 10159.5
+                },
+                {
+                    "name": "Cash at Bank",
+                    "balance": 200,
+                    "additional": [
+                        {
+                            "id": "105",
+                            "chart_id": "7",
+                            "name": "Bank Account",
+                            "balance": 200
+                        }
+                    ]
+                },
+                {
+                    "name": "Bank Loan",
+                    "balance": 0,
+                    "additional": []
+                }
+            ]
+
+
+## Transfer Money [/accounts/transfer]
+
+### Transfer between two Accounts [POST]
+
+    Model (application/json)
+
+    {
+        "date": "2020-03-25",
+        "from_account_id": 7,
+        "to_account_id": 105,
+        "amount": "200",
+        "particulars": "cash transfer"
+    }
+
++ Request (application/json)
++ Response 201 (application/json)
+
+## List all Transfers [/accounts/transfers/list]
+
+### Retrieve all Transfer transactions [GET]
+
++ Response 200 (application/json)
+    + Body
+
+            [
+                {
+                    "id": "1",
+                    "voucher": 11,
+                    "ac_from": "Cash",
+                    "ac_to": "Bank Account",
+                    "trn_date": "2020-03-25",
+                    "particulars": "cash transfer",
+                    "amount": "200.00",
+                    "created_at": "2020-03-25",
+                    "created_by": {
+                        "ID": 1,
+                        "user_nicename": "admin",
+                        "user_email": "towhid@wedevs.com",
+                        "user_url": "",
+                        "display_name": "admin",
+                        "avatar": "http://1.gravatar.com/avatar/401f7d187fcddb011270d09f31bab1f6?s=96&d=mm&r=g",
+                        "_links": {
+                            "self": {
+                                "href": "https://example.com/wp-json/erp/v1/accounting/v1/accounts/1"
+                            },
+                            "collection": {
+                                "href": "https://example.com/wp-json/erp/v1/accounting/v1/accounts"
+                            }
+                        }
+                    }
+                }
+            ]
+
+## Manage Single Transfers [/accounts/transfers/{id}]
+
++ Parameters
+    + id (string) - id of the account in the form of an string
+
+### Retrieve an Account [GET]
+
++ Response 200 (application/json)
+    + Body
+
+            {
+                "id": "1",
+                "voucher": 11,
+                "ac_from": "Cash",
+                "ac_to": "Bank Account",
+                "trn_date": "2020-03-25",
+                "particulars": "cash transfer",
+                "amount": "200.00",
+                "created_at": "2020-03-25",
+                "created_by": {
+                    "ID": 1,
+                    "user_nicename": "admin",
+                    "user_email": "towhid@wedevs.com",
+                    "user_url": "",
+                    "display_name": "admin",
+                    "avatar": "http://1.gravatar.com/avatar/401f7d187fcddb011270d09f31bab1f6?s=96&d=mm&r=g",
+                    "_links": {
+                        "self": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/accounts/1"
+                        },
+                        "collection": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/accounts"
+                        }
+                    }
+                }
+            }

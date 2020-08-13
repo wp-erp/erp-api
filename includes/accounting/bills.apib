@@ -1,0 +1,392 @@
+# Group Bills
+
+
+## Bill List [/bills/{?per_page,page,search}]
+
++ Parameters
+
+    + per_page: 20 (number, optional) - The number of results per page.
+        + Default: `20`
+    + page: 1 (number, optional) - The current page number of results.
+        + Default: `1`
+    + search (string, optional) - The search keyword.
+
+### List All Bills [GET]
+
+Fetches all available bills with pagination
+
++ Response 200 (application/json)
+    + Body
+
+            [
+                {
+                    "id": 1,
+                    "bill_no": 503,
+                    "vendor_id": 1,
+                    "vendor_name": Apple,
+                    "ledger_id": "104 (Tea)",
+                    "particulars": "due",
+                    "bill_details": [
+                        {
+                            "id": 1,
+                            "ledger_id": 503,
+                            "bill_no": 503,
+                            "trn_no": 504,
+                            "particulars": "nothing",
+                            "amount": 80,
+                            "tax": 20,
+                            "line_total": 100
+                        },
+                        {
+                            "id": 2,
+                            "ledger_id": 504,
+                            "bill_no": 503,
+                            "trn_no": 504,
+                            "particulars": "nothing",
+                            "amount": 90,
+                            "tax": 30,
+                            "line_total": 120
+                        },
+                    ],
+                    "date": "2016-11-22",
+                    "due_date": "2016-11-22",
+                    "subtotal": 200,
+                    "total": 200,
+                    "reference_no": "Bill-001",
+                    "created_by": {
+                        "id": 1,
+                        "user_nicename": "john",
+                        "user_email": "mail@gmail.com",
+                        "user_url": "",
+                        "display_name": "John Wick",
+                        "avatar": "http://2.gravatar.com/avatar/50b8fc98057e12e1f1f8982a981297e7?s=96&d=mm&r=g",
+                        "_links": {
+                            "self": [
+                                {
+                                    "href": "https://demo.wp-api.org/wp-json/wp/v2/users/1"
+                                }
+                            ],
+                            "collection": [
+                                {
+                                    "href": "https://demo.wp-api.org/wp-json/wp/v2/users"
+                                }
+                            ]
+                        }
+                    },
+                    "_links": {
+                        "self": [
+                            {
+                                "href": "http://example.com/wp-json/erp/v1/accounting/bills/1"
+                            }
+                        ],
+                        "collection": [
+                            {
+                                "href": "http://example.com/wp-json/erp/v1/accounting/bills"
+                            }
+                        ]
+                    }
+                }
+            ]
+
+## Bill List [/bills]
+
+### Create A Bill [POST]
+
+    Model (application/json)
+
+    {
+        "vendor_id": 25,
+        "ref": "Bill Ref",
+        "trn_date": "2020-03-24",
+        "due_date": "2020-03-24",
+        "bill_details": [
+            {
+                "ledger_id": "24",
+                "amount": "200"
+            },
+            {
+                "ledger_id": "31",
+                "amount": "300"
+            }
+        ],
+        "attachments": [],
+        "billing_address": "Hilpert Keys, 65668 Gutkowski Center Lake Naomie Idaho, 07711-2842 Cape Verde",
+        "type": "bill",
+        "status": 2,
+        "particulars": "Bill Particulars"
+    }
+
++ Response 201 (application/json)
+    + Body
+
+            {
+                "id": 1,
+                "editable": 1,
+                "voucher_no": 9,
+                "vendor_id": 25,
+                "vendor_name": "Zetta Kreiger",
+                "trn_date": "2020-03-24",
+                "due_date": "2020-03-24",
+                "billing_address": "Hilpert Keys, 65668 Gutkowski Center Lake Naomie Idaho, 07711-2842 Cape Verde",
+                "bill_details": [
+                    {
+                        "id": "1",
+                        "trn_no": "9",
+                        "ledger_id": "24",
+                        "particulars": "",
+                        "amount": "200.00",
+                        "ledger_name": "Costs of Goods Sold"
+                    },
+                    {
+                        "id": "2",
+                        "trn_no": "9",
+                        "ledger_id": "31",
+                        "particulars": "",
+                        "amount": "300.00",
+                        "ledger_name": "General Expenses"
+                    }
+                ],
+                "amount": 500,
+                "due": "500.00",
+                "ref": "Bill Ref",
+                "particulars": "Bill Particulars",
+                "status": "2",
+                "created_at": "2020-03-24",
+                "attachments": [],
+                "namespace": "erp/v1",
+                "rest_base": "accounting/v1/bills",
+                "_links": {
+                    "self": {
+                        "href": "https://example.com/wp-json/erp/v1/accounting/v1/bills/1"
+                    },
+                    "collection": {
+                        "href": "https://example.com/wp-json/erp/v1/accounting/v1/bills"
+                    }
+                }
+            }
+
+
+## Manage Single Bill [/bills/{id}]
+
++ Parameters
+    + id (string) - id of the bill in the form of an string
+
+### Retrieve A Bill [GET]
+
++ Response 200 (application/json)
+    + Body
+
+            {
+                "id": 1,
+                "editable": 1,
+                "voucher_no": 9,
+                "vendor_id": 25,
+                "vendor_name": "Zetta Kreiger",
+                "trn_date": "2020-03-24",
+                "due_date": "2020-03-24",
+                "billing_address": "Hilpert Keys, 65668 Gutkowski Center Lake Naomie Idaho, 07711-2842 Cape Verde",
+                "bill_details": [
+                    {
+                        "id": "1",
+                        "trn_no": "9",
+                        "ledger_id": "24",
+                        "particulars": "",
+                        "amount": "200.00",
+                        "ledger_name": "Costs of Goods Sold"
+                    },
+                    {
+                        "id": "2",
+                        "trn_no": "9",
+                        "ledger_id": "31",
+                        "particulars": "",
+                        "amount": "300.00",
+                        "ledger_name": "General Expenses"
+                    }
+                ],
+                "amount": 500,
+                "due": "500.00",
+                "ref": "Bill Ref",
+                "particulars": "Bill Particulars",
+                "status": "2",
+                "created_at": "2020-03-24",
+                "attachments": [],
+                "namespace": "erp/v1",
+                "rest_base": "accounting/v1/bills",
+                "_links": {
+                    "self": {
+                        "href": "https://example.com/wp-json/erp/v1/accounting/v1/bills/1"
+                    },
+                    "collection": {
+                        "href": "https://example.com/wp-json/erp/v1/accounting/v1/bills"
+                    }
+                }
+            }
+
+### Update A Bill [PUT]
+
+    Model (application/json)
+
+    {
+        "vendor_id": 25,
+        "ref": "Bill Ref",
+        "trn_date": "2020-03-24",
+        "due_date": "2020-03-24",
+        "bill_details": [
+            {
+                "ledger_id": "24",
+                "amount": "200"
+            },
+            {
+                "ledger_id": "31",
+                "amount": "300"
+            }
+        ],
+        "attachments": [],
+        "billing_address": "Hilpert Keys, 65668 Gutkowski Center Lake Naomie Idaho, 07711-2842 Cape Verde",
+        "type": "bill",
+        "status": 2,
+        "particulars": "Bill Particulars"
+    }
+
++ Response 201 (application/json)
+    + Body
+
+            {
+                "id": 1,
+                "editable": 1,
+                "voucher_no": 9,
+                "vendor_id": 25,
+                "vendor_name": "Zetta Kreiger",
+                "trn_date": "2020-03-24",
+                "due_date": "2020-03-24",
+                "billing_address": "Hilpert Keys, 65668 Gutkowski Center Lake Naomie Idaho, 07711-2842 Cape Verde",
+                "bill_details": [
+                    {
+                        "id": "1",
+                        "trn_no": "9",
+                        "ledger_id": "24",
+                        "particulars": "",
+                        "amount": "200.00",
+                        "ledger_name": "Costs of Goods Sold"
+                    },
+                    {
+                        "id": "2",
+                        "trn_no": "9",
+                        "ledger_id": "31",
+                        "particulars": "",
+                        "amount": "300.00",
+                        "ledger_name": "General Expenses"
+                    }
+                ],
+                "amount": 500,
+                "due": "500.00",
+                "ref": "Bill Ref",
+                "particulars": "Bill Particulars",
+                "status": "2",
+                "created_at": "2020-03-24",
+                "attachments": [],
+                "namespace": "erp/v1",
+                "rest_base": "accounting/v1/bills",
+                "_links": {
+                    "self": {
+                        "href": "https://example.com/wp-json/erp/v1/accounting/v1/bills/1"
+                    },
+                    "collection": {
+                        "href": "https://example.com/wp-json/erp/v1/accounting/v1/bills"
+                    }
+                }
+            }
+
+## Void Bills [/bills/{id}/void/]
+
++ Parameters
+    + id (string) - id of the bill in the form of an string
+
+### Void a Bill [POST]
+
+Voids a particular bill
+
++ Request (application/json)
++ Response 204 (application/json)
+
+
+## Due Bills of a vendor [/bills/due/{id}]
+
++ Parameters
+    + id (string) - id of the vendor in the form of an string
+
+### List All Due Bills [GET]
+
+Fetches all due bills of a vendor
+
++ Response 200 (application/json)
+    + Body
+
+            [
+                {
+                    "id": 1,
+                    "editable": 1,
+                    "voucher_no": 9,
+                    "vendor_id": 25,
+                    "vendor_name": "Zetta Kreiger",
+                    "trn_date": "2020-03-24",
+                    "due_date": "2020-03-24",
+                    "billing_address": {
+                        "street_1": "Hilpert Keys",
+                        "street_2": "65668 Gutkowski Center",
+                        "city": "Lake Naomie",
+                        "state": "Idaho",
+                        "postal_code": "07711-2842",
+                        "country": "Cape Verde"
+                    },
+                    "bill_details": [],
+                    "amount": 500,
+                    "due": "500.00",
+                    "ref": "Bill Ref",
+                    "particulars": "Bill Particulars",
+                    "status": "2",
+                    "created_at": "2020-03-24",
+                    "attachments": [],
+                    "namespace": "erp/v1",
+                    "rest_base": "accounting/v1/bills",
+                    "_links": {
+                        "self": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/bills/1"
+                        },
+                        "collection": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/bills"
+                        }
+                    }
+                }
+            ]
+
+## Get Payables overview [/bills/overview-payable]
+
+### List Payables overview [GET]
+
+Get Dashboard Payables overview section
+
++ Response 200 (application/json)
+    + Body
+
+            {
+                "data": {
+                    "first": [
+                        {
+                            "voucher_no": "9",
+                            "due": "-500.00",
+                            "due_date": "2020-03-24"
+                        },
+                        {
+                            "voucher_no": "8",
+                            "due": "-500.00",
+                            "due_date": "2020-03-24"
+                        }
+                    ]
+                },
+                "amount": {
+                    "first": 1000,
+                    "second": 0,
+                    "third": 0
+                }
+            }

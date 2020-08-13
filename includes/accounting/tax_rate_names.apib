@@ -1,0 +1,201 @@
+# Group Tax Rate Names
+
+
+## Tax Rate Name List [/tax-rate-names/{?per_page,page,search}]
+
++ Parameters
+
+    + per_page: 20 (number, optional) - The number of results per page.
+        + Default: `20`
+    + page: 1 (number, optional) - The current page number of results.
+        + Default: `1`
+    + search (string, optional) - The search keyword.
+
+### List All Tax Rate Names [GET]
+
+Fetches all available tax rate names with pagination
+
++ Response 200 (application/json)
+    + Body
+
+            [
+                {
+                    "id": "3",
+                    "tax_rate_name": "Arizona",
+                    "tax_number": "100022",
+                    "default": "0",
+                    "created_at": null,
+                    "created_by": null,
+                    "updated_at": null,
+                    "updated_by": null,
+                    "namespace": "erp/v1",
+                    "rest_base": "accounting/v1/tax-rate-names",
+                    "_links": {
+                        "self": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/tax-rate-names/3"
+                        },
+                        "collection": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/tax-rate-names"
+                        }
+                    }
+                },
+                {
+                    "id": "2",
+                    "tax_rate_name": "Tucson",
+                    "tax_number": "100012",
+                    "default": "0",
+                    "created_at": null,
+                    "created_by": null,
+                    "updated_at": null,
+                    "updated_by": null,
+                    "namespace": "erp/v1",
+                    "rest_base": "accounting/v1/tax-rate-names",
+                    "_links": {
+                        "self": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/tax-rate-names/2"
+                        },
+                        "collection": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/tax-rate-names"
+                        }
+                    }
+                },
+                {
+                    "id": "1",
+                    "tax_rate_name": "California",
+                    "tax_number": "100011",
+                    "default": "1",
+                    "created_at": null,
+                    "created_by": null,
+                    "updated_at": null,
+                    "updated_by": null,
+                    "namespace": "erp/v1",
+                    "rest_base": "accounting/v1/tax-rate-names",
+                    "_links": {
+                        "self": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/tax-rate-names/1"
+                        },
+                        "collection": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/tax-rate-names"
+                        }
+                    }
+                }
+            ]
+
+## Tax Rate Name List [/tax-rate-names]
+
+### Create A Tax Rate Name [POST]
+
+    Model (application/json)
+
+    {
+        "tax_number": "NY001",
+        "default": true,
+        "tax_rate_name": "New York"
+    }
+
++ Response 201 (application/json)
+    + Body
+
+            {
+                "id": 4,
+                "default": true,
+                "tax_rate_name": "New York",
+                "_links": {
+                    "collection": {
+                        "href": "https://example.com/wp-json/erp/v1/accounting/v1/tax-rate-names"
+                    },
+                    "self": {
+                        "href": "https://example.com/wp-json/erp/v1/accounting/v1/tax-rate-names/4"
+                    }
+                },
+                "tax_number": "NY001",
+                "namespace": "erp/v1",
+                "rest_base": "accounting/v1/tax-rate-names"
+            }
+
+
+## Manage Single Tax Rate Name [/tax-rate-names/{id}]
+
++ Parameters
+    + id (string) - id of the tax rate name in the form of an string
+
+### Retrieve A Tax Rate Name [GET]
+
++ Response 200 (application/json)
+    + Body
+
+            {
+                "id": "1",
+                "tax_rate_name": "California",
+                "tax_number": "100011",
+                "default": "0",
+                "created_at": null,
+                "created_by": null,
+                "updated_at": null,
+                "updated_by": null,
+                "namespace": "erp/v1",
+                "rest_base": "accounting/v1/tax-rate-names",
+                "_links": {
+                    "self": {
+                        "href": "https://example.com/wp-json/erp/v1/accounting/v1/tax-rate-names/1"
+                    },
+                    "collection": {
+                        "href": "https://example.com/wp-json/erp/v1/accounting/v1/tax-rate-names"
+                    }
+                }
+            }
+
+### Update A Tax Rate Name [PUT]
+
+    Model (application/json)
+
+    {
+        "tax_number": "NY001",
+        "default": false,
+        "tax_rate_name": "New York"
+    }
+
++ Response 201 (application/json)
+    + Body
+
+            {
+                "id": "4",
+                "tax_rate_name": "New York",
+                "tax_number": "NY001",
+                "default": "0",
+                "created_at": "2020-03-27",
+                "created_by": "1",
+                "updated_at": null,
+                "updated_by": "",
+                "namespace": "erp/v1",
+                "rest_base": "accounting/v1/tax-rate-names",
+                "_links": {
+                    "self": {
+                        "href": "https://example.com/wp-json/erp/v1/accounting/v1/tax-rate-names/4"
+                    },
+                    "collection": {
+                        "href": "https://example.com/wp-json/erp/v1/accounting/v1/tax-rate-names"
+                    }
+                }
+            }
+
+### Delete A Tax Rate Name [DELETE]
+
+Deletes a tax rate name
+
++ Request (application/json)
++ Response 204 (application/json)
+
+## Bulk Delete Tax Rate Names [/tax-rate-names/{ids}]
+
++ Parameters
+    + ids (string) - ids of the tax rate names to be deleted seperated by comma
+
+### Bulk Delete Tax Rate Names [DELETE]
+
+Bulk Deletes selected tax rate names
+
++ Request (application/json)
++ Response 204 (application/json)
+
+
