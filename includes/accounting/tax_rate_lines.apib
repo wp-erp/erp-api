@@ -1,0 +1,101 @@
+# Group Tax Rate Lines
+
+
+## Manage Single Tax Rate Line Add [taxes/{id}/line-add]
+
++ Parameters
+    + id (string) - id of the tax_rate in the form of an string
+
+
+### Add A Line in Tax Rate [POST]
+
+    Model (application/json)
+
+    {
+        "db_id": "1",
+        "tax_id": "1",
+        "tax_cat_id": 1,
+        "row_id": null,
+        "tax_rate": "5.00",
+        "component_name": "Software Tax",
+        "agency_id": 1
+    }
+
++ Response 201 (application/json)
+        + Body
+
+
+                {
+                    "db_id": "1",
+                    "component_name": "Software Tax",
+                    "agency_id": 1,
+                    "tax_rate": "5.00",
+                    "namespace": "erp/v1",
+                    "tax_cat_id": 1,
+                    "tax_id": "1",
+                    "rest_base": "accounting/v1/taxes",
+                    "_links": {
+                        "self": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/taxes/0"
+                        },
+                        "collection": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/taxes"
+                        }
+                    }
+                }
+
+
+## Manage Single Tax Rate Line Edit [taxes/{id}/line-edit]
+
++ Parameters
+    + id (string) - id of the tax_rate in the form of an string
+
+
+### Update A Line in Tax Rate [PUT]
+
+    Model (application/json)
+
+    {
+        "db_id": "1",
+        "tax_id": "1",
+        "tax_cat_id": 1,
+        "row_id": null,
+        "tax_rate": "9.00",
+        "component_name": "Software Tax",
+        "agency_id": 1
+    }
+
++ Response 201 (application/json)
+        + Body
+
+
+                {
+                    "db_id": "1",
+                    "component_name": "Software Tax",
+                    "agency_id": 1,
+                    "tax_rate": "9.00",
+                    "namespace": "erp/v1",
+                    "tax_cat_id": 1,
+                    "tax_id": "1",
+                    "rest_base": "accounting/v1/taxes",
+                    "_links": {
+                        "self": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/taxes/0"
+                        },
+                        "collection": {
+                            "href": "https://example.com/wp-json/erp/v1/accounting/v1/taxes"
+                        }
+                    }
+                }
+
+## Manage Single Tax Rate Line Delete [taxes/{id}/line-delete/{db_id}]
+
++ Parameters
+    + id (string) - id of the tax_rate in the form of an string
+    + db_id (string) - id of the tax_rate line in the form of an string
+
+
+Deletes a tax rate line
+
++ Request (application/json)
++ Response 204 (application/json)
