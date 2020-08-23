@@ -1,0 +1,194 @@
+# Group Departments
+
+## Manage Department Collection [/wp-json/erp/v1/hrm/departments{?per_page}{?page}{?s}{?include}]
+
+### List All Departments [GET]
+
++ Parameters
+
+    + per_page (number, optional) - The maximum number of results to return.
+        + Default: `20`
+    + page (number, optional) - The current page number of results.
+        + Default: `1`
+    + s (string, optional) - Search string for the departments' titles.
+        + Default: ''
+    + include: head,parent (string, optional) - The additional object to be included.
+
++ Request (application/json)
++ Response 200 (application/json)
+
+    + Headers
+
+            X-WP-Total: 25
+            X-WP-TotalPages: 2
+            Link: <http://example.com/wp-json/erp/v1/hrm/departments?page=2>; rel="next"
+
+    + Body
+
+            [
+                {
+                    "id": 2,
+                    "title": "Engineering",
+                    "description": "",
+                    "parent": null,
+                    "head": null,
+                    "total_employees": 38,
+                    "_links": {
+                        "self": "http://example.com/wp-json/erp/v1/hrm/departments/2",
+                        "collection": "http://example.com/wp-json/erp/v1/hrm/departments"
+                    }
+                },
+                {
+                    "id": 3,
+                    "title": "Design",
+                    "description": "",
+                    "parent": {
+                        "id": 2,
+                        "name": "Engineering",
+                        "_links": {
+                            "self": "http://example.com/wp-json/erp/v1/hrm/departments/2",
+                            "collection": "http://example.com/wp-json/erp/v1/hrm/departments"
+                        }
+                    },
+                    "head": {
+                        "ID": 1,
+                        "user_nicename": "john",
+                        "user_email": "john@doe.com",
+                        "user_url": "http://www.doe.com",
+                        "display_name": "John Wick",
+                        "avatar": "https://gravatar.com",
+                        "_links":{
+                            "self":"http://example.com/wp-json/erp/v1/users/1",
+                            "collection":"http://example.com/wp-json/erp/v1/users"
+                        }
+                    },
+                    "total_employees": 22,
+                    "_links": {
+                        "self": "http://example.com/wp-json/erp/v1/hrm/departments/3",
+                        "collection": "http://example.com/wp-json/erp/v1/hrm/departments"
+                    }
+                }
+            ]
+
+
+### Create a New Department [POST]
+
++ Request (application/json)
+
+        {
+            "title": "Happiness Engineering",
+            "parent": 5,
+            "head": 2
+        }
+
++ Response 201 (application/json)
+
+    + Headers
+
+            Location: /wp-json/erp/v1/hrm/departments/10
+
+    + Body
+
+            {
+                "id": 10,
+                "title": "Happiness Engineering",
+                "parent": null,
+                "head": null,
+                "total_employees": 0,
+                "_links": {
+                    "self": "http://example.com/wp-json/erp/v1/hrm/departments/10",
+                    "collection": "http://example.com/wp-json/erp/v1/hrm/departments"
+                }
+            }
+
+
+## Manage Single Department [/wp-json/erp/v1/hrm/departments/{id}{?include}]
+
+### Retrieve a Department [GET]
+
++ Parameters
+
+    + include: head,parent (string, optional) - The additional object to be included.
+
++ Response 200 (application/json)
+
+    + Headers
+
+            Location: /wp-json/erp/v1/hrm/departments/3
+
+    + Body
+
+            {
+                "id": 3,
+                "title": "Design",
+                "description": "",
+                "parent": {
+                    "id": 2,
+                    "title": "Engineering",
+                    "description": "",
+                    "_links": {
+                        "self": "http://example.com/wp-json/erp/v1/hrm/departments/2",
+                        "collection": "http://example.com/wp-json/erp/v1/hrm/departments"
+                    }
+                },
+                "head": {
+                    "ID": 1,
+                    "user_nicename": "john",
+                    "user_email": "john@doe.com",
+                    "user_url": "http://www.doe.com",
+                    "display_name": "John Wick",
+                    "avatar": "https://gravatar.com",
+                    "_links":{
+                        "self":"http://example.com/wp-json/erp/v1/users/1",
+                        "collection":"http://example.com/wp-json/erp/v1/users"
+                    }
+                },
+                "total_employees": 22,
+                "_links": {
+                    "self": "http://example.com/wp-json/erp/v1/hrm/departments/3",
+                    "collection": "http://example.com/wp-json/erp/v1/hrm/departments"
+                }
+            }
+
+
+### Update a Department [PUT]
+
++ Request (application/json)
+
+        {
+            "title": "Happiness Engineering",
+            "parent": 6,
+            "head": 1,
+            "description": "description",
+        }
+
++ Response 201 (application/json)
+
+    + Headers
+
+            Location: /wp-json/erp/v1/hrm/departments/10
+
+    + Body
+
+            {
+                "id": 10,
+                "title": "Happiness Engineering",
+                "description": "description",
+                "parent": null,
+                "head": null,
+                "total_employees": 0,
+                "_links": {
+                    "self": "http://example.com/wp-json/erp/v1/hrm/departments/10",
+                    "collection": "http://example.com/wp-json/erp/v1/hrm/departments"
+                }
+            }
+
+
+### Delete a Department [DELETE]
+
++ Request (application/json)
++ Response 204
+
+    + Headers
+
+            Location: /wp-json/erp/v1/hrm/departments/10
