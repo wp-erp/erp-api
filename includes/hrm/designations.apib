@@ -1,0 +1,142 @@
+# Group Designations
+
+## Manage Designation Collection [/wp-json/erp/v1/hrm/designations{?per_page}{?page}]
+
+### List All Designations [GET]
+
++ Parameters
+
+    + per_page (number, optional) - The maximum number of results to return.
+        + Default: `20`
+    + page (number, optional) - The current page number of results.
+        + Default: `1`
+    + s (string, optional) - Search string for the designations' titles.
+        + Default: ''
+
+
++ Request (application/json)
++ Response 200 (application/json)
+
+    + Headers
+
+            X-WP-Total: 25
+            X-WP-TotalPages: 2
+            Link: <http://example.com/wp-json/erp/v1/hrm/designations?page=2>; rel="next"
+
+    + Body
+
+            [
+                {
+                    "id":1,
+                    "title":"Admin",
+                    "description":"Admin of HR Department",
+                    "total_employees":19,
+                    "_links":{
+                        "self":"http://example.com/wp-json/erp/v1/hrm/designations/1",
+                        "collection":"http://example.com/wp-json/erp/v1/hrm/designations"
+                    }
+                },
+                {
+                    "id":3,
+                    "title":"Android Developer",
+                    "description":"",
+                    "total_employees":7,
+                    "_links":{
+                        "self":"http://example.com/wp-json/erp/v1/hrm/designations/3",
+                        "collection":"http://example.com/wp-json/erp/v1/hrm/designations"
+                    }
+                }
+            ]
+
+
+### Create a New Designation [POST]
+
++ Request (application/json)
+
+        {
+            "name": "Happiness Engineer",
+            "description": "This guy will bring happiness for your business"
+        }
+
++ Response 201 (application/json)
+
+    + Headers
+
+            Location: /wp-json/erp/v1/hrm/designations/14
+
+    + Body
+
+            {
+                "id": 14,
+                "title": "Happiness Engineer",
+                "description": "This guy will bring happiness for your business",
+                "total_employees": 0,
+                "_links": {
+                    "self": "http://example.com/wp-json/erp/v1/hrm/designations/14",
+                    "collection": "http://example.com/wp-json/erp/v1/hrm/designations"
+                }
+            }
+
+## Manage Single Designation [/wp-json/erp/v1/hrm/designations/{id}]
+
+### Retrieve a Designation [GET]
+
++ Request (application/json)
++ Response 200 (application/json)
+
+    + Headers
+
+            Location: /wp-json/erp/v1/hrm/designations/14
+
+    + Body
+
+            {
+                "id": 14,
+                "title": "Happiness Engineer",
+                "description": "This guy will bring happiness for your business",
+                "total_employees": 0,
+                "_links": {
+                    "self": "http://example.com/wp-json/erp/v1/hrm/designations/14",
+                    "collection": "http://example.com/wp-json/erp/v1/hrm/designations"
+                }
+            }
+
+
+### Update a Designation [PUT]
+
++ Request (application/json)
+
+            {
+                "title": "Happiness Engineer",
+                "description": "Another Description"
+            }
+
++ Response 201 (application/json)
+
+    + Headers
+
+            Location: /wp-json/erp/v1/hrm/designations/14
+
+    + Body
+
+            {
+                "id": 14,
+                "title": "Happiness Engineer",
+                "description": "Another Description",
+                "total_employees": 0,
+                "_links": {
+                    "self": "http://example.com/wp-json/erp/v1/hrm/designations/14",
+                    "collection": "http://example.com/wp-json/erp/v1/hrm/designations"
+                }
+            }
+
+
+### Delete a Designation [DELETE]
+
++ Request (application/json)
++ Response 204
+
+    + Headers
+
+            Location: /wp-json/erp/v1/hrm/designations/10
+
