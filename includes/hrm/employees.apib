@@ -12,16 +12,17 @@
         + Default: `1`
     + status (string, optional) - Status of employees.
         + Default: 'active'
-    + department (string, optional) - Department name of the employees.
+    + department (number, optional) - Department id of the employees.
         + Default: `-1`
-    + designation (string, optional) - Designation of the employees.
+    + designation (number, optional) - Designation id of the employees.
         + Default: `-1`
-    + location (string, optional) - Location of the employees.
+    + location (number, optional) - Location id of the employees.
         + Default: `-1`
-    + type (string, optional) - Type of the employees.
+    + type (number, optional) - Type id of the employees.
         + Default: `-1`
     + s (string, optional) - Search string for the name of the employees.
         + Default: ''
+    + include: department,designation,reporting_to (string, optional) - The additional object to be included.
 
 + Request (application/json)
 + Response 200 (application/json)
@@ -294,7 +295,12 @@
 
 ### Retrieve an Employee [GET]
 
++ Parameters
+
+    + include: department,designation,reporting_to (string, optional) - The additional object to be included.
+
 + Request (application/json)
+
 + Response 200 (application/json)
 
     + Headers
