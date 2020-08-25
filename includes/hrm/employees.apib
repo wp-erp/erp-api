@@ -1,0 +1,494 @@
+# Group Employees
+
+## Manage Employee Collection [/wp-json/erp/v1/hrm/employees{?per_page}{?page}]
+
+### List All Employees [GET]
+
++ Parameters
+
+    + per_page (number, optional) - The maximum number of results to return.
+        + Default: `20`
+    + page (number, optional) - The current page number of results.
+        + Default: `1`
+    + status (string, optional) - Status of employees.
+        + Default: 'active'
+    + department (number, optional) - Department id of the employees.
+        + Default: `-1`
+    + designation (number, optional) - Designation id of the employees.
+        + Default: `-1`
+    + location (number, optional) - Location id of the employees.
+        + Default: `-1`
+    + type (number, optional) - Type id of the employees.
+        + Default: `-1`
+    + s (string, optional) - Search string for the name of the employees.
+        + Default: ''
+    + include: department,designation,reporting_to (string, optional) - The additional object to be included.
+
++ Request (application/json)
++ Response 200 (application/json)
+
+    + Headers
+
+            X-WP-Total: 25
+            X-WP-TotalPages: 2
+            Link: <http://example.com/wp-json/erp/v1/hrm/employees?page=2>; rel="next"
+
+    + Body
+
+            [
+                {
+                    "id":44,
+                    "first_name":"Sheila",
+                    "middle_name":"",
+                    "last_name":"Rolfson",
+                    "email":"Retha08@gmail.com",
+                    "location":"0",
+                    "hiring_source":"referral",
+                    "hiring_date":"2016-06-23",
+                    "date_of_birth":"1987-02-02",
+                    "pay_rate":30000,
+                    "pay_type":"monthly",
+                    "type":"contract",
+                    "status":"active",
+                    "other_email":"",
+                    "phone":"02795318272",
+                    "work_phone":"",
+                    "mobile":"",
+                    "address":"574 Lemke Track Suite 646\nDavismouth, DE 42145-1296",
+                    "gender":"female",
+                    "marital_status":"widowed",
+                    "nationality":"US",
+                    "driving_license":"",
+                    "hobbies":"",
+                    "user_url":"http://www.DAmore.com/quasi-repudiandae-dicta-iste-est.html",
+                    "description":"Fun loving guy.",
+                    "street_1":"",
+                    "street_2":"",
+                    "city":"",
+                    "country":"",
+                    "state":"",
+                    "postal_code":"",
+                    "department":{
+                        "id":5,
+                        "title":"Sales",
+                        "total_employees":28,
+                        "description": "",
+                        "_links":{
+                            "self":"http://example.com/wp-json/erp/v1/hrm/departments/5",
+                            "collection":"http://example.com/wp-json/erp/v1/hrm/departments"
+                        }
+                    },
+                    "designation":{
+                        "id":11,
+                        "title":"Sales Manager",
+                        "description":"",
+                        "total_employees":16,
+                        "_links":{
+                            "self":"http://example.com/wp-json/erp/v1/hrm/designations/11",
+                            "collection":"http://example.com/wp-json/erp/v1/hrm/designations"
+                        }
+                    },
+                    "reporting_to": {
+                        "id":212,
+                        "first_name":"Sohel",
+                        "middle_name":"",
+                        "last_name":"Amin",
+                        "email":"sohel@sohelamin.com",
+                        "location":"0",
+                        "hiring_source":"direct",
+                        "hiring_date":"2016-09-01",
+                        "date_of_birth":"2016-09-04",
+                        "pay_rate":0,
+                        "pay_type":"",
+                        "type":"permanent",
+                        "status":"active",
+                        "other_email":"",
+                        "phone":"",
+                        "work_phone":"",
+                        "mobile":"666666666",
+                        "address":"",
+                        "gender":"male",
+                        "marital_status":"single",
+                        "nationality":"BD",
+                        "driving_license":"",
+                        "hobbies":"",
+                        "user_url":"",
+                        "description":"",
+                        "street_1":"",
+                        "street_2":"",
+                        "city":"",
+                        "country":"BD",
+                        "state":"DIN",
+                        "postal_code":"",
+                        "_links":{
+                            "self":"http://example.com/wp-json/erp/v1/hrm/employees/212",
+                            "collection":"http://example.com/wp-json/erp/v1/hrm/employees"
+                        }
+                    }
+                }
+            ]
+
+
+### Create a New Employee [POST]
+
++ Request (application/json)
+
+        {
+            "first_name":"Sheila",
+            "middle_name":"",
+            "last_name":"Rolfson",
+            "email":"Retha08@gmail.com",
+            "location":"0",
+            "hiring_source":"referral",
+            "hiring_date":"2016-06-23",
+            "date_of_birth":"1987-02-02",
+            "pay_rate":30000,
+            "pay_type":"monthly",
+            "type":"contract",
+            "status":"active",
+            "other_email":"",
+            "phone":"02795318272",
+            "work_phone":"",
+            "mobile":"",
+            "address":"574 Lemke Track Suite 646\nDavismouth, DE 42145-1296",
+            "gender":"female",
+            "marital_status":"widowed",
+            "nationality":"US",
+            "driving_license":"",
+            "hobbies":"",
+            "user_url":"http://www.DAmore.com/quasi-repudiandae-dicta-iste-est.html",
+            "description":"Fun loving guy.",
+            "street_1":"",
+            "street_2":"",
+            "city":"",
+            "country":"",
+            "state":"",
+            "postal_code":"",
+            "department":5,
+            "designation":11
+        }
+
++ Response 201 (application/json)
+
+    + Headers
+
+            Location: /wp-json/erp/v1/hrm/employees/44
+
+    + Body
+
+            {
+                "id":44,
+                "first_name":"Sheila",
+                "middle_name":"",
+                "last_name":"Rolfson",
+                "email":"Retha08@gmail.com",
+                "location":"0",
+                "hiring_source":"referral",
+                "hiring_date":"2016-06-23",
+                "date_of_birth":"1987-02-02",
+                "pay_rate":30000,
+                "pay_type":"monthly",
+                "type":"contract",
+                "status":"active",
+                "other_email":"",
+                "phone":"02795318272",
+                "work_phone":"",
+                "mobile":"",
+                "address":"574 Lemke Track Suite 646\nDavismouth, DE 42145-1296",
+                "gender":"female",
+                "marital_status":"widowed",
+                "nationality":"US",
+                "driving_license":"",
+                "hobbies":"",
+                "user_url":"http://www.DAmore.com/quasi-repudiandae-dicta-iste-est.html",
+                "description":"Fun loving guy.",
+                "street_1":"",
+                "street_2":"",
+                "city":"",
+                "country":"",
+                "state":"",
+                "postal_code":""
+            }
+
+
+## Employee Bulk Operation [/wp-json/erp/v1/hrm/employees/bulk]
+
+### Create New Employees [POST]
+
++ Request (application/json)
+
+        [
+            {
+                "first_name": "Sheila",
+                "middle_name": "",
+                "last_name": "Rolfson",
+                "email": "Retha08@gmail.com",
+                "location": "0",
+                "hiring_source": "referral",
+                "hiring_date": "2016-06-23",
+                "date_of_birth": "1987-02-02",
+                "pay_rate": 30000,
+                "pay_type": "monthly",
+                "type": "contract",
+                "status": "active",
+                "other_email": "",
+                "phone": "02795318272",
+                "work_phone": "",
+                "mobile": "",
+                "address": "574 Lemke Track Suite 646\nDavismouth, DE 42145-1296",
+                "gender": "female",
+                "marital_status": "widowed",
+                "nationality": "US",
+                "driving_license": "",
+                "hobbies": "",
+                "user_url": "http://www.DAmore.com/quasi-repudiandae-dicta-iste-est.html",
+                "description": "Fun loving guy.",
+                "street_1": "",
+                "street_2": "",
+                "city": "",
+                "country": "",
+                "state": "",
+                "postal_code": "",
+                "department": 5,
+                "designation": 11
+            },
+            {
+                "first_name": "Clifford",
+                "middle_name": "",
+                "last_name": "R. Thompson",
+                "email": "CliffordRThompson@teleworm.us",
+                "location": "0",
+                "hiring_source": "referral",
+                "hiring_date": "2016-06-23",
+                "date_of_birth": "1933-12-31",
+                "pay_rate": 40000,
+                "pay_type": "monthly",
+                "type": "contract",
+                "status": "active",
+                "other_email": "",
+                "phone": "303-706-3379",
+                "work_phone": "",
+                "mobile": "",
+                "address": "3237 Clearview Drive, Englewood, CO 80112",
+                "gender": "male",
+                "marital_status": "married",
+                "nationality": "US",
+                "driving_license": "",
+                "hobbies": "",
+                "user_url": "jackiecartoons.com",
+                "description": "",
+                "street_1": "",
+                "street_2": "",
+                "city": "",
+                "country": "",
+                "state": "",
+                "postal_code": "",
+                "department": 5,
+                "designation": 11
+            }
+        ]
+
++ Response 201 (application/json)
+
+
+## Manage Single Employee [/wp-json/erp/v1/hrm/employees/{id}{?include}]
+
+### Retrieve an Employee [GET]
+
++ Parameters
+
+    + include: department,designation,reporting_to (string, optional) - The additional object to be included.
+
++ Request (application/json)
+
++ Response 200 (application/json)
+
+    + Headers
+
+            Location: /wp-json/erp/v1/hrm/employees/44
+
+    + Body
+
+            {
+                "id":44,
+                "first_name":"Sheila",
+                "middle_name":"",
+                "last_name":"Rolfson",
+                "email":"Retha08@gmail.com",
+                "location":"0",
+                "hiring_source":"referral",
+                "hiring_date":"2016-06-23",
+                "date_of_birth":"1987-02-02",
+                "pay_rate":30000,
+                "pay_type":"monthly",
+                "type":"contract",
+                "status":"active",
+                "other_email":"",
+                "phone":"02795318272",
+                "work_phone":"",
+                "mobile":"",
+                "address":"574 Lemke Track Suite 646\nDavismouth, DE 42145-1296",
+                "gender":"female",
+                "marital_status":"widowed",
+                "nationality":"US",
+                "driving_license":"",
+                "hobbies":"",
+                "user_url":"http://www.DAmore.com/quasi-repudiandae-dicta-iste-est.html",
+                "description":"Fun loving guy.",
+                "street_1":"",
+                "street_2":"",
+                "city":"",
+                "country":"",
+                "state":"",
+                "postal_code":"",
+                "department":{
+                    "id":5,
+                    "title":"Sales",
+                    "total_employees":28,
+                    "description": "",
+                    "_links":{
+                        "self":"http://example.com/wp-json/erp/v1/hrm/departments/5",
+                        "collection":"http://example.com/wp-json/erp/v1/hrm/departments"
+                    }
+                },
+                "designation":{
+                    "id":11,
+                    "title":"Sales Manager",
+                    "description":"",
+                    "total_employees":16,
+                    "_links":{
+                        "self":"http://example.com/wp-json/erp/v1/hrm/designations/11",
+                        "collection":"http://example.com/wp-json/erp/v1/hrm/designations"
+                    }
+                },
+                "reporting_to": {
+                    "id":212,
+                    "first_name":"Sohel",
+                    "middle_name":"",
+                    "last_name":"Amin",
+                    "email":"sohel@sohelamin.com",
+                    "location":"0",
+                    "hiring_source":"direct",
+                    "hiring_date":"2016-09-01",
+                    "date_of_birth":"2016-09-04",
+                    "pay_rate":0,
+                    "pay_type":"",
+                    "type":"permanent",
+                    "status":"active",
+                    "other_email":"",
+                    "phone":"",
+                    "work_phone":"",
+                    "mobile":"666666666",
+                    "address":"",
+                    "gender":"male",
+                    "marital_status":"single",
+                    "nationality":"BD",
+                    "driving_license":"",
+                    "hobbies":"",
+                    "user_url":"",
+                    "description":"",
+                    "street_1":"",
+                    "street_2":"",
+                    "city":"",
+                    "country":"BD",
+                    "state":"DIN",
+                    "postal_code":"",
+                    "_links":{
+                        "self":"http://example.com/wp-json/erp/v1/hrm/employees/212",
+                        "collection":"http://example.com/wp-json/erp/v1/hrm/employees"
+                    }
+                }
+            }
+
+
+### Update an Employee [PUT]
+
++ Request (application/json)
+
+            {
+                "first_name":"Sheila",
+                "middle_name":"",
+                "last_name":"Rolfson",
+                "email":"Retha08@gmail.com",
+                "location":"0",
+                "hiring_source":"referral",
+                "hiring_date":"2016-06-23",
+                "date_of_birth":"1987-02-02",
+                "pay_rate":30000,
+                "pay_type":"monthly",
+                "type":"contract",
+                "status":"active",
+                "other_email":"",
+                "phone":"02795318272",
+                "work_phone":"",
+                "mobile":"",
+                "address":"574 Lemke Track Suite 646\nDavismouth, DE 42145-1296",
+                "gender":"female",
+                "marital_status":"widowed",
+                "nationality":"US",
+                "driving_license":"",
+                "hobbies":"",
+                "user_url":"http://www.DAmore.com/quasi-repudiandae-dicta-iste-est.html",
+                "description":"Fun loving guy.",
+                "street_1":"",
+                "street_2":"",
+                "city":"",
+                "country":"",
+                "state":"",
+                "postal_code":"",
+                "department":5,
+                "designation":11
+            }
+
++ Response 201 (application/json)
+
+    + Headers
+
+            Location: /wp-json/erp/v1/hrm/employees/44
+
+    + Body
+
+            {
+                "id":44,
+                "first_name":"Sheila",
+                "middle_name":"",
+                "last_name":"Rolfson",
+                "email":"Retha08@gmail.com",
+                "location":"0",
+                "hiring_source":"referral",
+                "hiring_date":"2016-06-23",
+                "date_of_birth":"1987-02-02",
+                "pay_rate":30000,
+                "pay_type":"monthly",
+                "type":"contract",
+                "status":"active",
+                "other_email":"",
+                "phone":"02795318272",
+                "work_phone":"",
+                "mobile":"",
+                "address":"574 Lemke Track Suite 646\nDavismouth, DE 42145-1296",
+                "gender":"female",
+                "marital_status":"widowed",
+                "nationality":"US",
+                "driving_license":"",
+                "hobbies":"",
+                "user_url":"http://www.DAmore.com/quasi-repudiandae-dicta-iste-est.html",
+                "description":"Fun loving guy.",
+                "street_1":"",
+                "street_2":"",
+                "city":"",
+                "country":"",
+                "state":"",
+                "postal_code":""
+            }
+
+
+### Delete an Employee [DELETE]
+
++ Request (application/json)
+
++ Response 204
+
+    + Headers
+
+            Location: /wp-json/erp/v1/hrm/employees/44

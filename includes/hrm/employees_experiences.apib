@@ -1,0 +1,115 @@
+# Group Employee's Experiences
+
+## Manage Experience Collection [/wp-json/erp/v1/hrm/employees/{id}/experiences]
+
+### List All Experiences [GET]
+
++ Request (application/json)
++ Response 200 (application/json)
+
+    + Body
+
+            [
+                {
+                    "id": 2,
+                    "company_name": "weDevs",
+                    "job_title": "Software Engineer",
+                    "description": "PHP/JavaScript Developer",
+                    "from": "2015-11-01",
+                    "to": "2016-10-17"
+                }
+            ]
+
+
+### Create a New Experience [POST]
+
++ Request (application/json)
+
+        {
+            "company_name": "weDevs",
+            "job_title": "Software Engineer",
+            "description": "PHP/JavaScript Developer",
+            "from": "2015-11-01",
+            "to": "2016-10-17"
+        }
+
++ Response 201 (application/json)
+
+    + Headers
+
+            Location: /wp-json/erp/v1/hrm/employees/44/experiences/2
+
+    + Body
+
+            {
+                "id": 2,
+                "company_name": "weDevs",
+                "job_title": "Software Engineer",
+                "description": "PHP/JavaScript Developer",
+                "from": "2015-11-01",
+                "to": "2016-10-17"
+            }
+
+
+## Manage Single Experience [/wp-json/erp/v1/hrm/employees/{id}/experiences/{exp_id}]
+
+### Retrieve an Experience [GET]
+
++ Request (application/json)
++ Response 200 (application/json)
+
+    + Headers
+
+            Location: /wp-json/erp/v1/hrm/employees/44/experiences/2
+
+    + Body
+
+            {
+                "id": 2,
+                "company_name": "weDevs",
+                "job_title": "Software Engineer",
+                "description": "PHP/JavaScript Developer",
+                "from": "2015-11-01",
+                "to": "2016-10-17"
+            }
+
+
+### Update an Experience [PUT]
+
++ Request (application/json)
+
+            {
+                "company_name": "weDevs",
+                "job_title": "Software Engineer",
+                "description": "PHP/JavaScript Developer",
+                "from": "2015-11-01",
+                "to": "2016-10-17"
+            }
+
++ Response 201 (application/json)
+
+    + Headers
+
+            Location: /wp-json/erp/v1/hrm/employees/44/experiences/2
+
+    + Body
+
+            {
+                "id": 2,
+                "company_name": "weDevs",
+                "job_title": "Software Engineer",
+                "description": "PHP/JavaScript Developer",
+                "from": "2015-11-01",
+                "to": "2016-10-17"
+            }
+
+
+### Delete an Experience [DELETE]
+
++ Request (application/json)
+
++ Response 204
+
+    + Headers
+
+            Location: /wp-json/erp/v1/hrm/employees/44/experiences/2
