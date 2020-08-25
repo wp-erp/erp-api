@@ -1,0 +1,191 @@
+# Group HRM Reports
+
+## Age Profile Report [/wp-json/erp/v1/hrm/reports/age-profiles{?dimension}]
+
+### List All Age Profiles [GET]
+
++ Parameters
+
+    + dimension: general (string, optional) - The dimension of the report.
+
++ Request (application/json)
++ Response 200 (application/json)
+
+    + Body
+
+            {
+                "_under_18": 0,
+                "_18_to_25": 61,
+                "_26_to_35": 69,
+                "_36_to_45": 69,
+                "_46_to_55": 0,
+                "_56_to_65": 0,
+                "_65plus": 0
+            }
+
+## Gender Profile Report [/wp-json/erp/v1/hrm/reports/gender-profiles{?dimension}]
+
+### List All Gender Profiles [GET]
+
++ Parameters
+
+    + dimension: general (string, optional) - The dimension of the report.
+
++ Request (application/json)
++ Response 200 (application/json)
+
+    + Body
+
+            [
+                {
+                    "gender": "Male",
+                    "count": 73,
+                    "percentage": "36.14%"
+                },
+                {
+                    "gender": "Female",
+                    "count": 66,
+                    "percentage": "32.67%"
+                },
+                {
+                    "gender": "Unspecified",
+                    "count": 63,
+                    "percentage": "31.19%"
+                },
+                {
+                    "gender": "Total",
+                    "count": 202,
+                    "percentage": "100%"
+                }
+            ]
+
+## Head Count Report [/wp-json/erp/v1/hrm/reports/head-counts]
+
+### List All Head Counts [GET]
+
++ Request (application/json)
++ Response 200 (application/json)
+
+    + Body
+
+            [
+                {
+                    "month": "2016-10",
+                    "count": 205
+                },
+                {
+                    "month": "2016-09",
+                    "count": 201
+                },
+                {
+                    "month": "2016-08",
+                    "count": 200
+                },
+                {
+                    "month": "2016-07",
+                    "count": 198
+                }
+            ]
+
+## Salary History Report [/wp-json/erp/v1/hrm/reports/salary-histories{?per_page}{?page}]
+
+### List All Salary Histories [GET]
+
++ Parameters
+
+    + per_page (number, optional) - The maximum number of results to return.
+        + Default: `20`
+    + page (number, optional) - The current page number of results.
+        + Default: `1`
+
++ Request (application/json)
++ Response 200 (application/json)
+
+    + Headers
+
+            X-WP-Total: 25
+            X-WP-TotalPages: 2
+            Link: <http://example.com/wp-json/erp/v1/hrm/reports/salary-histories?page=2>; rel="next"
+
+    + Body
+
+            [
+                [
+                    {
+                        "employee_id": 2,
+                        "employee_name": "Kaleigh Deckow",
+                        "date": "October 30, 2016",
+                        "pay_rate": 10000,
+                        "pay_type": "monthly"
+                    },
+                    {
+                        "employee_id": 2,
+                        "employee_name": "Kaleigh Deckow",
+                        "date": "August 31, 2016",
+                        "pay_rate": 70000,
+                        "pay_type": "monthly"
+                    }
+                ],
+                [
+                    {
+                        "employee_id": 3,
+                        "employee_name": "Cyrus Murazik",
+                        "date": "December 2, 2006",
+                        "pay_rate": 45000,
+                        "pay_type": "monthly"
+                    }
+                ]
+            ]
+
+## Year of Service Report [/wp-json/erp/v1/hrm/reports/year-of-services{?per_page}{?page}]
+
+### List All Year of Services [GET]
+
++ Parameters
+
+    + per_page (number, optional) - The maximum number of results to return.
+        + Default: `20`
+    + page (number, optional) - The current page number of results.
+        + Default: `1`
+
++ Request (application/json)
++ Response 200 (application/json)
+
+    + Headers
+
+            X-WP-Total: 25
+            X-WP-TotalPages: 2
+            Link: <http://example.com/wp-json/erp/v1/hrm/reports/year-of-service?page=2>; rel="next"
+
+    + Body
+
+            {
+                "1": {
+                    "11": [
+                        {
+                            "employee_id": 20,
+                            "employee_name": "Maribel Abernathy",
+                            "hiring_date": "2007-01-11",
+                            "job_age": 9
+                        }
+                    ],
+                    "28": [
+                        {
+                            "employee_id": 6,
+                            "employee_name": "Pete Price",
+                            "hiring_date": "2014-01-28",
+                            "job_age": 2
+                        }
+                    ]
+                },
+                "2": {
+                    "1": [
+                        {
+                            "employee_id": 9,
+                            "employee_name": "Marcel Aufderhar",
+                            "hiring_date": "2016-02-01",
+                            "job_age": 0
+                        }
+                    ]
+                }
+            }

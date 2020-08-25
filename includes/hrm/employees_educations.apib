@@ -1,0 +1,116 @@
+# Group Employee's Educations
+
+## Manage Education Collection [/wp-json/erp/v1/hrm/employees/{id}/educations]
+
+### List All Educations [GET]
+
++ Request (application/json)
++ Response 200 (application/json)
+
+    + Body
+
+            [
+                {
+                    "id": 1,
+                    "school": "Harvard University",
+                    "degree": "Bachelor in Science",
+                    "field": "Computer Science",
+                    "finished": "2014",
+                    "notes": "Achieved the degree successfully",
+                    "interest": "Programming, Computing"
+                }
+            ]
+
+
+### Create a New Education [POST]
+
++ Request (application/json)
+
+        {
+            "school": "Harvard University",
+            "degree": "Bachelor in Science",
+            "field": "Computer Science",
+            "finished": "2014",
+            "notes": "Achieved the degree successfully",
+            "interest": "Programming, Computing"
+        }
+
++ Response 201 (application/json)
+
+    + Headers
+
+            Location: /wp-json/erp/v1/hrm/employees/44/educations/1
+
+    + Body
+
+            {
+                "id": 1,
+                "school": "Harvard University",
+                "degree": "Bachelor in Science",
+                "field": "Computer Science",
+                "finished": "2014",
+                "notes": "Achieved the degree successfully",
+                "interest": "Programming, Computing"
+            }
+
+
+## Manage Single Education [/wp-json/erp/v1/hrm/employees/{id}/educations/{exp_id}]
+
+### Retrieve an Education [GET]
+
++ Request (application/json)
++ Response 200 (application/json)
+
+    + Headers
+
+            Location: /wp-json/erp/v1/hrm/employees/44/educations/1
+
+    + Body
+
+            {
+                "id": 1,
+                "school": "Harvard University",
+                "degree": "Bachelor in Science",
+                "field": "Computer Science",
+                "finished": "2014",
+                "notes": "Achieved the degree successfully",
+                "interest": "Programming, Computing"
+            }
+
+
+### Update an Education [PUT]
+
++ Request (application/json)
+
+            {
+                "school": "Harvard University",
+                "degree": "Bachelor in Science",
+                "field": "Computer Science",
+                "finished": "2014",
+                "notes": "Achieved the degree successfully",
+                "interest": "Programming, Computing"
+            }
+
+
++ Response 201 (application/json)
+
+    + Headers
+
+            Location: /wp-json/erp/v1/hrm/employees/44/educations/1
+
+    + Body
+
+            {
+                "id": 1,
+                "school": "Harvard University",
+                "degree": "Bachelor in Science",
+                "field": "Computer Science",
+                "finished": "2014",
+                "notes": "Achieved the degree successfully",
+                "interest": "Programming, Computing"
+            }
+
+
+### Delete an Education [DELETE]
+
++ Response 204

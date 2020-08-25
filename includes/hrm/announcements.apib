@@ -1,0 +1,138 @@
+# Group Announcements
+
+## Manage Announcement Collection [/wp-json/erp/v1/hrm/announcements{?per_page}{?page}]
+
+### List All Announcements [GET]
+
++ Parameters
+
+    + per_page (number, optional) - The maximum number of results to return.
+        + Default: `20`
+    + page (number, optional) - The current page number of results.
+        + Default: `1`
+
+
++ Request (application/json)
++ Response 200 (application/json)
+
+    + Headers
+
+            X-WP-Total: 25
+            X-WP-TotalPages: 2
+            Link: <http://example.com/wp-json/erp/v1/hrm/announcements?page=2>; rel="next"
+
+    + Body
+
+            [
+                {
+                    "id":3,
+                    "title":"Announcement by API",
+                    "body":"This is an announcement notice",
+                    "status":"publish",
+                    "_links":{
+                        "self":"http://example.com/wp-json/erp/v1/hrm/announcements/3",
+                        "collection":"http://example.com/wp-json/erp/v1/hrm/announcements"
+                    }
+                },
+                {
+                    "id":1,
+                    "title":"Test Announcement",
+                    "body":"Hello everyone",
+                    "status":"publish",
+                    "_links":{
+                        "self":"http://example.com/wp-json/erp/v1/hrm/announcements/1",
+                        "collection":"http://example.com/wp-json/erp/v1/hrm/announcements"
+                    }
+                }
+            ]
+
+
+### Create a New Announcement [POST]
+
++ Request (application/json)
+
+            {
+                "title":"Announcement by API",
+                "body":"This is an announcement notice",
+                "status":"publish",
+                "recipient_type": "selected_employee",
+                "employees": "212, 223"
+            }
+
++ Response 201 (application/json)
+
+    + Headers
+
+            Location: /wp-json/erp/v1/hrm/announcements/3
+
+    + Body
+
+            {
+                "id":3,
+                "title":"Announcement by API",
+                "body":"This is an announcement notice",
+                "status":"publish",
+                "_links":{
+                    "self":"http://example.com/wp-json/erp/v1/hrm/announcements/3",
+                    "collection":"http://example.com/wp-json/erp/v1/hrm/announcements"
+                }
+            }
+
+## Manage Single Announcement [/wp-json/erp/v1/hrm/announcements/{id}]
+
+### Retrieve an Announcement [GET]
+
++ Request (application/json)
++ Response 200 (application/json)
+
+    + Headers
+
+            Location: /wp-json/erp/v1/hrm/announcements/3
+
+    + Body
+
+            {
+                "id":3,
+                "title":"Announcement by API",
+                "body":"This is an announcement notice",
+                "status":"publish",
+                "_links":{
+                    "self":"http://example.com/wp-json/erp/v1/hrm/announcements/3",
+                    "collection":"http://example.com/wp-json/erp/v1/hrm/announcements"
+                }
+            }
+
+
+### Update an Announcement [PUT]
+
++ Request (application/json)
+
+            {
+                "title":"Announcement by API",
+                "body":"This is an announcement notice",
+                "status":"publish"
+            }
+
++ Response 201 (application/json)
+
+    + Headers
+
+            Location: /wp-json/erp/v1/hrm/announcements/3
+
+    + Body
+
+            {
+                "id":3,
+                "title":"Announcement by API",
+                "body":"This is an announcement notice",
+                "status":"publish",
+                "_links":{
+                    "self":"http://example.com/wp-json/erp/v1/hrm/announcements/3",
+                    "collection":"http://example.com/wp-json/erp/v1/hrm/announcements"
+                }
+            }
+
+
+### Delete an Announcement [DELETE]
+
++ Response 204

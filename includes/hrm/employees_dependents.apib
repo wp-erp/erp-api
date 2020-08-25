@@ -1,0 +1,98 @@
+# Group Employee's Dependents
+
+## Manage Dependent Collection [/wp-json/erp/v1/hrm/employees/{id}/dependents]
+
+### List All Dependents [GET]
+
++ Request (application/json)
++ Response 200 (application/json)
+
+    + Body
+
+            [
+                {
+                    "id": 1,
+                    "name": "Dexter S. Baker",
+                    "relation": "Father",
+                    "date_of_birth": "1973-04-28"
+                }
+            ]
+
+
+### Create a New Dependent [POST]
+
++ Request (application/json)
+
+        {
+            "name": "Dexter S. Baker",
+            "relation": "Father",
+            "date_of_birth": "1973-04-28"
+        }
+
++ Response 201 (application/json)
+
+    + Headers
+
+            Location: /wp-json/erp/v1/hrm/employees/44/dependents/1
+
+    + Body
+
+            {
+                "id": 1,
+                "name": "Dexter S. Baker",
+                "relation": "Father",
+                "date_of_birth": "1973-04-28"
+            }
+
+
+## Manage Single Dependent [/wp-json/erp/v1/hrm/employees/{id}/dependents/{exp_id}]
+
+### Retrieve a Dependent [GET]
+
++ Request (application/json)
++ Response 200 (application/json)
+
+    + Headers
+
+            Location: /wp-json/erp/v1/hrm/employees/44/dependents/1
+
+    + Body
+
+            {
+                "id": 1,
+                "name": "Dexter S. Baker",
+                "relation": "Father",
+                "date_of_birth": "1973-04-28"
+            }
+
+
+### Update a Dependent [PUT]
+
++ Request (application/json)
+
+            {
+                "name": "Dexter S. Baker",
+                "relation": "Father",
+                "date_of_birth": "1973-04-28"
+            }
+
+
++ Response 201 (application/json)
+
+    + Headers
+
+            Location: /wp-json/erp/v1/hrm/employees/44/dependents/1
+
+    + Body
+
+            {
+                "id": 1,
+                "name": "Dexter S. Baker",
+                "relation": "Father",
+                "date_of_birth": "1973-04-28"
+            }
+
+
+### Delete a Dependent [DELETE]
+
++ Response 204
